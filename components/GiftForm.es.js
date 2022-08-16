@@ -1,5 +1,5 @@
-import { useUser, useProject, useColor, currentRoom } from "./useDraw.es.js";
-import { createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, createBlock$1 as createBlock, withCtx$1 as withCtx, toDisplayString$1 as toDisplayString, Fragment$1 as Fragment, renderList$1 as renderList, createVNode$1 as createVNode, mergeProps$1 as mergeProps, withDirectives$1 as withDirectives, vModelText$1 as vModelText, createCommentVNode$1 as createCommentVNode, normalizeStyle$1 as normalizeStyle, createTextVNode$1 as createTextVNode, openBlock$1 as openBlock, toRef, watch$1 as watch, script, vSelect } from "./vendor.es.js";
+import { useUser, useProject, useColor, currentRoom, useGun } from "./useDraw.es.js";
+import { createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, createBlock$1 as createBlock, withCtx$1 as withCtx, toDisplayString$1 as toDisplayString, Fragment$1 as Fragment, renderList$1 as renderList, createVNode$1 as createVNode, mergeProps$1 as mergeProps, withDirectives$1 as withDirectives, vModelText$1 as vModelText, createCommentVNode$1 as createCommentVNode, normalizeStyle$1 as normalizeStyle, createTextVNode$1 as createTextVNode, openBlock$1 as openBlock, toRef, watch$1 as watch, computed$1 as computed, reactive$1 as reactive, script, vSelect } from "./vendor.es.js";
 import { useProjects } from "./useProjects.es.js";
 import { useGuests } from "./useGuests.es.js";
 import { __unplugin_components_7, currencies } from "./GiftWallets.es.js";
@@ -11,7 +11,7 @@ import __unplugin_components_0$1 from "./AccountBadge.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 import { useNewGift } from "./useGift.es.js";
 import "./UiLayer.es.js";
-import "./link.es.js";
+import "./copy.es.js";
 import "./trash-alt.es.js";
 import "./useBackground.es.js";
 import "./UiPanel.es.js";
@@ -23,8 +23,8 @@ import "./pen.es.js";
 import "./exit-outline.es.js";
 import "./tools.es.js";
 import "./camera.es.js";
-import "./youtube.es.js";
 import "./AccountAvatar.es.js";
+import "./youtube.es.js";
 import "./QrLoad.es.js";
 import "./qrcode.es.js";
 const _hoisted_1 = { class: "flex flex-col max-w-140" };
@@ -34,7 +34,7 @@ const _hoisted_2 = {
 };
 const _hoisted_3 = /* @__PURE__ */ createBaseVNode("div", { class: "p-2 text-right" }, "FROM", -1);
 const _hoisted_4 = { class: "flex-1" };
-const _hoisted_5 = /* @__PURE__ */ createBaseVNode("div", { class: "p-2 text-right" }, "TO", -1);
+const _hoisted_5 = /* @__PURE__ */ createBaseVNode("div", { class: "p-2 text-right" }, "TO ", -1);
 const _hoisted_6 = /* @__PURE__ */ createBaseVNode("div", { class: "flex-1" }, null, -1);
 const _hoisted_7 = {
   key: 1,
@@ -53,14 +53,14 @@ const _hoisted_16 = {
   class: "w-full"
 };
 const _hoisted_17 = {
-  key: 3,
+  key: 1,
   class: "flex flex-wrap gap-1"
 };
 const _hoisted_18 = ["onClick"];
 const _hoisted_19 = { class: "font-bold" };
 const _hoisted_20 = /* @__PURE__ */ createBaseVNode("div", { class: "p-2 text-right" }, "ROOM", -1);
 const _hoisted_21 = {
-  key: 0,
+  key: 2,
   class: "flex"
 };
 const _hoisted_22 = { class: "overflow-scroll font-mono text-xs m-4 opacity-50 break-all col-span-2" };
@@ -89,14 +89,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           _hoisted_6,
           createVNode(_component_la_times, {
             class: "mr-2",
-            onClick: _cache[0] || (_cache[0] = ($event) => $setup.newGift.to = "")
+            onClick: _cache[0] || (_cache[0] = ($event) => {
+              $setup.newGift.to = "";
+              $setup.newGift.wallet = null;
+            })
           })
         ]),
         _: 1
       }, 8, ["pub"])) : (openBlock(), createElementBlock("div", _hoisted_7, [
-        createBaseVNode("div", _hoisted_8, "USER SELECT OF " + toDisplayString($setup.count.total), 1),
+        createBaseVNode("div", _hoisted_8, "USER SELECT OF " + toDisplayString(Object.keys($setup.guestsWithWallets).length), 1),
         createBaseVNode("div", _hoisted_9, [
-          (openBlock(true), createElementBlock(Fragment, null, renderList($setup.guests, (guest) => {
+          (openBlock(true), createElementBlock(Fragment, null, renderList($setup.guestsWithWallets, (guest) => {
             return openBlock(), createBlock(_component_account_badge, {
               key: guest,
               onClick: ($event) => $setup.newGift.to = guest.pub,
@@ -105,80 +108,86 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           }), 128))
         ])
       ])),
-      _hoisted_10,
-      createVNode(_component_gift_wallets, {
-        pub: $setup.newGift.to,
-        onWallet: _cache[1] || (_cache[1] = ($event) => $setup.newGift.wallet = $event),
-        activeWallet: $setup.newGift.wallet
-      }, null, 8, ["pub", "activeWallet"]),
-      _hoisted_11,
-      createVNode($setup["number"], mergeProps({
-        modelValue: $setup.newGift.qn,
-        "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $setup.newGift.qn = $event)
-      }, $setup.numOpts, { placeholder: "Quantity" }), null, 16, ["modelValue"]),
-      _hoisted_12,
-      createVNode($setup["vSelect"], {
-        class: "rounded-xl",
-        modelValue: $setup.newGift.ql,
-        "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $setup.newGift.ql = $event),
-        options: $setup.currencies,
-        appendToBody: true,
-        placeholder: "Currency abbreviation or short object description",
-        taggable: true,
-        pushTags: true
-      }, null, 8, ["modelValue", "options"]),
-      _hoisted_13,
-      withDirectives(createBaseVNode("textarea", {
-        class: "p-2",
-        "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $setup.newGift.wish = $event),
-        placeholder: "Wish"
-      }, null, 512), [
-        [vModelText, $setup.newGift.wish]
-      ]),
-      createBaseVNode("div", _hoisted_14, [
-        _hoisted_15,
-        !$setup.newGift.project ? (openBlock(), createElementBlock("div", _hoisted_16, "SELECT")) : createCommentVNode("v-if", true)
-      ]),
-      $setup.newGift.project ? (openBlock(), createBlock(_component_project_card, {
-        key: 2,
-        project: $setup.project,
-        path: $setup.newGift.project
-      }, {
-        default: withCtx(() => [
-          createVNode(_component_la_times, {
-            onClick: _cache[5] || (_cache[5] = ($event) => $setup.newGift.project = null)
-          })
-        ]),
-        _: 1
-      }, 8, ["project", "path"])) : (openBlock(), createElementBlock("div", _hoisted_17, [
-        (openBlock(true), createElementBlock(Fragment, null, renderList($setup.projects, (proj, p) => {
-          return openBlock(), createElementBlock("div", {
-            class: "p-2 rounded-xl cursor-pointer",
-            key: p,
-            style: normalizeStyle({ backgroundColor: proj.color }),
-            onClick: ($event) => $setup.newGift.project = proj.path
-          }, [
-            createBaseVNode("div", _hoisted_19, toDisplayString(proj.title), 1)
-          ], 12, _hoisted_18);
-        }), 128))
-      ])),
-      _hoisted_20,
-      createVNode(_component_room_button)
-    ]),
-    $setup.valid ? (openBlock(), createElementBlock("div", _hoisted_21, [
-      createBaseVNode("button", {
-        class: "button w-full justify-center",
-        onClick: _cache[6] || (_cache[6] = ($event) => {
-          $setup.propose();
-          _ctx.$emit("sent", $setup.hash);
-        })
-      }, "Propose")
-    ])) : createCommentVNode("v-if", true),
-    createBaseVNode("pre", _hoisted_22, toDisplayString($setup.cleanGift), 1),
-    createBaseVNode("div", {
-      class: "font-mono text-xs col-span-2 text-center rounded-lg m-2 transition",
-      style: normalizeStyle({ backgroundColor: $setup.color.hex($setup.hash || "") })
-    }, toDisplayString($setup.hash), 5)
+      $setup.newGift.to ? (openBlock(), createElementBlock(Fragment, { key: 2 }, [
+        _hoisted_10,
+        (openBlock(), createBlock(_component_gift_wallets, {
+          key: $setup.newGift.to,
+          pub: $setup.newGift.to,
+          onWallet: _cache[1] || (_cache[1] = ($event) => $setup.newGift.wallet = $event),
+          onClear: _cache[2] || (_cache[2] = ($event) => $setup.newGift.wallet = null),
+          activeWallet: $setup.newGift.wallet
+        }, null, 8, ["pub", "activeWallet"])),
+        $setup.newGift.wallet ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+          _hoisted_11,
+          createVNode($setup["number"], mergeProps({
+            modelValue: $setup.newGift.qn,
+            "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $setup.newGift.qn = $event)
+          }, $setup.numOpts, { placeholder: "Quantity" }), null, 16, ["modelValue"]),
+          _hoisted_12,
+          createVNode($setup["vSelect"], {
+            class: "rounded-xl",
+            modelValue: $setup.newGift.ql,
+            "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $setup.newGift.ql = $event),
+            options: $setup.currencies,
+            appendToBody: true,
+            placeholder: "Currency abbreviation or short object description",
+            taggable: true,
+            pushTags: true
+          }, null, 8, ["modelValue", "options"]),
+          _hoisted_13,
+          withDirectives(createBaseVNode("textarea", {
+            class: "p-2",
+            "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $setup.newGift.wish = $event),
+            placeholder: "Wish"
+          }, null, 512), [
+            [vModelText, $setup.newGift.wish]
+          ]),
+          createBaseVNode("div", _hoisted_14, [
+            _hoisted_15,
+            !$setup.newGift.project ? (openBlock(), createElementBlock("div", _hoisted_16, "SELECT")) : createCommentVNode("v-if", true)
+          ]),
+          $setup.newGift.project ? (openBlock(), createBlock(_component_project_card, {
+            key: 0,
+            project: $setup.project,
+            path: $setup.newGift.project
+          }, {
+            default: withCtx(() => [
+              createVNode(_component_la_times, {
+                onClick: _cache[6] || (_cache[6] = ($event) => $setup.newGift.project = null)
+              })
+            ]),
+            _: 1
+          }, 8, ["project", "path"])) : (openBlock(), createElementBlock("div", _hoisted_17, [
+            (openBlock(true), createElementBlock(Fragment, null, renderList($setup.userProjects, (proj, p) => {
+              return openBlock(), createElementBlock("div", {
+                class: "p-2 rounded-xl cursor-pointer",
+                key: p,
+                style: normalizeStyle({ backgroundColor: proj.color }),
+                onClick: ($event) => $setup.newGift.project = proj.path
+              }, [
+                createBaseVNode("div", _hoisted_19, toDisplayString(proj.title), 1)
+              ], 12, _hoisted_18);
+            }), 128))
+          ])),
+          _hoisted_20,
+          createVNode(_component_room_button),
+          $setup.valid ? (openBlock(), createElementBlock("div", _hoisted_21, [
+            createBaseVNode("button", {
+              class: "button w-full justify-center",
+              onClick: _cache[7] || (_cache[7] = ($event) => {
+                $setup.propose();
+                _ctx.$emit("sent", $setup.hash);
+              })
+            }, "Propose")
+          ])) : createCommentVNode("v-if", true),
+          createBaseVNode("pre", _hoisted_22, toDisplayString($setup.cleanGift), 1),
+          createBaseVNode("div", {
+            class: "font-mono text-xs col-span-2 text-center rounded-lg m-2 transition",
+            style: normalizeStyle({ backgroundColor: $setup.color.hex($setup.hash || "") })
+          }, toDisplayString($setup.hash), 5)
+        ], 64)) : createCommentVNode("v-if", true)
+      ], 64)) : createCommentVNode("v-if", true)
+    ])
   ]);
 }
 const _sfc_main = {
@@ -207,9 +216,30 @@ const _sfc_main = {
     const { projects } = useProjects();
     const color = useColor();
     watch(() => newGift.wallet, (w) => {
+      if (!w)
+        return;
       newGift.ql = w.currency;
     });
-    const __returned__ = { numOpts, props, emit, user, newGift, cleanGift, propose, proposed, hash, valid, guests, count, project, projects, color, useGuests, useNewGift, useUser, useProject, useProjects, currentRoom, useColor, toRef, watch, number: script, vSelect, currencies };
+    const guestsWithWallets = computed(() => {
+      const gun = useGun();
+      const list = reactive({});
+      Object.keys(guests).forEach((g) => {
+        gun.user(g).get("wallets").on((d, k) => {
+          list[g] = guests[g];
+        });
+      });
+      return list;
+    });
+    const userProjects = computed(() => {
+      const projs = reactive({});
+      Object.keys(projects).forEach((p) => {
+        if (p.includes(newGift.to)) {
+          projs[p] = projects[p];
+        }
+      });
+      return projs;
+    });
+    const __returned__ = { numOpts, props, emit, user, newGift, cleanGift, propose, proposed, hash, valid, guests, count, project, projects, color, guestsWithWallets, userProjects, useGuests, useNewGift, useUser, useProject, useProjects, currentRoom, useColor, useGun, toRef, watch, computed, reactive, number: script, vSelect, currencies };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

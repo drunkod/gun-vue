@@ -4,7 +4,7 @@ import __unplugin_components_0$1 from "./AccountBadge.es.js";
 import "./AccountHome.es.js";
 import "./AccountSelect.es.js";
 import "./AccountStars.es.js";
-import { useUser, currentRoom, useAccount, useDictRecordsBy, useDictLangs, dictLang, useDictAuthors, useGun, useColor, useDictRecordsFor, dictRecord, selectedUser, useWord, letterFilter, useDefs, useWords, user, gun, useProject, updateProjectField } from "./useDraw.es.js";
+import { useUser, currentRoom, useAccount, useDictRecordsBy, useDictLangs, dictLang, useDictAuthors, useGun, useColor, useDictRecordsFor, dictRecord, selectedUser, useWord, letterFilter, useDefs, useWords, user, gun, useProject } from "./useDraw.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 import { useMates, getFirstEmoji } from "./useMates.es.js";
 import { useChat } from "./useChat.es.js";
@@ -101,7 +101,7 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
     }, "Log in to post messages")
   ]));
 }
-const _sfc_main$w = {
+const _sfc_main$x = {
   __name: "ChatInput",
   emits: ["submit"],
   setup(__props, { expose, emit }) {
@@ -117,8 +117,8 @@ const _sfc_main$w = {
     return __returned__;
   }
 };
-_sfc_main$w.__file = "src/chat/ChatInput.vue";
-const __unplugin_components_2 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", render$3], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/chat/ChatInput.vue"]]);
+_sfc_main$x.__file = "src/chat/ChatInput.vue";
+const __unplugin_components_2 = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", render$3], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/chat/ChatInput.vue"]]);
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock($setup["VirtualList"], {
     class: "flex flex-col bg-opacity-80 p-4 gap-2 overflow-y-scroll scroll-smooth flex-auto",
@@ -128,7 +128,7 @@ function render$2(_ctx, _cache, $props, $setup, $data, $options) {
     "data-component": $setup.ChatMessage
   }, null, 8, ["data-sources"]);
 }
-const _sfc_main$v = {
+const _sfc_main$w = {
   __name: "ChatMessages",
   props: {
     messages: { type: Array }
@@ -147,8 +147,8 @@ const _sfc_main$v = {
     return __returned__;
   }
 };
-_sfc_main$v.__file = "src/chat/ChatMessages.vue";
-const __unplugin_components_1 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", render$2], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/chat/ChatMessages.vue"]]);
+_sfc_main$w.__file = "src/chat/ChatMessages.vue";
+const __unplugin_components_1 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", render$2], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/chat/ChatMessages.vue"]]);
 const _hoisted_1$1 = {
   class: "flex flex-col overflow-y-scroll",
   style: { "flex": "1000 1 auto" }
@@ -172,7 +172,7 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-const _sfc_main$u = {
+const _sfc_main$v = {
   __name: "ChatRoom",
   props: {
     title: { type: String, default: "Topics" },
@@ -202,13 +202,13 @@ const _sfc_main$u = {
     return __returned__;
   }
 };
-_sfc_main$u.__file = "src/chat/ChatRoom.vue";
-const ChatRoom = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", render$1], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/chat/ChatRoom.vue"]]);
+_sfc_main$v.__file = "src/chat/ChatRoom.vue";
+const ChatRoom = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", render$1], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/chat/ChatRoom.vue"]]);
 const ChatRoom$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ChatRoom
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$t = {
+const _sfc_main$u = {
   __name: "ChatPrivate",
   props: {
     pub: String
@@ -224,8 +224,8 @@ const _sfc_main$t = {
     return __returned__;
   }
 };
-_sfc_main$t.__file = "src/chat/private/ChatPrivate.vue";
-const _sfc_main$s = {
+_sfc_main$u.__file = "src/chat/private/ChatPrivate.vue";
+const _sfc_main$t = {
   __name: "DictBy",
   props: {
     author: String
@@ -241,8 +241,8 @@ const _sfc_main$s = {
     return __returned__;
   }
 };
-_sfc_main$s.__file = "src/dict/DictBy.vue";
-const _sfc_main$r = {
+_sfc_main$t.__file = "src/dict/DictBy.vue";
+const _sfc_main$s = {
   __name: "DictPanel",
   emits: ["home", "my", "authors"],
   setup(__props, { expose }) {
@@ -253,8 +253,8 @@ const _sfc_main$r = {
     return __returned__;
   }
 };
-_sfc_main$r.__file = "src/dict/DictPanel.vue";
-const _sfc_main$q = {
+_sfc_main$s.__file = "src/dict/DictPanel.vue";
+const _sfc_main$r = {
   __name: "DictAuthors",
   emits: ["author"],
   setup(__props, { expose }) {
@@ -265,9 +265,9 @@ const _sfc_main$q = {
     return __returned__;
   }
 };
-_sfc_main$q.__file = "src/dict/DictAuthors.vue";
+_sfc_main$r.__file = "src/dict/DictAuthors.vue";
 const DictLinkButton_vue_vue_type_style_index_0_scoped_0900ff00_lang = "";
-const _sfc_main$p = {
+const _sfc_main$q = {
   __name: "DictLinkButton",
   props: {
     type: String,
@@ -283,8 +283,8 @@ const _sfc_main$p = {
     return __returned__;
   }
 };
-_sfc_main$p.__file = "src/dict/link/DictLinkButton.vue";
-const _sfc_main$o = {
+_sfc_main$q.__file = "src/dict/link/DictLinkButton.vue";
+const _sfc_main$p = {
   __name: "DictLinkList",
   props: {
     links: [Array, Object],
@@ -304,9 +304,9 @@ const _sfc_main$o = {
     return __returned__;
   }
 };
-_sfc_main$o.__file = "src/dict/link/DictLinkList.vue";
+_sfc_main$p.__file = "src/dict/link/DictLinkList.vue";
 const DictDefCard_vue_vue_type_style_index_0_scoped_4e7c31d0_lang = "";
-const _sfc_main$n = {
+const _sfc_main$o = {
   __name: "DictDefCard",
   props: {
     hash: String,
@@ -328,9 +328,9 @@ const _sfc_main$n = {
     return __returned__;
   }
 };
-_sfc_main$n.__file = "src/dict/def/DictDefCard.vue";
+_sfc_main$o.__file = "src/dict/def/DictDefCard.vue";
 const DictWordCard_vue_vue_type_style_index_0_scoped_175bd9f7_lang = "";
-const _sfc_main$m = {
+const _sfc_main$n = {
   __name: "DictWordCard",
   props: {
     hash: String
@@ -348,8 +348,8 @@ const _sfc_main$m = {
     return __returned__;
   }
 };
-_sfc_main$m.__file = "src/dict/word/DictWordCard.vue";
-const _sfc_main$l = {
+_sfc_main$n.__file = "src/dict/word/DictWordCard.vue";
+const _sfc_main$m = {
   __name: "DictDefList",
   emits: ["def", "root"],
   setup(__props, { expose }) {
@@ -362,9 +362,9 @@ const _sfc_main$l = {
     return __returned__;
   }
 };
-_sfc_main$l.__file = "src/dict/def/DictDefList.vue";
+_sfc_main$m.__file = "src/dict/def/DictDefList.vue";
 const DictDefPage_vue_vue_type_style_index_0_scoped_29424599_lang = "";
-const _sfc_main$k = {
+const _sfc_main$l = {
   __name: "DictDefPage",
   props: {
     hash: String
@@ -386,8 +386,8 @@ const _sfc_main$k = {
     return __returned__;
   }
 };
-_sfc_main$k.__file = "src/dict/def/DictDefPage.vue";
-const _sfc_main$j = {
+_sfc_main$l.__file = "src/dict/def/DictDefPage.vue";
+const _sfc_main$k = {
   __name: "DictWordList",
   emits: ["word", "root"],
   setup(__props, { expose }) {
@@ -400,9 +400,9 @@ const _sfc_main$j = {
     return __returned__;
   }
 };
-_sfc_main$j.__file = "src/dict/word/DictWordList.vue";
+_sfc_main$k.__file = "src/dict/word/DictWordList.vue";
 const DictWordPage_vue_vue_type_style_index_0_scoped_3a954dd5_lang = "";
-const _sfc_main$i = {
+const _sfc_main$j = {
   __name: "DictWordPage",
   props: {
     hash: String
@@ -420,9 +420,9 @@ const _sfc_main$i = {
     return __returned__;
   }
 };
-_sfc_main$i.__file = "src/dict/word/DictWordPage.vue";
+_sfc_main$j.__file = "src/dict/word/DictWordPage.vue";
 const EmbedYoutube_vue_vue_type_style_index_0_scoped_fde438a5_lang = "";
-const _sfc_main$h = {
+const _sfc_main$i = {
   __name: "EmbedYoutube",
   props: ["video"],
   setup(__props, { expose }) {
@@ -432,9 +432,9 @@ const _sfc_main$h = {
     return __returned__;
   }
 };
-_sfc_main$h.__file = "src/embed/EmbedYoutube.vue";
+_sfc_main$i.__file = "src/embed/EmbedYoutube.vue";
 const FormLink_vue_vue_type_style_index_0_scoped_4f0c7fe8_lang = "";
-const _sfc_main$g = {
+const _sfc_main$h = {
   __name: "FormLink",
   emits: ["update"],
   setup(__props, { expose, emit }) {
@@ -461,9 +461,9 @@ const _sfc_main$g = {
     return __returned__;
   }
 };
-_sfc_main$g.__file = "src/form/FormLink.vue";
+_sfc_main$h.__file = "src/form/FormLink.vue";
 const FormYoutube_vue_vue_type_style_index_0_scoped_96ff44cd_lang = "";
-const _sfc_main$f = {
+const _sfc_main$g = {
   __name: "FormYoutube",
   props: {
     id: { type: String }
@@ -495,8 +495,8 @@ const _sfc_main$f = {
     return __returned__;
   }
 };
-_sfc_main$f.__file = "src/form/FormYoutube.vue";
-const _sfc_main$e = {
+_sfc_main$g.__file = "src/form/FormYoutube.vue";
+const _sfc_main$f = {
   __name: "GiftButton",
   props: {
     gift: {
@@ -520,9 +520,9 @@ const _sfc_main$e = {
     return __returned__;
   }
 };
-_sfc_main$e.__file = "src/gift/GiftButton.vue";
+_sfc_main$f.__file = "src/gift/GiftButton.vue";
 const PostForm_vue_vue_type_style_index_0_scoped_6e013c55_lang = "";
-const _sfc_main$d = {
+const _sfc_main$e = {
   __name: "PostForm",
   props: {
     tag: { type: String, default: " " }
@@ -569,8 +569,8 @@ const _sfc_main$d = {
     return __returned__;
   }
 };
-_sfc_main$d.__file = "src/post/PostForm.vue";
-const _sfc_main$c = {
+_sfc_main$e.__file = "src/post/PostForm.vue";
+const _sfc_main$d = {
   __name: "PostGraph",
   emits: ["post"],
   setup(__props, { expose, emit }) {
@@ -622,9 +622,9 @@ const _sfc_main$c = {
     return __returned__;
   }
 };
-_sfc_main$c.__file = "src/post/PostGraph.vue";
+_sfc_main$d.__file = "src/post/PostGraph.vue";
 const PostLine_vue_vue_type_style_index_0_scoped_b5f2ef9c_lang = "";
-const _sfc_main$b = {
+const _sfc_main$c = {
   __name: "PostLine",
   props: {
     hash: { type: String, default: "" },
@@ -645,8 +645,8 @@ const _sfc_main$b = {
     return __returned__;
   }
 };
-_sfc_main$b.__file = "src/post/PostLine.vue";
-const _sfc_main$a = {
+_sfc_main$c.__file = "src/post/PostLine.vue";
+const _sfc_main$b = {
   __name: "UtilShare",
   setup(__props, { expose }) {
     expose();
@@ -662,8 +662,8 @@ const _sfc_main$a = {
     return __returned__;
   }
 };
-_sfc_main$a.__file = "src/util/UtilShare.vue";
-const _sfc_main$9 = {
+_sfc_main$b.__file = "src/util/UtilShare.vue";
+const _sfc_main$a = {
   __name: "PostList",
   props: {
     tag: { type: String },
@@ -693,9 +693,9 @@ const _sfc_main$9 = {
     return __returned__;
   }
 };
-_sfc_main$9.__file = "src/post/PostList.vue";
+_sfc_main$a.__file = "src/post/PostList.vue";
 const PostActionUpdate_vue_vue_type_style_index_0_scoped_e7a2d80a_lang = "";
-const _sfc_main$8 = {
+const _sfc_main$9 = {
   __name: "PostActionUpdate",
   props: {
     tag: { type: String, default: "posts" },
@@ -710,8 +710,8 @@ const _sfc_main$8 = {
     return __returned__;
   }
 };
-_sfc_main$8.__file = "src/post/action/PostActionUpdate.vue";
-const _sfc_main$7 = {
+_sfc_main$9.__file = "src/post/action/PostActionUpdate.vue";
+const _sfc_main$8 = {
   __name: "PostPage",
   props: {
     tag: { type: String, default: "" },
@@ -733,8 +733,8 @@ const _sfc_main$7 = {
     return __returned__;
   }
 };
-_sfc_main$7.__file = "src/post/PostPage.vue";
-const _sfc_main$6 = {
+_sfc_main$8.__file = "src/post/PostPage.vue";
+const _sfc_main$7 = {
   __name: "PostActionStar",
   props: {
     tag: { type: String, default: "" },
@@ -757,8 +757,8 @@ const _sfc_main$6 = {
     return __returned__;
   }
 };
-_sfc_main$6.__file = "src/post/action/PostActionStar.vue";
-const _sfc_main$5 = {
+_sfc_main$7.__file = "src/post/action/PostActionStar.vue";
+const _sfc_main$6 = {
   __name: "PostActionBan",
   props: {
     tag: { type: String, default: "" },
@@ -781,7 +781,25 @@ const _sfc_main$5 = {
     return __returned__;
   }
 };
-_sfc_main$5.__file = "src/post/action/PostActionBan.vue";
+_sfc_main$6.__file = "src/post/action/PostActionBan.vue";
+const _sfc_main$5 = {
+  __name: "ProjectFunding",
+  props: {
+    path: { type: String, default: "" },
+    enabled: { type: Boolean, default: false }
+  },
+  emits: ["enable", "gift"],
+  setup(__props, { expose, emit }) {
+    expose();
+    const props = __props;
+    const { gifts, collections } = useProjectGifts(props.path);
+    const { user: user2 } = useUser();
+    const __returned__ = { props, emit, gifts, collections, user: user2, useUser, useProject, useMd, useProjectGifts };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+};
+_sfc_main$5.__file = "src/project/ProjectFunding.vue";
 const _sfc_main$4 = {
   __name: "ProjectPage",
   props: {
@@ -793,15 +811,14 @@ const _sfc_main$4 = {
     const props = __props;
     const { user: user2 } = useUser();
     const md = useMd();
-    const { project } = useProject(toRef(props, "path"));
+    const { project, updateField, updateCover } = useProject(toRef(props, "path"));
     const editable = computed(() => props.path.includes(user2.pub));
     const editing = ref(false);
     const text = ref("");
     watchEffect(() => {
       text.value = project.value.text;
     });
-    const { gifts, collections } = useProjectGifts(props.path);
-    const __returned__ = { emit, props, user: user2, md, project, editable, editing, text, gifts, collections, useUser, useProject, updateProjectField, useMd, useProjectGifts, toRef, ref, computed, watchEffect, InkMde: k };
+    const __returned__ = { emit, props, user: user2, md, project, updateField, updateCover, editable, editing, text, useUser, useProject, useMd, useProjectGifts, toRef, ref, computed, watchEffect, InkMde: k };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

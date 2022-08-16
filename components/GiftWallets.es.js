@@ -1,7 +1,7 @@
-import { useUser, useGun } from "./useDraw.es.js";
-import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, toDisplayString$1 as toDisplayString, createVNode$1 as createVNode, createCommentVNode$1 as createCommentVNode, renderSlot$1 as renderSlot, Fragment$1 as Fragment, renderList$1 as renderList, createBlock$1 as createBlock, withCtx$1 as withCtx, normalizeStyle$1 as normalizeStyle, withDirectives$1 as withDirectives, vModelText$1 as vModelText, computed$1 as computed, reactive$1 as reactive, ref$1 as ref, vSelect } from "./vendor.es.js";
+import { useUser, useGun, genUUID } from "./useDraw.es.js";
+import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, toDisplayString$1 as toDisplayString, createBlock$1 as createBlock, normalizeClass$1 as normalizeClass, withModifiers$1 as withModifiers, createCommentVNode$1 as createCommentVNode, createVNode$1 as createVNode, renderSlot$1 as renderSlot, useClipboard, Fragment$1 as Fragment, renderList$1 as renderList, withCtx$1 as withCtx, normalizeStyle$1 as normalizeStyle, withDirectives$1 as withDirectives, vModelText$1 as vModelText, computed$1 as computed, reactive$1 as reactive, ref$1 as ref, vSelect } from "./vendor.es.js";
 import { __unplugin_components_3 } from "./UiLayer.es.js";
-import { __unplugin_components_5 } from "./link.es.js";
+import { __unplugin_components_4, __unplugin_components_5 } from "./copy.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 import { __unplugin_components_2 } from "./trash-alt.es.js";
 const currencies = [
@@ -127,23 +127,32 @@ const currencies = [
 ];
 const _hoisted_1$1 = { class: "p-2 flex flex-wrap items-center gap-2 border-1 rounded-xl" };
 const _hoisted_2$1 = { class: "text-xl font-bold flex-0" };
-const _hoisted_3$1 = ["innerHTML"];
-const _hoisted_4$1 = ["href"];
+const _hoisted_3$1 = { class: "flex-auto flex gap-1" };
+const _hoisted_4$1 = ["innerHTML"];
+const _hoisted_5$1 = ["href"];
 function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_la_copy = __unplugin_components_4;
   const _component_la_link = __unplugin_components_5;
   return openBlock(), createElementBlock("div", _hoisted_1$1, [
     createBaseVNode("div", _hoisted_2$1, toDisplayString($props.wallet.currency), 1),
-    createBaseVNode("div", {
-      class: "flex-auto text-xs overflow-ellipsis break-all",
-      innerHTML: $props.wallet.account
-    }, null, 8, _hoisted_3$1),
+    createBaseVNode("div", _hoisted_3$1, [
+      createBaseVNode("div", {
+        class: "text-xs overflow-ellipsis break-all",
+        innerHTML: $props.wallet.account
+      }, null, 8, _hoisted_4$1),
+      $setup.isSupported ? (openBlock(), createBlock(_component_la_copy, {
+        key: 0,
+        class: normalizeClass(["w-10", { "animate-bounce": $setup.copied }]),
+        onClick: _cache[0] || (_cache[0] = withModifiers(($event) => $setup.copy(), ["stop"]))
+      }, null, 8, ["class"])) : createCommentVNode("v-if", true)
+    ]),
     $props.wallet.url ? (openBlock(), createElementBlock("a", {
       key: 0,
       href: $props.wallet.url,
       target: "_blank"
     }, [
       createVNode(_component_la_link)
-    ], 8, _hoisted_4$1)) : createCommentVNode("v-if", true),
+    ], 8, _hoisted_5$1)) : createCommentVNode("v-if", true),
     renderSlot(_ctx.$slots, "default")
   ]);
 }
@@ -156,9 +165,11 @@ const _sfc_main$1 = {
     }
   },
   setup(__props, { expose }) {
+    var _a;
     expose();
     const props = __props;
-    const __returned__ = { props };
+    const { text, copy, copied, isSupported } = useClipboard({ source: (_a = props.wallet) == null ? void 0 : _a.account });
+    const __returned__ = { props, text, copy, copied, isSupported, useClipboard };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -190,7 +201,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             key: wallet,
             wallet,
             style: normalizeStyle({ backgroundColor: wallet == $props.activeWallet ? "#3333" : "" }),
-            onClick: ($event) => _ctx.$emit("wallet", wallet)
+            onClick: ($event) => wallet != $props.activeWallet ? _ctx.$emit("wallet", wallet) : _ctx.$emit("clear")
           }, {
             default: withCtx(() => [
               $setup.user.pub == $props.pub ? (openBlock(), createBlock(_component_la_trash_alt, {
@@ -294,14 +305,15 @@ const _sfc_main = {
       url: ""
     });
     function addWallet() {
-      gun.user(props.pub).get("wallets").set(newWallet);
+      const uuid = genUUID();
+      gun.user().get("wallets").get(uuid).put(newWallet);
       open.value = false;
     }
     function removeWallet(key) {
       console.log(key);
-      gun.user(props.pub).get("wallets").get(key).put(null);
+      gun.user().get("wallets").get(key).put(null);
     }
-    const __returned__ = { emit, props, user, gun, my, wallets, open, newWallet, addWallet, removeWallet, useGun, useUser, computed, reactive, ref, vSelect, currencies };
+    const __returned__ = { emit, props, user, gun, my, wallets, open, newWallet, addWallet, removeWallet, genUUID, useGun, useUser, computed, reactive, ref, vSelect, currencies };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

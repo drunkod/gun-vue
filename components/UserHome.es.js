@@ -18,7 +18,7 @@ import "./tools.es.js";
 import "./eye.es.js";
 import "./angle-up.es.js";
 import "./angle-down.es.js";
-import "./link.es.js";
+import "./copy.es.js";
 import "./trash-alt.es.js";
 import "./useMates.es.js";
 import "./plus.es.js";

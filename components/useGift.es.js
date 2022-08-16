@@ -12,6 +12,7 @@ function useGift(hash) {
   gun.get("#" + giftPath).get(hash).once((d, k) => {
     try {
       Object.assign(gift, JSON.parse(d));
+      console.log;
       gun.user(gift.from).get(giftPath).get(k).on((d2) => {
         state.from = d2;
       });
@@ -37,11 +38,11 @@ function useNewGift(giftConf) {
     ql: null,
     wish: "",
     project: "",
-    date: computed(() => now.value.toLocaleString("en-GB")),
+    date: computed(() => now.value.getTime()),
     room: computed(() => currentRoom.pub)
   });
   const cleanGift = computed(() => {
-    let g = removeEmpty(gift);
+    let g = removeEmptyKeys(gift);
     g.qn = Number(g.qn);
     return g;
   });
@@ -67,6 +68,7 @@ function useNewGift(giftConf) {
   async function propose() {
     var _a;
     const { hash: hash2, hashed } = await hashObj(cleanGift.value);
+    console.log(hash2, hashed);
     gun.get("#" + giftPath).get(hash2).put(hashed);
     gun.user().get(giftPath).get(hash2).put("proposed", () => {
       pause();
@@ -82,11 +84,12 @@ function useNewGift(giftConf) {
   }
   return { gift, cleanGift, valid, propose, proposed, hash };
 }
-function removeEmpty(obj) {
-  return Object.entries(obj).filter(([_, v]) => !!v).reduce((acc, [k, v]) => ({ ...acc, [k]: v === Object(v) ? removeEmpty(v) : v }), {});
+function removeEmptyKeys(obj) {
+  return Object.entries(obj).filter(([_, v]) => !!v).reduce((acc, [k, v]) => ({ ...acc, [k]: v === Object(v) ? removeEmptyKeys(v) : v }), {});
 }
 export {
   giftState,
+  removeEmptyKeys,
   useGift,
   useNewGift
 };

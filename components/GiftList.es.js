@@ -1,6 +1,6 @@
 import "./useDraw.es.js";
 import { createElementBlock$1 as createElementBlock, Fragment$1 as Fragment, renderList$1 as renderList, createBaseVNode$1 as createBaseVNode, openBlock$1 as openBlock, createBlock$1 as createBlock } from "./vendor.es.js";
-import __unplugin_components_5 from "./GiftCard.es.js";
+import __unplugin_components_2 from "./GiftCard.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 import { useGifts } from "./useGifts.es.js";
 import "./AccountBadge.es.js";
@@ -11,13 +11,14 @@ import "./useGift.es.js";
 const _hoisted_1 = { class: "flex flex-col gap-2" };
 const _hoisted_2 = /* @__PURE__ */ createBaseVNode("div", { class: "text-lg font-bold w-full" }, "ALL", -1);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_gift_card = __unplugin_components_5;
+  const _component_gift_card = __unplugin_components_2;
   return openBlock(), createElementBlock("div", _hoisted_1, [
     _hoisted_2,
     (openBlock(true), createElementBlock(Fragment, null, renderList($setup.gifts, (gift, hash) => {
       return openBlock(), createBlock(_component_gift_card, {
         class: "cursor-pointer",
         onClick: ($event) => _ctx.$emit("open", hash),
+        onProject: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("project", $event)),
         key: hash,
         hash
       }, null, 8, ["onClick", "hash"]);
@@ -26,7 +27,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 }
 const _sfc_main = {
   __name: "GiftList",
-  emits: ["open"],
+  emits: ["open", "project"],
   setup(__props, { expose, emit }) {
     expose();
     const { gifts } = useGifts();

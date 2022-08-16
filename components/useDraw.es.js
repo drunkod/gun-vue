@@ -168,7 +168,7 @@ function useRelays() {
   return { relays, errors, loadRelays };
 }
 function isHash(str) {
-  return str.length == 44 && str.charAt(43) == "=";
+  return typeof str == "string" && str.length == 44 && str.charAt(43) == "=";
 }
 async function encFor(data, receiver, sender) {
   const secret = await SEA.secret(receiver.epub, sender);
@@ -901,16 +901,19 @@ const defaultGift = {
 const newProject = reactive({
   title: "",
   public: true,
-  funding: false
+  funding: false,
+  room: currentRoom.pub,
+  author: ""
 });
-async function updateProject({ publish = true } = {}) {
+async function addProject({ publish = true } = {}) {
   const gun3 = useGun();
   const { user: user2 } = useUser();
-  const link = gun3.user().get(projectsPath).get(newProject.title).put(newProject, () => {
+  const id = genUUID();
+  const link = gun3.user().get(projectsPath).get(id).put(newProject, () => {
     var _a2;
     if (!publish)
       return;
-    gun3.user(currentRoom.pub).get(projectsPath).get(newProject.title + "@" + user2.pub).put(link, null, {
+    gun3.user(currentRoom.pub).get(projectsPath).get(id + "@" + user2.pub).put(link, null, {
       opt: { cert: (_a2 = currentRoom.features) == null ? void 0 : _a2.projects }
     });
     newProject.title = null;
@@ -923,16 +926,28 @@ function updateProjectField(title, field, value) {
   });
 }
 function useProject(path = ref()) {
-  path = ref(path);
   const gun3 = useGun();
   const project = computed(() => {
     const proj = reactive({});
-    gun3.user(currentRoom.pub).get(projectsPath).get(path.value).map().on((d, k) => {
-      proj[k] = d;
+    gun3.user(currentRoom.pub).get(projectsPath).get(path.value).map().on(async (d, k) => {
+      if (k == "cover" && isHash(d)) {
+        proj[k] = await gun3.get("#cover").get(d).then();
+      } else {
+        proj[k] = d;
+      }
     });
     return proj;
   });
-  return { project };
+  function updateField(field, value) {
+    updateProjectField(path.value.slice(0, -88), field, value);
+  }
+  async function updateCover(image) {
+    console.log(image);
+    const hash = await hashText(image);
+    gun3.get("#cover").get(hash).put(image);
+    updateField("cover", hash);
+  }
+  return { project, updateField, updateCover };
 }
 async function removeProject(path) {
   var _a2;
@@ -1079,6 +1094,7 @@ function useDraw() {
 export {
   addPersonal,
   addProfileField,
+  addProject,
   auth,
   brush,
   createRoom,
@@ -1127,11 +1143,11 @@ export {
   safeHash,
   safeJSONParse,
   selectedUser,
+  setPetname,
   soul,
   submitRoom,
   unsafeHash,
   updateProfile,
-  updateProject,
   updateProjectField,
   updateRoomProfile,
   updateState,

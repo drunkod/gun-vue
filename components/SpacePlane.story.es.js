@@ -23,7 +23,7 @@ const _sfc_main = {
   __name: "SpacePlane.story",
   setup(__props, { expose }) {
     expose();
-    const SpacePlane = defineAsyncComponent(() => __vitePreload(() => import("./SpacePlane.es.js"), true ? ["SpacePlane.es.js","vendor.es.js","useDraw.es.js","useSpace.es.js","useMates.es.js","UiLayer.es.js","times.es.js","_plugin-vue_export-helper.es.js","AccountHome.es.js","useProjects.es.js","useBackground.es.js","useReactions.es.js","PostCard.es.js","useZip.es.js","useFile.es.js","useMd.es.js","PostActionReact.es.js","AccountBadge.es.js","AccountAvatar.es.js","plus.es.js","youtube.es.js","trash.es.js","angle-down.es.js","angle-up.es.js","ProjectCard.es.js","GiftWallets.es.js","link.es.js","trash-alt.es.js","ChatPrivateCount.es.js","usePrivate.es.js","pen.es.js","MateButton.es.js"] : void 0));
+    const SpacePlane = defineAsyncComponent(() => __vitePreload(() => import("./SpacePlane.es.js"), true ? ["SpacePlane.es.js","vendor.es.js","useDraw.es.js","useSpace.es.js","useMates.es.js","UiLayer.es.js","times.es.js","_plugin-vue_export-helper.es.js","AccountHome.es.js","useProjects.es.js","useBackground.es.js","useReactions.es.js","PostCard.es.js","useZip.es.js","useFile.es.js","useMd.es.js","useGift.es.js","PostActionReact.es.js","AccountBadge.es.js","AccountAvatar.es.js","plus.es.js","youtube.es.js","trash.es.js","angle-down.es.js","angle-up.es.js","ProjectCard.es.js","ChatPrivateCount.es.js","usePrivate.es.js","GiftWallets.es.js","copy.es.js","trash-alt.es.js","pen.es.js","MateButton.es.js"] : void 0));
     const __returned__ = { SpacePlane, defineAsyncComponent };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;

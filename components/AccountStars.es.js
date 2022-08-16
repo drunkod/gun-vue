@@ -5,6 +5,7 @@ import { __unplugin_components_9 } from "./PostCard.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 import "./useFile.es.js";
 import "./useMd.es.js";
+import "./useGift.es.js";
 import "./PostActionReact.es.js";
 import "./useReactions.es.js";
 import "./useMates.es.js";

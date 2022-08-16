@@ -1,5 +1,5 @@
 import { ref$1 as ref, reactive$1 as reactive, computed$1 as computed, Fuse } from "./vendor.es.js";
-import { useGun, projectsPath, currentRoom, newProject } from "./useDraw.es.js";
+import { useGun, projectsPath, isHash, currentRoom, newProject } from "./useDraw.es.js";
 function useProjects(pub = currentRoom.pub) {
   const search = ref("");
   const projects = reactive({});
@@ -27,6 +27,9 @@ function useProjects(pub = currentRoom.pub) {
     const data = { ...d, path: k };
     delete data._;
     projects[k] = data;
+    if (isHash(data == null ? void 0 : data.cover)) {
+      gun.get("#cover").get(data.cover).once((d2) => projects[k].cover = d2);
+    }
   });
   return { projects, search, candidates };
 }

@@ -1,4 +1,4 @@
-import { updateProject, newProject } from "./useDraw.es.js";
+import { addProject, newProject } from "./useDraw.es.js";
 import { createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, withDirectives$1 as withDirectives, vModelText$1 as vModelText, createVNode$1 as createVNode, withCtx$1 as withCtx, TransitionGroup, toDisplayString$1 as toDisplayString, createCommentVNode$1 as createCommentVNode, openBlock$1 as openBlock, Fragment$1 as Fragment, renderList$1 as renderList, createBlock$1 as createBlock, normalizeStyle$1 as normalizeStyle } from "./vendor.es.js";
 import { useProjects } from "./useProjects.es.js";
 import __unplugin_components_0 from "./ProjectCard.es.js";
@@ -42,7 +42,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     createBaseVNode("div", _hoisted_4, [
       $setup.newProject.title ? (openBlock(), createElementBlock("button", {
         class: "button",
-        onClick: _cache[1] || (_cache[1] = ($event) => $setup.updateProject()),
+        onClick: _cache[1] || (_cache[1] = ($event) => $setup.addProject()),
         key: "button"
       }, "Add Project " + toDisplayString($setup.newProject.title), 1)) : createCommentVNode("v-if", true)
     ])
@@ -58,7 +58,7 @@ const _sfc_main = {
     expose();
     const props = __props;
     const { search, projects, candidates } = useProjects(props.pub);
-    const __returned__ = { props, search, projects, candidates, useProjects, updateProject, newProject };
+    const __returned__ = { props, search, projects, candidates, useProjects, addProject, newProject };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

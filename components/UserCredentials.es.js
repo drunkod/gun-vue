@@ -4,28 +4,11 @@ import { downloadFile } from "./useFile.es.js";
 import { __unplugin_components_1 } from "./check.es.js";
 import __unplugin_components_9 from "./QrShow.es.js";
 import { __unplugin_components_6, __unplugin_components_8 } from "./qrcode.es.js";
-import { __unplugin_components_5 } from "./link.es.js";
+import { __unplugin_components_4, __unplugin_components_5 } from "./copy.es.js";
 import { __unplugin_components_3 as __unplugin_components_3$1, __unplugin_components_4 as __unplugin_components_4$1 } from "./lock.es.js";
 import __unplugin_components_0$1 from "./UserPass.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 import "./eye.es.js";
-const _hoisted_1$3 = {
-  preserveAspectRatio: "xMidYMid meet",
-  viewBox: "0 0 32 32",
-  width: "1.2em",
-  height: "1.2em"
-};
-const _hoisted_2$3 = /* @__PURE__ */ createBaseVNode("path", {
-  fill: "currentColor",
-  d: "M19.719 5.281L18.28 6.72L24.563 13H11c-3.855 0-7 3.145-7 7s3.145 7 7 7v-2c-2.773 0-5-2.227-5-5s2.227-5 5-5h13.563l-6.282 6.281l1.438 1.438l8-8l.687-.719l-.687-.719z"
-}, null, -1);
-const _hoisted_3$3 = [
-  _hoisted_2$3
-];
-function render$3(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$3, _hoisted_3$3);
-}
-const __unplugin_components_3 = { name: "la-share", render: render$3 };
 const _hoisted_1$2 = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
@@ -34,7 +17,7 @@ const _hoisted_1$2 = {
 };
 const _hoisted_2$2 = /* @__PURE__ */ createBaseVNode("path", {
   fill: "currentColor",
-  d: "M4 4v20h7v-2H6V6h12v1h2V4zm8 4v20h16V8zm2 2h12v16H14z"
+  d: "M19.719 5.281L18.28 6.72L24.563 13H11c-3.855 0-7 3.145-7 7s3.145 7 7 7v-2c-2.773 0-5-2.227-5-5s2.227-5 5-5h13.563l-6.282 6.281l1.438 1.438l8-8l.687-.719l-.687-.719z"
 }, null, -1);
 const _hoisted_3$2 = [
   _hoisted_2$2
@@ -42,7 +25,7 @@ const _hoisted_3$2 = [
 function render$2(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$2, _hoisted_3$2);
 }
-const __unplugin_components_4 = { name: "la-copy", render: render$2 };
+const __unplugin_components_3 = { name: "la-share", render: render$2 };
 const _hoisted_1$1 = {
   preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",

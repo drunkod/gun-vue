@@ -23,7 +23,7 @@ const _sfc_main = {
   __name: "GiftForm.story",
   setup(__props, { expose }) {
     expose();
-    const GiftForm = defineAsyncComponent(() => __vitePreload(() => import("./GiftForm.es.js"), true ? ["GiftForm.es.js","useDraw.es.js","vendor.es.js","useProjects.es.js","useGuests.es.js","GiftWallets.es.js","UiLayer.es.js","times.es.js","_plugin-vue_export-helper.es.js","link.es.js","trash-alt.es.js","RoomButton.es.js","useBackground.es.js","UiPanel.es.js","useMd.es.js","useFile.es.js","trash.es.js","check.es.js","pen.es.js","exit-outline.es.js","tools.es.js","AccountBadge.es.js","AccountAvatar.es.js","camera.es.js","ProjectCard.es.js","youtube.es.js","UserAuth.es.js","QrLoad.es.js","qrcode.es.js","useGift.es.js"] : void 0));
+    const GiftForm = defineAsyncComponent(() => __vitePreload(() => import("./GiftForm.es.js"), true ? ["GiftForm.es.js","useDraw.es.js","vendor.es.js","useProjects.es.js","useGuests.es.js","GiftWallets.es.js","UiLayer.es.js","times.es.js","_plugin-vue_export-helper.es.js","copy.es.js","trash-alt.es.js","RoomButton.es.js","useBackground.es.js","UiPanel.es.js","useMd.es.js","useFile.es.js","trash.es.js","check.es.js","pen.es.js","exit-outline.es.js","tools.es.js","AccountBadge.es.js","AccountAvatar.es.js","camera.es.js","ProjectCard.es.js","youtube.es.js","UserAuth.es.js","QrLoad.es.js","qrcode.es.js","useGift.es.js"] : void 0));
     const __returned__ = { GiftForm, defineAsyncComponent, onMounted, reactive, ref, watch, nextTick, computedAsync };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;

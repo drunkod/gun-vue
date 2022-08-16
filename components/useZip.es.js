@@ -2,6 +2,7 @@ import { reactive$1 as reactive, ref$1 as ref, computed$1 as computed, ms, JSZip
 import { base64FileType, base64Extension, downloadFile } from "./useFile.es.js";
 import { useGun, useUser, hashObj, gun, currentRoom, hashText, safeHash, genUUID } from "./useDraw.es.js";
 import { createMd } from "./useMd.es.js";
+import { removeEmptyKeys } from "./useGift.es.js";
 function usePost({ hash = "", loadMedia = true } = {}) {
   const gun2 = useGun();
   const post = reactive({});
@@ -32,9 +33,11 @@ function usePost({ hash = "", loadMedia = true } = {}) {
 async function addPost(to, post) {
   var _a;
   const { user } = useUser();
-  post.icon = await saveToHash("icon", post.icon);
-  post.cover = await saveToHash("cover", post.cover);
-  post.text = await saveToHash("text", post.text);
+  const { icon, cover, content } = post;
+  post.icon = await saveToHash("icon", icon);
+  post.cover = await saveToHash("cover", cover);
+  post.content = await saveToHash("content", content);
+  post = removeEmptyKeys(post);
   const { hashed, hash } = await hashObj(post);
   console.log(hash, post, to);
   gun.get("posts").get(`#index`).get(`${hash}`).put(hashed);

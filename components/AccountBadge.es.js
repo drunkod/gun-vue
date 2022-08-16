@@ -1,5 +1,5 @@
 import { createElementBlock$1 as createElementBlock, createVNode$1 as createVNode, toDisplayString$1 as toDisplayString, Fragment$1 as Fragment, normalizeStyle$1 as normalizeStyle, createCommentVNode$1 as createCommentVNode, renderSlot$1 as renderSlot, openBlock$1 as openBlock, ref$1 as ref, watchEffect$1 as watchEffect } from "./vendor.es.js";
-import { useColor, useGun, selectedUser } from "./useDraw.es.js";
+import { useColor, useGun, useUser, selectedUser } from "./useDraw.es.js";
 import __unplugin_components_0$1 from "./AccountAvatar.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 const _hoisted_1 = ["title"];
@@ -13,7 +13,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     class: "frame p-2px flex items-center rounded-full bg-light-900 cursor-pointer shadow transition duration-400 ease-in",
     style: normalizeStyle({ backgroundColor: $setup.colorDeep.hex($props.pub), flexDirection: $props.vertical ? "column" : "row" }),
     onClick: _cache[0] || (_cache[0] = ($event) => $setup.select()),
-    title: $props.showName ? $props.pub : $setup.name
+    title: $props.showName ? $setup.petname ? $setup.petname : $props.pub : $setup.name
   }, [
     createVNode(_component_account_avatar, {
       pub: $props.pub,
@@ -43,12 +43,18 @@ const _sfc_main = {
     expose();
     const props = __props;
     const name = ref("");
+    const petname = ref("");
     const colorDeep = useColor("deep");
     const gun = useGun();
+    const { user } = useUser();
     watchEffect(() => {
       name.value = "";
+      petname.value = "";
       gun.user(props.pub).get("profile").get("name").on((d) => {
         name.value = d;
+      });
+      gun.user().get("petnames").get(props.pub).on(async (d) => {
+        petname.value = await SEA.decrypt(d, user.pair());
       });
     });
     function select() {
@@ -56,7 +62,7 @@ const _sfc_main = {
         selectedUser.pub = props.pub;
       }
     }
-    const __returned__ = { props, name, colorDeep, gun, select, ref, watchEffect, useGun, useColor, selectedUser };
+    const __returned__ = { props, name, petname, colorDeep, gun, user, select, ref, watchEffect, useGun, useColor, selectedUser, useUser };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

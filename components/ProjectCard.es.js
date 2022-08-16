@@ -39,7 +39,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_account_badge = __unplugin_components_0$1;
   return openBlock(), createElementBlock("div", {
     class: "card",
-    style: normalizeStyle({ backgroundImage: `url(${((_a = $props.project) == null ? void 0 : _a.cover) || ((_b = $props.project) == null ? void 0 : _b.raw)})`, backgroundColor: $props.project.color })
+    style: normalizeStyle({ background: `url(${((_a = $props.project) == null ? void 0 : _a.cover) || ((_b = $props.project) == null ? void 0 : _b.raw)})`, backgroundColor: $props.project.color })
   }, [
     $props.path.includes($setup.user.pub) || $setup.currentRoom.hosts[$setup.user.pub] ? (openBlock(), createElementBlock("div", {
       key: 0,

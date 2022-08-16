@@ -1,7 +1,7 @@
-import { useUser, useColor, useGun, currentRoom } from "./useDraw.es.js";
+import { useUser, useColor, useProject, useGun, currentRoom } from "./useDraw.es.js";
 import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, createBlock$1 as createBlock, toDisplayString$1 as toDisplayString, normalizeStyle$1 as normalizeStyle, createVNode$1 as createVNode, withCtx$1 as withCtx, renderSlot$1 as renderSlot, createCommentVNode$1 as createCommentVNode, Fragment$1 as Fragment, withModifiers$1 as withModifiers, computed$1 as computed, ref$1 as ref, useTimeAgo } from "./vendor.es.js";
 import __unplugin_components_0$1 from "./AccountBadge.es.js";
-import { __unplugin_components_2 as __unplugin_components_2$1 } from "./times.es.js";
+import { __unplugin_components_2 as __unplugin_components_2$2 } from "./times.es.js";
 import { __unplugin_components_1 } from "./check.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 import { useGift, giftState } from "./useGift.es.js";
@@ -22,7 +22,7 @@ const _hoisted_3$1 = [
 function render$2(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$2, _hoisted_3$1);
 }
-const __unplugin_components_2 = { name: "la-arrow-right", render: render$2 };
+const __unplugin_components_2$1 = { name: "la-arrow-right", render: render$2 };
 const _hoisted_1$1 = { class: "py-1 rounded-lg flex justify-center text-center text-sm" };
 const _hoisted_2$1 = {
   key: 2,
@@ -30,7 +30,7 @@ const _hoisted_2$1 = {
 };
 function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_la_check = __unplugin_components_1;
-  const _component_la_times = __unplugin_components_2$1;
+  const _component_la_times = __unplugin_components_2$2;
   return openBlock(), createElementBlock("div", _hoisted_1$1, [
     $props.state === true ? (openBlock(), createBlock(_component_la_check, { key: 0 })) : $props.state === false ? (openBlock(), createBlock(_component_la_times, { key: 1 })) : (openBlock(), createElementBlock("div", _hoisted_2$1, toDisplayString($props.state), 1))
   ]);
@@ -62,34 +62,33 @@ const _hoisted_6 = { class: "text-lg font-bold" };
 const _hoisted_7 = { class: "flex items-center gap-2 flex-0" };
 const _hoisted_8 = { class: "flex flex-col gap-2 text-xs" };
 const _hoisted_9 = { class: "flex flex-col gap-2 text-xs" };
-const _hoisted_10 = {
-  class: "flex flex-1 gap-2 p-2 items-center flex-wrap leading-tight text-xs",
-  style: { "flex": "1 1 20%" }
-};
-const _hoisted_11 = { class: "flex gap-2 flex-wrap" };
-const _hoisted_12 = {
+const _hoisted_10 = { class: "flex gap-2 flex-wrap" };
+const _hoisted_11 = {
   key: 0,
   class: "flex flex-col gap-1"
 };
-const _hoisted_13 = /* @__PURE__ */ createBaseVNode("div", { class: "text-xs" }, "ROOM ", -1);
-const _hoisted_14 = { class: "p-0" };
-const _hoisted_15 = {
+const _hoisted_12 = /* @__PURE__ */ createBaseVNode("div", { class: "text-xs" }, "ROOM ", -1);
+const _hoisted_13 = { class: "p-0" };
+const _hoisted_14 = {
   key: 1,
   class: "flex flex-col gap-1"
 };
-const _hoisted_16 = /* @__PURE__ */ createBaseVNode("div", { class: "text-xs" }, "PROJECT", -1);
-const _hoisted_17 = { class: "p-0" };
-const _hoisted_18 = {
+const _hoisted_15 = { class: "text-xs" };
+const _hoisted_16 = { class: "p-0" };
+const _hoisted_17 = {
   key: 2,
   class: "flex flex-col gap-1"
 };
-const _hoisted_19 = { class: "text-xs" };
-const _hoisted_20 = { class: "p-0" };
-const _hoisted_21 = { class: "flex gap-2" };
+const _hoisted_18 = /* @__PURE__ */ createBaseVNode("div", { class: "text-xs" }, "PROJECT", -1);
+const _hoisted_19 = {
+  class: "flex flex-1 gap-2 p-2 items-center flex-wrap leading-tight text-xs",
+  style: { "flex": "1 1 20%" }
+};
+const _hoisted_20 = { class: "flex gap-2" };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_gift_status = __unplugin_components_0;
   const _component_account_badge = __unplugin_components_0$1;
-  const _component_la_arrow_right = __unplugin_components_2;
+  const _component_la_arrow_right = __unplugin_components_2$1;
   return Object.keys($setup.gift).length > 0 ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: "flex p-0 rounded-xl shadow-lg border-2 relative overflow-hidden",
@@ -140,43 +139,47 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ])
       ]),
       renderSlot(_ctx.$slots, "default"),
-      createBaseVNode("div", _hoisted_10, toDisplayString($setup.gift.wish), 1),
-      createBaseVNode("div", _hoisted_11, [
-        $setup.gift.room != $setup.currentRoom.pub ? (openBlock(), createElementBlock("div", _hoisted_12, [
-          _hoisted_13,
-          createBaseVNode("div", _hoisted_14, toDisplayString($setup.roomTitle), 1)
+      createBaseVNode("div", _hoisted_10, [
+        $setup.gift.room != $setup.currentRoom.pub ? (openBlock(), createElementBlock("div", _hoisted_11, [
+          _hoisted_12,
+          createBaseVNode("div", _hoisted_13, toDisplayString($setup.roomTitle), 1)
         ])) : createCommentVNode("v-if", true),
-        $setup.gift.project ? (openBlock(), createElementBlock("div", _hoisted_15, [
-          _hoisted_16,
-          createBaseVNode("div", _hoisted_17, toDisplayString($setup.gift.project.slice(0, -88)), 1)
+        $setup.gift.date ? (openBlock(), createElementBlock("div", _hoisted_14, [
+          createBaseVNode("div", _hoisted_15, toDisplayString($setup.date), 1),
+          createBaseVNode("div", _hoisted_16, toDisplayString($setup.time), 1)
         ])) : createCommentVNode("v-if", true),
-        $setup.gift.date ? (openBlock(), createElementBlock("div", _hoisted_18, [
-          createBaseVNode("div", _hoisted_19, toDisplayString($setup.date), 1),
-          createBaseVNode("div", _hoisted_20, toDisplayString($setup.time), 1)
-        ])) : createCommentVNode("v-if", true)
+        $setup.gift.project ? (openBlock(), createElementBlock("div", _hoisted_17, [
+          _hoisted_18,
+          createBaseVNode("div", {
+            class: "py-1 px-2 rounded-lg text-sm",
+            onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("project", $setup.gift.project)),
+            style: normalizeStyle({ backgroundColor: $setup.project.color })
+          }, toDisplayString($setup.project.title), 5)
+        ])) : createCommentVNode("v-if", true),
+        createBaseVNode("div", _hoisted_19, toDisplayString($setup.gift.wish), 1)
       ]),
-      createBaseVNode("div", _hoisted_21, [
+      createBaseVNode("div", _hoisted_20, [
         $setup.gift.from == $setup.user.pub ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
           !$setup.state.from ? (openBlock(), createElementBlock("button", {
             key: 0,
             class: "button",
-            onClick: _cache[0] || (_cache[0] = withModifiers(($event) => $setup.giftState($props.hash, true), ["stop", "prevent"]))
+            onClick: _cache[1] || (_cache[1] = withModifiers(($event) => $setup.giftState($props.hash, true), ["stop", "prevent"]))
           }, "Propose")) : (openBlock(), createElementBlock("button", {
             key: 1,
             class: "button",
-            onClick: _cache[1] || (_cache[1] = withModifiers(($event) => $setup.giftState($props.hash, false), ["stop", "prevent"]))
+            onClick: _cache[2] || (_cache[2] = withModifiers(($event) => $setup.giftState($props.hash, false), ["stop", "prevent"]))
           }, "Cancel"))
         ], 64)) : createCommentVNode("v-if", true),
         $setup.gift.to == $setup.user.pub ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
           !$setup.state.to ? (openBlock(), createElementBlock("button", {
             key: 0,
             class: "button",
-            onClick: _cache[2] || (_cache[2] = withModifiers(($event) => $setup.giftState($props.hash, true), ["stop", "prevent"]))
+            onClick: _cache[3] || (_cache[3] = withModifiers(($event) => $setup.giftState($props.hash, true), ["stop", "prevent"]))
           }, "Accept")) : createCommentVNode("v-if", true),
           $setup.state.to ? (openBlock(), createElementBlock("button", {
             key: 1,
             class: "button",
-            onClick: _cache[3] || (_cache[3] = withModifiers(($event) => $setup.giftState($props.hash, false), ["stop", "prevent"]))
+            onClick: _cache[4] || (_cache[4] = withModifiers(($event) => $setup.giftState($props.hash, false), ["stop", "prevent"]))
           }, "Reject")) : createCommentVNode("v-if", true)
         ], 64)) : createCommentVNode("v-if", true)
       ])
@@ -188,7 +191,8 @@ const _sfc_main = {
   props: {
     hash: String
   },
-  setup(__props, { expose }) {
+  emits: ["project"],
+  setup(__props, { expose, emit }) {
     expose();
     const props = __props;
     const { user } = useUser();
@@ -202,13 +206,14 @@ const _sfc_main = {
       gun.user(gift.room).get("profile").get("name").on((d) => title.value = d);
       return title.value;
     });
-    const __returned__ = { props, user, color, gift, state, time, date, roomTitle, giftState, useColor, useUser, useGift, useGun, currentRoom, computed, ref, useTimeAgo };
+    const { project } = useProject(computed(() => gift.project));
+    const __returned__ = { props, emit, user, color, gift, state, time, date, roomTitle, project, giftState, useColor, useUser, useGift, useGun, currentRoom, useProject, computed, ref, useTimeAgo };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
 };
 _sfc_main.__file = "src/gift/GiftCard.vue";
-const __unplugin_components_5 = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", render], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/gift/GiftCard.vue"]]);
+const __unplugin_components_2 = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", render], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/gift/GiftCard.vue"]]);
 export {
-  __unplugin_components_5 as default
+  __unplugin_components_2 as default
 };
