@@ -29,19 +29,19 @@ const html = `<p><img src="/components.svg" alt=""></p>
 <span class="line"></span>
 <span class="line"></span></code></pre></div></code></pre>
 <ol start="3">
-<li>You can use any of the Gun-Vue components in any SFC in your app.</li>
+<li>Then you can use any of the Gun-Vue components in any template of your app.</li>
 </ol>
 <pre><code class="language-html"><div class="htw-relative htw-not-prose __histoire-code"><div class="htw-absolute htw-top-0 htw-right-0 htw-text-xs htw-text-white/40">html</div><pre class="shiki" style="background-color: #0d1117"><code><span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">template</span><span style="color: #C9D1D9">&gt;</span></span>
 <span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #FFA198; font-style: italic">ChatRoom</span><span style="color: #C9D1D9"> /&gt;</span></span>
 <span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">template</span><span style="color: #C9D1D9">&gt;</span></span>
 <span class="line"></span></code></pre></div></code></pre>
-<ol start="4">
-<li>Or you can use Gun-Vue components as routes directly in your <code>./router/index.js</code>.</li>
+<ol>
+<li>Or you can use Gun-Vue components as routes directly in your <code>./router.js</code>.</li>
 </ol>
 <pre><code class="language-js"><div class="htw-relative htw-not-prose __histoire-code"><div class="htw-absolute htw-top-0 htw-right-0 htw-text-xs htw-text-white/40">js</div><pre class="shiki" style="background-color: #0d1117"><code><span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { createRouter, createWebHistory } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;vue-router&#39;</span></span>
 <span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> HomeView </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;../views/HomeView.vue&#39;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { RoomList } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@gun-vue/components&#39;</span></span>
+<span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { RoomList, AccountHome } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@gun-vue/components&#39;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">router</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">createRouter</span><span style="color: #C9D1D9">({</span></span>
 <span class="line"><span style="color: #C9D1D9">  history: </span><span style="color: #D2A8FF">createWebHistory</span><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9">.</span><span style="color: #79C0FF">meta</span><span style="color: #C9D1D9">.env.</span><span style="color: #79C0FF">BASE_URL</span><span style="color: #C9D1D9">),</span></span>
@@ -55,6 +55,12 @@ const html = `<p><img src="/components.svg" alt=""></p>
 <span class="line"><span style="color: #C9D1D9">      path: </span><span style="color: #A5D6FF">&#39;/rooms&#39;</span><span style="color: #C9D1D9">,</span></span>
 <span class="line"><span style="color: #C9D1D9">      name: </span><span style="color: #A5D6FF">&#39;rooms&#39;</span><span style="color: #C9D1D9">,</span></span>
 <span class="line"><span style="color: #C9D1D9">      component: RoomList</span></span>
+<span class="line"><span style="color: #C9D1D9">    },</span></span>
+<span class="line"><span style="color: #C9D1D9">        {</span></span>
+<span class="line"><span style="color: #C9D1D9">      path: </span><span style="color: #A5D6FF">&#39;/users/:pub&#39;</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">      name: </span><span style="color: #A5D6FF">&#39;user&#39;</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">      component: AccountHome,</span></span>
+<span class="line"><span style="color: #C9D1D9">      props: </span><span style="color: #79C0FF">true</span></span>
 <span class="line"><span style="color: #C9D1D9">    }</span></span>
 <span class="line"><span style="color: #C9D1D9">  ]</span></span>
 <span class="line"><span style="color: #C9D1D9">})</span></span>
