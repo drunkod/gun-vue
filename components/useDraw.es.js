@@ -75,7 +75,7 @@ async function setPetname(pub, name) {
   const enc = await SEA.encrypt(name, user2.pair());
   gun3.user().get("petnames").get(pub).put(enc);
 }
-const defaultPeer = "https://relay.peer.ooo";
+const defaultPeer = "https://relay.peer.ooo/gun";
 const peer = useStorage("peer", defaultPeer);
 const relay = reactive({
   list: [],
