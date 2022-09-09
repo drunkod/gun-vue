@@ -26,7 +26,9 @@ const _sfc_main = {
   __name: "UserGraph.story",
   setup(__props, { expose }) {
     expose();
-    const UserGraph = defineAsyncComponent(() => __vitePreload(() => import("./UserGraph.es.js"), true ? ["UserGraph.es.js","vendor.es.js","useDraw.es.js","useMates.es.js","_plugin-vue_export-helper.es.js"] : void 0));
+    const UserGraph = defineAsyncComponent(
+      () => __vitePreload(() => import("./UserGraph.es.js"), true ? ["UserGraph.es.js","vendor.es.js","useDraw.es.js","useMates.es.js","_plugin-vue_export-helper.es.js"] : void 0)
+    );
     const __returned__ = { UserGraph, defineAsyncComponent, reactive };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;

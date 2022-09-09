@@ -29,7 +29,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   }
 });
 const isObject = (val) => val !== null && typeof val === "object";
-function toRawDeep(val, seen = /* @__PURE__ */ new WeakMap()) {
+function toRawDeep(val, clean = false, seen = /* @__PURE__ */ new WeakMap()) {
   const unwrappedValue = isRef(val) ? unref(val) : val;
   if (typeof unwrappedValue === "symbol") {
     return unwrappedValue.toString();
@@ -43,18 +43,25 @@ function toRawDeep(val, seen = /* @__PURE__ */ new WeakMap()) {
   if (Array.isArray(unwrappedValue)) {
     const result = [];
     seen.set(unwrappedValue, result);
-    result.push(...unwrappedValue.map((value) => toRawDeep(value, seen)));
+    let list = unwrappedValue.map((value) => toRawDeep(value, clean, seen));
+    if (clean) {
+      list = list.filter((value) => typeof value !== "function");
+    }
+    result.push(...list);
     return result;
   } else {
     const result = {};
     seen.set(unwrappedValue, result);
-    toRawObject(unwrappedValue, result, seen);
+    toRawObject(unwrappedValue, result, clean, seen);
     return result;
   }
 }
-const toRawObject = (obj, target, seen = /* @__PURE__ */ new WeakMap()) => {
+const toRawObject = (obj, target, clean = false, seen = /* @__PURE__ */ new WeakMap()) => {
   Object.keys(obj).forEach((key) => {
-    target[key] = toRawDeep(obj[key], seen);
+    if (clean && typeof obj[key] === "function") {
+      return;
+    }
+    target[key] = toRawDeep(obj[key], clean, seen);
   });
 };
 export {

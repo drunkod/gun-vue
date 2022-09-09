@@ -59,7 +59,9 @@ const _sfc_main = {
   __name: "AccountAvatar.story",
   setup(__props, { expose }) {
     expose();
-    const AccountAvatar = defineAsyncComponent(() => __vitePreload(() => import("./AccountAvatar.es.js"), true ? ["AccountAvatar.es.js","useDraw.es.js","vendor.es.js","_plugin-vue_export-helper.es.js"] : void 0));
+    const AccountAvatar = defineAsyncComponent(
+      () => __vitePreload(() => import("./AccountAvatar.es.js"), true ? ["AccountAvatar.es.js","useDraw.es.js","vendor.es.js","_plugin-vue_export-helper.es.js"] : void 0)
+    );
     const state = reactive({
       pub: "We2MxFrbFH37008fNmreSk9hdHLJNMVhrSMIIbOO5Ao.FbNrdt118-TCYzGYRo94Xa8EUWwwV-7DIopXSE9OZD8",
       size: 200,

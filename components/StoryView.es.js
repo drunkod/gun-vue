@@ -868,7 +868,7 @@ const _sfc_main$i = /* @__PURE__ */ defineComponent({
       if (iframe.value && props.variant.previewReady) {
         iframe.value.contentWindow.postMessage({
           type: STATE_SYNC,
-          state: toRawDeep(props.variant.state)
+          state: toRawDeep(props.variant.state, true)
         });
       }
     }
@@ -1242,8 +1242,14 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent({
     const saveId = computed(() => `${props.story.id}:${props.variant.id}`);
     const omitKeys = ["_hPropDefs"];
     const defaultState = clone(omit(toRawDeep(props.variant.state), omitKeys));
-    const selectedOption = useStorage(`_histoire-presets/${saveId.value}/selected`, DEFAULT_ID);
-    const presetStates = useStorage(`_histoire-presets/${saveId.value}/states`, /* @__PURE__ */ new Map());
+    const selectedOption = useStorage(
+      `_histoire-presets/${saveId.value}/selected`,
+      DEFAULT_ID
+    );
+    const presetStates = useStorage(
+      `_histoire-presets/${saveId.value}/states`,
+      /* @__PURE__ */ new Map()
+    );
     const presetsOptions = computed(() => {
       const options = { [DEFAULT_ID]: "Initial state" };
       presetStates.value.forEach((value, key) => {
@@ -1615,6 +1621,14 @@ function useStoryDoc(story) {
         comp = comp.__asyncResolved;
       } else if (comp.__asyncLoader) {
         comp = await comp.__asyncLoader();
+      } else if (typeof comp === "function") {
+        try {
+          comp = await comp();
+        } catch (e) {
+        }
+      }
+      if (comp == null ? void 0 : comp.default) {
+        comp = comp.default;
       }
       renderedDoc.value = comp.doc;
     }

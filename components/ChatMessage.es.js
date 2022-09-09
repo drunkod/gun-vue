@@ -1,4 +1,4 @@
-import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, withDirectives$1 as withDirectives, vModelText$1 as vModelText, withKeys$1 as withKeys, withModifiers$1 as withModifiers, createVNode$1 as createVNode, createCommentVNode$1 as createCommentVNode, ref$1 as ref, onMounted$1 as onMounted, toRef, createBlock$1 as createBlock, watch$1 as watch, nextTick$1 as nextTick, computed$1 as computed, refDebounced$1 as refDebounced, VirtualList, toDisplayString$1 as toDisplayString, useMediaQuery$1 as useMediaQuery, onClickOutside$1 as onClickOutside, reactive$1 as reactive, watchEffect$1 as watchEffect, useCssVars$1 as useCssVars, unref$1 as unref, forceGraph, useBrowserLocation, useClipboard, useShare, k, resolveComponent$1 as resolveComponent, vShow$1 as vShow, normalizeStyle$1 as normalizeStyle, renderSlot$1 as renderSlot, createTextVNode$1 as createTextVNode } from "./vendor.es.js";
+import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, withDirectives$1 as withDirectives, vModelText$1 as vModelText, withKeys$1 as withKeys, withModifiers$1 as withModifiers, createVNode$1 as createVNode, createCommentVNode$1 as createCommentVNode, ref$1 as ref, onMounted$1 as onMounted, toRef, createBlock$1 as createBlock, watch$1 as watch, nextTick$1 as nextTick, computed$1 as computed, refDebounced$1 as refDebounced, VirtualList, toDisplayString$1 as toDisplayString, useMediaQuery$1 as useMediaQuery, onClickOutside$1 as onClickOutside, reactive$1 as reactive, watchEffect$1 as watchEffect, useCssVars$1 as useCssVars, unref$1 as unref, forceGraph, useBrowserLocation, useClipboard, useShare, _, resolveComponent$1 as resolveComponent, vShow$1 as vShow, normalizeStyle$1 as normalizeStyle, renderSlot$1 as renderSlot, createTextVNode$1 as createTextVNode } from "./vendor.es.js";
 import "./AccountAvatar.es.js";
 import __unplugin_components_0$1 from "./AccountBadge.es.js";
 import "./AccountHome.es.js";
@@ -319,7 +319,7 @@ const _sfc_main$o = {
     const gun2 = useGun();
     const { user: user2 } = useUser();
     const def = ref();
-    gun2.get("dict").get("#def").get(props.hash).once((d, k2) => {
+    gun2.get("dict").get("#def").get(props.hash).once((d, k) => {
       def.value = JSON.parse(d);
     });
     const links = useDictRecordsFor(props.hash);
@@ -377,7 +377,7 @@ const _sfc_main$l = {
     const gun2 = useGun();
     const { user: user2 } = useUser();
     const def = ref();
-    gun2.get("dict").get("#def").get(props.hash).once((d, k2) => {
+    gun2.get("dict").get("#def").get(props.hash).once((d, k) => {
       def.value = JSON.parse(d);
     });
     const links = useDictRecordsFor(props.hash);
@@ -746,7 +746,7 @@ const _sfc_main$7 = {
     const { user: user2 } = useUser();
     const starred = ref(false);
     const myStar = user2.db.get("posts").get(`${props.tag}`).get(props.hash);
-    myStar.on((d, k2) => {
+    myStar.on((d, k) => {
       starred.value = d;
     });
     function toggleStar(tag = props.tag, hash = props.hash) {
@@ -818,7 +818,7 @@ const _sfc_main$4 = {
     watchEffect(() => {
       text.value = project.value.text;
     });
-    const __returned__ = { emit, props, user: user2, md, project, updateField, updateCover, editable, editing, text, useUser, useProject, useMd, useProjectGifts, toRef, ref, computed, watchEffect, InkMde: k };
+    const __returned__ = { emit, props, user: user2, md, project, updateField, updateCover, editable, editing, text, useUser, useProject, useMd, useProjectGifts, toRef, ref, computed, watchEffect, InkMde: _ };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

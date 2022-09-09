@@ -14,7 +14,9 @@ function useGuests({ TIMEOUT = 1e4 } = {}) {
   gun.user(currentRoom.pub).get("space").map().once((pos, pub) => {
     const { account } = useAccount(pub);
     guests[pub] = account;
-    guests[pub].order = computed(() => startTime - account.value.pulse < TIMEOUT ? 1 : startTime - account.value.pulse);
+    guests[pub].order = computed(
+      () => startTime - account.value.pulse < TIMEOUT ? 1 : startTime - account.value.pulse
+    );
     guests[pub].online = computed(() => {
       return startTime - account.value.pulse < TIMEOUT;
     });

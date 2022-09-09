@@ -140,7 +140,11 @@ function useSpace({
               emoji: getFirstEmoji(linkData),
               from: g1.pos,
               to: g2.pos,
-              arrow: generateArrow(g1.pos, g2.pos, seed)
+              arrow: generateArrow(
+                g1.pos,
+                g2.pos,
+                seed
+              )
             };
           }
         } else {
@@ -166,10 +170,16 @@ function useSpace({
   };
 }
 function generateArrow(pos1, pos2, seed = 0) {
-  let arrowArray = getArrow(pos1.x, pos1.y, pos2.x, pos2.y, {
-    padEnd: 20,
-    padStart: 10
-  });
+  let arrowArray = getArrow(
+    pos1.x,
+    pos1.y,
+    pos2.x,
+    pos2.y,
+    {
+      padEnd: 20,
+      padStart: 10
+    }
+  );
   const [sx, sy, c1x, c1y, c2x, c2y, ex, ey, ae, as] = arrowArray;
   let arrow = {
     sx,

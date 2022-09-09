@@ -23,7 +23,9 @@ const _sfc_main = {
   __name: "GiftList.story",
   setup(__props, { expose }) {
     expose();
-    const GiftList = defineAsyncComponent(() => __vitePreload(() => import("./GiftList.es.js"), true ? ["GiftList.es.js","useDraw.es.js","vendor.es.js","GiftCard.es.js","AccountBadge.es.js","AccountAvatar.es.js","_plugin-vue_export-helper.es.js","times.es.js","check.es.js","useGift.es.js","useGifts.es.js"] : void 0));
+    const GiftList = defineAsyncComponent(
+      () => __vitePreload(() => import("./GiftList.es.js"), true ? ["GiftList.es.js","useDraw.es.js","vendor.es.js","GiftCard.es.js","AccountBadge.es.js","AccountAvatar.es.js","_plugin-vue_export-helper.es.js","times.es.js","check.es.js","useGift.es.js","useGifts.es.js"] : void 0)
+    );
     const __returned__ = { GiftList, defineAsyncComponent, onMounted, reactive, ref, watch, watchEffect, computedAsync };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;

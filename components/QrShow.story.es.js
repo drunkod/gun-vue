@@ -45,7 +45,9 @@ const _sfc_main = {
   __name: "QrShow.story",
   setup(__props, { expose }) {
     expose();
-    const QrShow = defineAsyncComponent(() => __vitePreload(() => import("./QrShow.es.js"), true ? ["QrShow.es.js","vendor.es.js","_plugin-vue_export-helper.es.js"] : void 0));
+    const QrShow = defineAsyncComponent(
+      () => __vitePreload(() => import("./QrShow.es.js"), true ? ["QrShow.es.js","vendor.es.js","_plugin-vue_export-helper.es.js"] : void 0)
+    );
     const state = reactive({
       data: "We2MxFrbFH37008fNmreSk9hdHLJNMVhrSMIIbOO5Ao.FbNrdt118-TCYzGYRo94Xa8EUWwwV-7DIopXSE9OZD8",
       size: 200,

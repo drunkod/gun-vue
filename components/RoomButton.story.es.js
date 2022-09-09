@@ -26,7 +26,9 @@ const _sfc_main = {
   __name: "RoomButton.story",
   setup(__props, { expose }) {
     expose();
-    const RoomButton = defineAsyncComponent(() => __vitePreload(() => import("./RoomButton.es.js"), true ? ["RoomButton.es.js","useDraw.es.js","vendor.es.js","useBackground.es.js","UiPanel.es.js","times.es.js","_plugin-vue_export-helper.es.js","useMd.es.js","useFile.es.js","trash.es.js","check.es.js","pen.es.js","exit-outline.es.js","tools.es.js","AccountBadge.es.js","AccountAvatar.es.js","camera.es.js","UiLayer.es.js","trash-alt.es.js"] : void 0));
+    const RoomButton = defineAsyncComponent(
+      () => __vitePreload(() => import("./RoomButton.es.js"), true ? ["RoomButton.es.js","useDraw.es.js","vendor.es.js","useBackground.es.js","UiPanel.es.js","times.es.js","_plugin-vue_export-helper.es.js","useMd.es.js","useFile.es.js","trash.es.js","check.es.js","pen.es.js","exit-outline.es.js","tools.es.js","AccountBadge.es.js","AccountAvatar.es.js","camera.es.js","UiLayer.es.js","trash-alt.es.js"] : void 0)
+    );
     const __returned__ = { RoomButton, defineAsyncComponent, reactive };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;

@@ -26,7 +26,9 @@ const _sfc_main = {
   __name: "UserAuth.story",
   setup(__props, { expose }) {
     expose();
-    const UserAuth = defineAsyncComponent(() => __vitePreload(() => import("./UserAuth.es.js"), true ? ["UserAuth.es.js","useDraw.es.js","vendor.es.js","useFile.es.js","QrLoad.es.js","_plugin-vue_export-helper.es.js","qrcode.es.js"] : void 0));
+    const UserAuth = defineAsyncComponent(
+      () => __vitePreload(() => import("./UserAuth.es.js"), true ? ["UserAuth.es.js","useDraw.es.js","vendor.es.js","useFile.es.js","QrLoad.es.js","_plugin-vue_export-helper.es.js","qrcode.es.js"] : void 0)
+    );
     const __returned__ = { UserAuth, defineAsyncComponent, reactive };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;

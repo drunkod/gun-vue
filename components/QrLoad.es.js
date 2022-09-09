@@ -47,7 +47,11 @@ const _sfc_main = {
       const canvasCtx = canvas.getContext("2d");
       canvas.width = 1920;
       canvas.height = 1080;
-      const scalingRatio = Math.min(1, canvas.width / width, canvas.height / height);
+      const scalingRatio = Math.min(
+        1,
+        canvas.width / width,
+        canvas.height / height
+      );
       const widthScaled = scalingRatio * width;
       const heightScaled = scalingRatio * height;
       canvasCtx.drawImage(canvasImageSource, 0, 0, widthScaled, heightScaled);

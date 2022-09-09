@@ -30,7 +30,9 @@ function useTagList() {
           tag: tags.list[t]
         });
       }
-      return arr.sort((a, b) => a && b && a.tag.toLowerCase() < b.tag.toLowerCase() ? -1 : 1);
+      return arr.sort(
+        (a, b) => a && b && a.tag.toLowerCase() < b.tag.toLowerCase() ? -1 : 1
+      );
     }),
     count: computed(() => tags.all.length),
     fuse: computed(() => {
@@ -122,9 +124,11 @@ function sortByDate(e) {
   postMessage({ sorted, count: arr.length });
 }
 const newWorker = function(funcObj) {
-  var blobURL = URL.createObjectURL(new Blob(["onmessage=", funcObj.toString()], {
-    type: "application/javascript"
-  })), worker = new Worker(blobURL);
+  var blobURL = URL.createObjectURL(
+    new Blob(["onmessage=", funcObj.toString()], {
+      type: "application/javascript"
+    })
+  ), worker = new Worker(blobURL);
   URL.revokeObjectURL(blobURL);
   return worker;
 };

@@ -41,7 +41,9 @@ const _sfc_main = {
   __name: "UserAvatar.story",
   setup(__props, { expose }) {
     expose();
-    const UserAvatar = defineAsyncComponent(() => __vitePreload(() => import("./UserAvatar.es.js"), true ? ["UserAvatar.es.js","useDraw.es.js","vendor.es.js","camera.es.js","useFile.es.js","UiLayer.es.js","times.es.js","_plugin-vue_export-helper.es.js","trash-alt.es.js","check.es.js","AccountAvatar.es.js"] : void 0));
+    const UserAvatar = defineAsyncComponent(
+      () => __vitePreload(() => import("./UserAvatar.es.js"), true ? ["UserAvatar.es.js","useDraw.es.js","vendor.es.js","camera.es.js","useFile.es.js","UiLayer.es.js","times.es.js","_plugin-vue_export-helper.es.js","trash-alt.es.js","check.es.js","AccountAvatar.es.js"] : void 0)
+    );
     const state = reactive({
       size: 200
     });

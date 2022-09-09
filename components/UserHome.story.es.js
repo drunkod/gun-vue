@@ -26,7 +26,9 @@ const _sfc_main = {
   __name: "UserHome.story",
   setup(__props, { expose }) {
     expose();
-    const UserHome = defineAsyncComponent(() => __vitePreload(() => import("./UserHome.es.js"), true ? ["UserHome.es.js","vendor.es.js","useDraw.es.js","UserRooms.es.js","RoomCard.es.js","useBackground.es.js","AccountAvatar.es.js","_plugin-vue_export-helper.es.js","tools.es.js","eye.es.js","angle-up.es.js","angle-down.es.js","GiftWallets.es.js","UiLayer.es.js","times.es.js","copy.es.js","trash-alt.es.js","ChatPrivateCount.es.js","useMates.es.js","AccountBadge.es.js","usePrivate.es.js","UserProfile.es.js","plus.es.js","check.es.js","pen.es.js","UserPanel.es.js","exit-outline.es.js","lock.es.js","MateButton.es.js","UserAvatar.es.js","camera.es.js","useFile.es.js","UserLogin.es.js","UserCreate.es.js","UserAuth.es.js","QrLoad.es.js","qrcode.es.js","UserCredentials.es.js","QrShow.es.js","UserPass.es.js"] : void 0));
+    const UserHome = defineAsyncComponent(
+      () => __vitePreload(() => import("./UserHome.es.js"), true ? ["UserHome.es.js","vendor.es.js","useDraw.es.js","UserRooms.es.js","RoomCard.es.js","useBackground.es.js","AccountAvatar.es.js","_plugin-vue_export-helper.es.js","tools.es.js","eye.es.js","angle-up.es.js","angle-down.es.js","GiftWallets.es.js","UiLayer.es.js","times.es.js","copy.es.js","trash-alt.es.js","ChatPrivateCount.es.js","useMates.es.js","AccountBadge.es.js","usePrivate.es.js","UserProfile.es.js","plus.es.js","check.es.js","pen.es.js","UserPanel.es.js","exit-outline.es.js","lock.es.js","MateButton.es.js","UserAvatar.es.js","camera.es.js","useFile.es.js","UserLogin.es.js","UserCreate.es.js","UserAuth.es.js","QrLoad.es.js","qrcode.es.js","UserCredentials.es.js","QrShow.es.js","UserPass.es.js"] : void 0)
+    );
     const __returned__ = { UserHome, defineAsyncComponent, reactive };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;

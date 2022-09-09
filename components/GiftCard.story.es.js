@@ -73,7 +73,9 @@ const _sfc_main = {
   __name: "GiftCard.story",
   setup(__props, { expose }) {
     expose();
-    const GiftCard = defineAsyncComponent(() => __vitePreload(() => import("./GiftCard.es.js"), true ? ["GiftCard.es.js","useDraw.es.js","vendor.es.js","AccountBadge.es.js","AccountAvatar.es.js","_plugin-vue_export-helper.es.js","times.es.js","check.es.js","useGift.es.js"] : void 0));
+    const GiftCard = defineAsyncComponent(
+      () => __vitePreload(() => import("./GiftCard.es.js"), true ? ["GiftCard.es.js","useDraw.es.js","vendor.es.js","AccountBadge.es.js","AccountAvatar.es.js","_plugin-vue_export-helper.es.js","times.es.js","check.es.js","useGift.es.js"] : void 0)
+    );
     const gift = reactive({
       from: "",
       to: "",

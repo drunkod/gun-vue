@@ -35,7 +35,9 @@ const _sfc_main = {
   __name: "AccountSelect.story",
   setup(__props, { expose }) {
     expose();
-    const AccountSelect = defineAsyncComponent(() => __vitePreload(() => import("./AccountSelect.es.js"), true ? ["AccountSelect.es.js","useDraw.es.js","vendor.es.js","useGuests.es.js","times.es.js","AccountBadge.es.js","AccountAvatar.es.js","_plugin-vue_export-helper.es.js"] : void 0));
+    const AccountSelect = defineAsyncComponent(
+      () => __vitePreload(() => import("./AccountSelect.es.js"), true ? ["AccountSelect.es.js","useDraw.es.js","vendor.es.js","useGuests.es.js","times.es.js","AccountBadge.es.js","AccountAvatar.es.js","_plugin-vue_export-helper.es.js"] : void 0)
+    );
     const state = reactive({
       pub: ""
     });

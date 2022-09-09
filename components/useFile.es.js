@@ -63,7 +63,9 @@ function usePictureUpload({
       const reader = new FileReader(), readerBase64 = new FileReader(), blob = file.slice(0, 4);
       reader.readAsArrayBuffer(blob);
       reader.onloadend = (e) => {
-        let isValidMimeType = checkMimetype(getMimeTypeSignature(e.target.result));
+        let isValidMimeType = checkMimetype(
+          getMimeTypeSignature(e.target.result)
+        );
         if (bytesToMegabytes(file.size) > bytesToMegabytes(maxSize)) {
           state.errors.push({
             message: "File size is too large!"
@@ -171,7 +173,10 @@ function base64FileType(encoded) {
   return (_a = encoded.match(/[^:]\w+\/[\w-+\d.]+(?=;|,)/)) == null ? void 0 : _a[0];
 }
 function base64Extension(encoded) {
-  return encoded.substring(encoded.indexOf("/") + 1, encoded.indexOf(";base64"));
+  return encoded.substring(
+    encoded.indexOf("/") + 1,
+    encoded.indexOf(";base64")
+  );
 }
 var signatures = {
   JVBERi0: "application/pdf",

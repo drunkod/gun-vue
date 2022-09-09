@@ -75,17 +75,24 @@ function useNewGift(giftConf) {
       proposed.value = true;
     });
     if ((_a = currentRoom.features) == null ? void 0 : _a.gifts) {
-      gun.user(currentRoom.pub).get(giftPath).get(`${hash2}@${user.pub}`).put(true, () => {
-        console.log(`gift ${hash2} published`);
-      }, {
-        opt: { cert: currentRoom.features.gifts }
-      });
+      gun.user(currentRoom.pub).get(giftPath).get(`${hash2}@${user.pub}`).put(
+        true,
+        () => {
+          console.log(`gift ${hash2} published`);
+        },
+        {
+          opt: { cert: currentRoom.features.gifts }
+        }
+      );
     }
   }
   return { gift, cleanGift, valid, propose, proposed, hash };
 }
 function removeEmptyKeys(obj) {
-  return Object.entries(obj).filter(([_, v]) => !!v).reduce((acc, [k, v]) => ({ ...acc, [k]: v === Object(v) ? removeEmptyKeys(v) : v }), {});
+  return Object.entries(obj).filter(([_, v]) => !!v).reduce(
+    (acc, [k, v]) => ({ ...acc, [k]: v === Object(v) ? removeEmptyKeys(v) : v }),
+    {}
+  );
 }
 export {
   giftState,

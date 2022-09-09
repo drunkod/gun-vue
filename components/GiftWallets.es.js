@@ -1,5 +1,5 @@
 import { useUser, useGun, genUUID } from "./useDraw.es.js";
-import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, toDisplayString$1 as toDisplayString, createBlock$1 as createBlock, normalizeClass$1 as normalizeClass, withModifiers$1 as withModifiers, createCommentVNode$1 as createCommentVNode, createVNode$1 as createVNode, renderSlot$1 as renderSlot, useClipboard, Fragment$1 as Fragment, renderList$1 as renderList, withCtx$1 as withCtx, normalizeStyle$1 as normalizeStyle, withDirectives$1 as withDirectives, vModelText$1 as vModelText, computed$1 as computed, reactive$1 as reactive, ref$1 as ref, vSelect } from "./vendor.es.js";
+import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, toDisplayString$1 as toDisplayString, createBlock$1 as createBlock, normalizeClass$1 as normalizeClass, withModifiers$1 as withModifiers, createCommentVNode$1 as createCommentVNode, createVNode$1 as createVNode, renderSlot$1 as renderSlot, useClipboard, Fragment$1 as Fragment, renderList$1 as renderList, withCtx$1 as withCtx, normalizeStyle$1 as normalizeStyle, withDirectives$1 as withDirectives, vModelText$1 as vModelText, computed$1 as computed, reactive$1 as reactive, ref$1 as ref, Ce } from "./vendor.es.js";
 import { __unplugin_components_3 } from "./UiLayer.es.js";
 import { __unplugin_components_4, __unplugin_components_5 } from "./copy.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
@@ -313,7 +313,7 @@ const _sfc_main = {
       console.log(key);
       gun.user().get("wallets").get(key).put(null);
     }
-    const __returned__ = { emit, props, user, gun, my, wallets, open, newWallet, addWallet, removeWallet, genUUID, useGun, useUser, computed, reactive, ref, vSelect, currencies };
+    const __returned__ = { emit, props, user, gun, my, wallets, open, newWallet, addWallet, removeWallet, genUUID, useGun, useUser, computed, reactive, ref, vSelect: Ce, currencies };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

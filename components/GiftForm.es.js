@@ -1,5 +1,5 @@
 import { useUser, useProject, useColor, currentRoom, useGun } from "./useDraw.es.js";
-import { createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, createBlock$1 as createBlock, withCtx$1 as withCtx, toDisplayString$1 as toDisplayString, Fragment$1 as Fragment, renderList$1 as renderList, createVNode$1 as createVNode, mergeProps$1 as mergeProps, withDirectives$1 as withDirectives, vModelText$1 as vModelText, createCommentVNode$1 as createCommentVNode, normalizeStyle$1 as normalizeStyle, createTextVNode$1 as createTextVNode, openBlock$1 as openBlock, toRef, watch$1 as watch, computed$1 as computed, reactive$1 as reactive, script, vSelect } from "./vendor.es.js";
+import { createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, createBlock$1 as createBlock, withCtx$1 as withCtx, toDisplayString$1 as toDisplayString, Fragment$1 as Fragment, renderList$1 as renderList, createVNode$1 as createVNode, mergeProps$1 as mergeProps, withDirectives$1 as withDirectives, vModelText$1 as vModelText, createCommentVNode$1 as createCommentVNode, normalizeStyle$1 as normalizeStyle, createTextVNode$1 as createTextVNode, openBlock$1 as openBlock, toRef, watch$1 as watch, computed$1 as computed, reactive$1 as reactive, script, Ce } from "./vendor.es.js";
 import { useProjects } from "./useProjects.es.js";
 import { useGuests } from "./useGuests.es.js";
 import { __unplugin_components_7, currencies } from "./GiftWallets.es.js";
@@ -239,7 +239,7 @@ const _sfc_main = {
       });
       return projs;
     });
-    const __returned__ = { numOpts, props, emit, user, newGift, cleanGift, propose, proposed, hash, valid, guests, count, project, projects, color, guestsWithWallets, userProjects, useGuests, useNewGift, useUser, useProject, useProjects, currentRoom, useColor, useGun, toRef, watch, computed, reactive, number: script, vSelect, currencies };
+    const __returned__ = { numOpts, props, emit, user, newGift, cleanGift, propose, proposed, hash, valid, guests, count, project, projects, color, guestsWithWallets, userProjects, useGuests, useNewGift, useUser, useProject, useProjects, currentRoom, useColor, useGun, toRef, watch, computed, reactive, number: script, vSelect: Ce, currencies };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

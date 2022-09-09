@@ -21,7 +21,9 @@ function useChat() {
   function addChat(title) {
     chatDb.get(`${slugify(title) || title}@${user.pub}`).put(true, null, { opt: { cert: currentRoom.features.chat } });
   }
-  const topicDb = computed(() => gun.user(currentRoom.pub).get("chat/" + currentChat.value));
+  const topicDb = computed(
+    () => gun.user(currentRoom.pub).get("chat/" + currentChat.value)
+  );
   const messages = computed(() => {
     const msgs = reactive({});
     topicDb.value.map().on((text, k) => {

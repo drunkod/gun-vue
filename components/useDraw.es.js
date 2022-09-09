@@ -90,10 +90,13 @@ const relay = reactive({
   delay: computed(() => Date.now() - relay.pulse),
   blink: false
 });
-watch(() => relay.pulse, (next, prev) => {
-  relay.blink = !relay.blink;
-  relay.lag = next - prev - 500;
-});
+watch(
+  () => relay.pulse,
+  (next, prev) => {
+    relay.blink = !relay.blink;
+    relay.lag = next - prev - 500;
+  }
+);
 function setPeer(url) {
   peer.value = url;
   window.location.reload();
@@ -630,19 +633,28 @@ async function createRoom({ pair, name } = {}) {
   });
   const enc = await SEA.encrypt(pair, user2.pair());
   const dec = await SEA.decrypt(enc, user2.pair());
-  console.log("COPY THIS ROOM INFO TO USE IT AS A ROOT", {
-    pub: dec.pub,
-    hosts: { [user2.pub]: { enc, ...certs } },
-    features
-  }, "STORE THIS KEY PAIR IN A SAFE PLACE", dec);
+  console.log(
+    "COPY THIS ROOM INFO TO USE IT AS A ROOT",
+    {
+      pub: dec.pub,
+      hosts: { [user2.pub]: { enc, ...certs } },
+      features
+    },
+    "STORE THIS KEY PAIR IN A SAFE PLACE",
+    dec
+  );
   const gun3 = useGun();
   gun3.user().get("safe").get("rooms").get(dec.pub).put(enc);
   gun3.user(currentRoom.pub).get("rooms").get(`${dec.pub}@${user2.pub}`).put(true, null, { opt: { cert: (_a2 = currentRoom == null ? void 0 : currentRoom.features) == null ? void 0 : _a2.rooms } });
   const roomDb = gun3.user(dec.pub);
-  roomDb.get("hosts").get(user2.pub).put({
-    enc,
-    ...certs
-  }, null, { opt: { cert: certs.hosts } });
+  roomDb.get("hosts").get(user2.pub).put(
+    {
+      enc,
+      ...certs
+    },
+    null,
+    { opt: { cert: certs.hosts } }
+  );
   roomDb.get("features").put(features, null, { opt: { cert: certs.features } });
   if (name) {
     roomDb.get("profile").put({ name }, null, { opt: { cert: certs.profile } });
@@ -913,9 +925,13 @@ async function addProject({ publish = true } = {}) {
     var _a2;
     if (!publish)
       return;
-    gun3.user(currentRoom.pub).get(projectsPath).get(id + "@" + user2.pub).put(link, null, {
-      opt: { cert: (_a2 = currentRoom.features) == null ? void 0 : _a2.projects }
-    });
+    gun3.user(currentRoom.pub).get(projectsPath).get(id + "@" + user2.pub).put(
+      link,
+      null,
+      {
+        opt: { cert: (_a2 = currentRoom.features) == null ? void 0 : _a2.projects }
+      }
+    );
     newProject.title = null;
   });
 }

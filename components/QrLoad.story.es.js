@@ -33,7 +33,9 @@ const _sfc_main = {
   __name: "QrLoad.story",
   setup(__props, { expose }) {
     expose();
-    const QrLoad = defineAsyncComponent(() => __vitePreload(() => import("./QrLoad.es.js"), true ? ["QrLoad.es.js","vendor.es.js","_plugin-vue_export-helper.es.js"] : void 0));
+    const QrLoad = defineAsyncComponent(
+      () => __vitePreload(() => import("./QrLoad.es.js"), true ? ["QrLoad.es.js","vendor.es.js","_plugin-vue_export-helper.es.js"] : void 0)
+    );
     const state = reactive({
       data: ""
     });
