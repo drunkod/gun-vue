@@ -1,4 +1,4 @@
-import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, toDisplayString$1 as toDisplayString, Fragment$1 as Fragment, renderList$1 as renderList, createVNode$1 as createVNode, withCtx$1 as withCtx, createBlock$1 as createBlock, renderSlot$1 as renderSlot, normalizeStyle$1 as normalizeStyle, createTextVNode$1 as createTextVNode, computed$1 as computed, ref$1 as ref } from "./vendor.es.js";
+import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, toDisplayString$1 as toDisplayString, Fragment$1 as Fragment, renderList$1 as renderList, createVNode$1 as createVNode, withCtx$1 as withCtx, createBlock$1 as createBlock, createTextVNode$1 as createTextVNode, renderSlot$1 as renderSlot, normalizeStyle$1 as normalizeStyle, computed$1 as computed, ref$1 as ref } from "./vendor.es.js";
 import { useUser } from "./useDraw.es.js";
 import __unplugin_components_8 from "./UserRooms.es.js";
 import { __unplugin_components_7 } from "./GiftWallets.es.js";
@@ -41,7 +41,7 @@ const _hoisted_1$1 = { class: "flex flex-col p-4 gap-2" };
 const _hoisted_2$1 = { class: "font-bold text-xl" };
 const _hoisted_3$1 = { class: "flex flex-wrap gap-2" };
 const _hoisted_4$1 = ["onClick"];
-const _hoisted_5$1 = /* @__PURE__ */ createBaseVNode("div", { class: "flex-1" }, null, -1);
+const _hoisted_5 = /* @__PURE__ */ createBaseVNode("div", { class: "flex-1" }, null, -1);
 function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_account_badge = __unplugin_components_0;
   const _component_chat_private_count = __unplugin_components_1$1;
@@ -55,7 +55,7 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: ($event) => _ctx.$emit("chat", pub)
         }, [
           createVNode(_component_account_badge, { pub }, null, 8, ["pub"]),
-          _hoisted_5$1,
+          _hoisted_5,
           createVNode(_component_chat_private_count, { pub }, null, 8, ["pub"])
         ], 8, _hoisted_4$1);
       }), 128))
@@ -86,8 +86,6 @@ const _hoisted_2 = {
 };
 const _hoisted_3 = { class: "p-4 flex flex-col items-start" };
 const _hoisted_4 = { class: "text-xl p-4" };
-const _hoisted_5 = /* @__PURE__ */ createTextVNode("My wallets");
-const _hoisted_6 = /* @__PURE__ */ createTextVNode(" My public profile");
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _a;
   const _component_user_credentials = __unplugin_components_0$1;
@@ -129,7 +127,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onBrowse: _cache[4] || (_cache[4] = ($event) => _ctx.$emit("user", $event))
         }, null, 8, ["pub"]),
         createBaseVNode("div", _hoisted_4, [
-          _hoisted_5,
+          createTextVNode("My wallets"),
           createVNode(_component_gift_wallets, {
             pub: $setup.user.pub
           }, null, 8, ["pub"])
@@ -147,7 +145,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         style: normalizeStyle({ backgroundColor: $setup.user.color })
       }, [
         renderSlot(_ctx.$slots, "default", {}, () => [
-          _hoisted_6
+          createTextVNode(" My public profile")
         ])
       ], 4)
     ]))

@@ -164,7 +164,6 @@ const _sfc_main$2 = {
 _sfc_main$2.__file = "src/space/SpaceArrow.vue";
 const __unplugin_components_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", render$d], ["__scopeId", "data-v-c6122d00"], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/space/SpaceArrow.vue"]]);
 const _hoisted_1$c = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -186,7 +185,6 @@ function render$c(_ctx, _cache) {
 }
 const __unplugin_components_11 = { name: "carbon-close-outline", render: render$c };
 const _hoisted_1$b = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -203,7 +201,6 @@ function render$b(_ctx, _cache) {
 }
 const __unplugin_components_10 = { name: "carbon-error", render: render$b };
 const _hoisted_1$a = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -220,7 +217,6 @@ function render$a(_ctx, _cache) {
 }
 const __unplugin_components_9 = { name: "carbon-pin", render: render$a };
 const _hoisted_1$9 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -237,7 +233,6 @@ function render$9(_ctx, _cache) {
 }
 const __unplugin_components_8 = { name: "carbon-pin-filled", render: render$9 };
 const _hoisted_1$8 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -259,7 +254,6 @@ function render$8(_ctx, _cache) {
 }
 const __unplugin_components_7 = { name: "carbon-delete", render: render$8 };
 const _hoisted_1$7 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -276,7 +270,6 @@ function render$7(_ctx, _cache) {
 }
 const __unplugin_components_6 = { name: "carbon-redo", render: render$7 };
 const _hoisted_1$6 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -293,7 +286,6 @@ function render$6(_ctx, _cache) {
 }
 const __unplugin_components_5 = { name: "carbon-undo", render: render$6 };
 const _hoisted_1$5 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -310,7 +302,6 @@ function render$5(_ctx, _cache) {
 }
 const __unplugin_components_4 = { name: "carbon-checkbox", render: render$5 };
 const _hoisted_1$4 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -327,7 +318,6 @@ function render$4(_ctx, _cache) {
 }
 const __unplugin_components_3 = { name: "carbon-radio-button", render: render$4 };
 const _hoisted_1$3 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -344,7 +334,6 @@ function render$3(_ctx, _cache) {
 }
 const __unplugin_components_2 = { name: "carbon-arrow-up-right", render: render$3 };
 const _hoisted_1$2 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"

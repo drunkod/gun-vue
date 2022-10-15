@@ -1,4 +1,4 @@
-import { clientSupportPlugins } from "./GenericMountStory.es.js";
+import { clientSupportPlugins } from "./GenericMountStory.vue_vue_type_script_setup_true_lang.es.js";
 import { defineComponent, ref, watchEffect, openBlock, createBlock, mergeProps, resolveDynamicComponent, createCommentVNode, markRaw, isRef, unref } from "./vendor.es.js";
 const __default__ = {
   inheritAttrs: false

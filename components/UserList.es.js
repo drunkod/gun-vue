@@ -1,4 +1,4 @@
-import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, withModifiers$1 as withModifiers, createVNode$1 as createVNode, createCommentVNode$1 as createCommentVNode, withCtx$1 as withCtx, Transition$1 as Transition, Fragment$1 as Fragment, createTextVNode$1 as createTextVNode, renderList$1 as renderList, toDisplayString$1 as toDisplayString, TransitionGroup, createBlock$1 as createBlock, normalizeStyle$1 as normalizeStyle, useMediaQuery$1 as useMediaQuery, ref$1 as ref, onClickOutside$1 as onClickOutside, computed$1 as computed, reactive$1 as reactive, toRef } from "./vendor.es.js";
+import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, withModifiers$1 as withModifiers, createVNode$1 as createVNode, createTextVNode$1 as createTextVNode, createCommentVNode$1 as createCommentVNode, withCtx$1 as withCtx, Transition$1 as Transition, Fragment$1 as Fragment, renderList$1 as renderList, toDisplayString$1 as toDisplayString, TransitionGroup, createBlock$1 as createBlock, normalizeStyle$1 as normalizeStyle, useMediaQuery$1 as useMediaQuery, ref$1 as ref, onClickOutside$1 as onClickOutside, computed$1 as computed, reactive$1 as reactive, toRef } from "./vendor.es.js";
 import { useUser, joinRoom } from "./useDraw.es.js";
 import { useGuests } from "./useGuests.es.js";
 import __unplugin_components_0$1 from "./AccountBadge.es.js";
@@ -7,7 +7,6 @@ import { __unplugin_components_1 } from "./angle-up.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 import "./AccountAvatar.es.js";
 const _hoisted_1$1 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -24,18 +23,17 @@ function render$1(_ctx, _cache) {
 }
 const __unplugin_components_0 = { name: "la-users", render: render$1 };
 const _hoisted_1 = { class: "ml-1 flex items-center gap-2" };
-const _hoisted_2 = /* @__PURE__ */ createTextVNode("Users list");
-const _hoisted_3 = /* @__PURE__ */ createBaseVNode("div", { class: "flex-1" }, null, -1);
-const _hoisted_4 = /* @__PURE__ */ createBaseVNode("div", { class: "ml-2" }, "Join", -1);
-const _hoisted_5 = {
+const _hoisted_2 = /* @__PURE__ */ createBaseVNode("div", { class: "flex-1" }, null, -1);
+const _hoisted_3 = /* @__PURE__ */ createBaseVNode("div", { class: "ml-2" }, "Join", -1);
+const _hoisted_4 = {
   key: 0,
   class: "absolute left-0 bottom-0 w-60 bg-light-200 bg-opacity-70 z-100 overflow-y-scroll px-2 max-h-full flex flex-col gap-2 p-2 rounded-tr-xl",
   ref: "panel"
 };
-const _hoisted_6 = { class: "flex items-center" };
-const _hoisted_7 = { class: "text-xl mr-2 capitalize" };
-const _hoisted_8 = { class: "px-2 py-1 rounded-xl font-bold" };
-const _hoisted_9 = { class: "flex flex-wrap" };
+const _hoisted_5 = { class: "flex items-center" };
+const _hoisted_6 = { class: "text-xl mr-2 capitalize" };
+const _hoisted_7 = { class: "px-2 py-1 rounded-xl font-bold" };
+const _hoisted_8 = { class: "flex flex-wrap" };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_la_users = __unplugin_components_0;
   const _component_la_angle_up = __unplugin_components_1;
@@ -49,10 +47,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, [
       createVNode(_component_la_users, { class: "text-3xl" }),
       createBaseVNode("div", _hoisted_1, [
-        _hoisted_2,
+        createTextVNode("Users list"),
         createVNode(_component_la_angle_up)
       ]),
-      _hoisted_3
+      _hoisted_2
     ], 32)) : createCommentVNode("v-if", true),
     $setup.user.is && !$setup.isInRoom ? (openBlock(), createElementBlock("button", {
       key: 1,
@@ -60,21 +58,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: _cache[1] || (_cache[1] = withModifiers(($event) => $setup.joinRoom(), ["stop", "prevent"]))
     }, [
       createVNode(_component_la_plus),
-      _hoisted_4
+      _hoisted_3
     ])) : createCommentVNode("v-if", true),
     createVNode(Transition, { name: "fade" }, {
       default: withCtx(() => [
-        $setup.isLarge || $setup.open && !$setup.isLarge ? (openBlock(), createElementBlock("div", _hoisted_5, [
+        $setup.isLarge || $setup.open && !$setup.isLarge ? (openBlock(), createElementBlock("div", _hoisted_4, [
           (openBlock(), createElementBlock(Fragment, null, renderList(["online", "offline"], (state) => {
             return createBaseVNode("div", {
               class: "flex flex-col gap-2",
               key: state
             }, [
-              createBaseVNode("div", _hoisted_6, [
-                createBaseVNode("div", _hoisted_7, toDisplayString(state), 1),
-                createBaseVNode("div", _hoisted_8, toDisplayString($setup.guests.count[state]), 1)
+              createBaseVNode("div", _hoisted_5, [
+                createBaseVNode("div", _hoisted_6, toDisplayString(state), 1),
+                createBaseVNode("div", _hoisted_7, toDisplayString($setup.guests.count[state]), 1)
               ]),
-              createBaseVNode("div", _hoisted_9, [
+              createBaseVNode("div", _hoisted_8, [
                 createVNode(TransitionGroup, { name: "fade" }, {
                   default: withCtx(() => [
                     (openBlock(true), createElementBlock(Fragment, null, renderList($setup.guests[state], (guest, p) => {

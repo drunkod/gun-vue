@@ -1,7 +1,6 @@
 import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, toDisplayString$1 as toDisplayString, createVNode$1 as createVNode, createCommentVNode$1 as createCommentVNode, ref$1 as ref, computed$1 as computed } from "./vendor.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 const _hoisted_1$3 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -63,7 +62,6 @@ const _sfc_main = {
 _sfc_main.__file = "src/ui/UiLink.vue";
 const __unplugin_components_4 = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", render$2], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/ui/UiLink.vue"]]);
 const _hoisted_1$1 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 24 24",
   width: "1.2em",
   height: "1.2em"
@@ -80,7 +78,6 @@ function render$1(_ctx, _cache) {
 }
 const __unplugin_components_1 = { name: "mdi-text-long", render: render$1 };
 const _hoisted_1 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"

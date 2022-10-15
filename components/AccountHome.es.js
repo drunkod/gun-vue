@@ -206,7 +206,6 @@ const _sfc_main$2 = {
 _sfc_main$2.__file = "src/account/AccountProfile.vue";
 const __unplugin_components_4 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", render$3], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/account/AccountProfile.vue"]]);
 const _hoisted_1$2 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"

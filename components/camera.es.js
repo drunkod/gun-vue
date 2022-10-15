@@ -6,7 +6,6 @@ import { __unplugin_components_2 } from "./trash-alt.es.js";
 import { __unplugin_components_1 as __unplugin_components_1$1 } from "./check.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 const _hoisted_1$2 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -114,7 +113,6 @@ const _sfc_main = {
 _sfc_main.__file = "src/form/FormPicture.vue";
 const __unplugin_components_3 = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", render$1], ["__scopeId", "data-v-114751c1"], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/form/FormPicture.vue"]]);
 const _hoisted_1 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"

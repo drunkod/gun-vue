@@ -1,10 +1,9 @@
 import { useRelay, useRelays } from "./useDraw.es.js";
-import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, createVNode$1 as createVNode, Fragment$1 as Fragment, renderList$1 as renderList, normalizeClass$1 as normalizeClass, normalizeStyle$1 as normalizeStyle, toDisplayString$1 as toDisplayString, pushScopeId$1 as pushScopeId, popScopeId$1 as popScopeId, onMounted$1 as onMounted, createCommentVNode$1 as createCommentVNode, withCtx$1 as withCtx, withDirectives$1 as withDirectives, vModelText$1 as vModelText, createTextVNode$1 as createTextVNode, ref$1 as ref } from "./vendor.es.js";
+import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, createVNode$1 as createVNode, Fragment$1 as Fragment, renderList$1 as renderList, normalizeClass$1 as normalizeClass, normalizeStyle$1 as normalizeStyle, toDisplayString$1 as toDisplayString, pushScopeId$1 as pushScopeId, popScopeId$1 as popScopeId, onMounted$1 as onMounted, createCommentVNode$1 as createCommentVNode, withCtx$1 as withCtx, createTextVNode$1 as createTextVNode, withDirectives$1 as withDirectives, vModelText$1 as vModelText, ref$1 as ref } from "./vendor.es.js";
 import { __unplugin_components_3 } from "./UiLayer.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 import "./times.es.js";
 const _hoisted_1$3 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -75,7 +74,6 @@ const _sfc_main$1 = {
 _sfc_main$1.__file = "src/util/UtilRelayList.vue";
 const __unplugin_components_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", render$2], ["__scopeId", "data-v-36e380b5"], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/util/UtilRelayList.vue"]]);
 const _hoisted_1$1 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -111,16 +109,15 @@ const _hoisted_2 = {
 const _hoisted_3 = { class: "p-4 min-w-60vw max-w-full" };
 const _hoisted_4 = { class: "flex flex-col items-start" };
 const _hoisted_5 = { class: "p-0 flex items-center flex-wrap w-full" };
-const _hoisted_6 = /* @__PURE__ */ createTextVNode(" Host: ");
-const _hoisted_7 = {
+const _hoisted_6 = {
   key: 0,
   class: "info"
 };
-const _hoisted_8 = { class: "p-0" };
+const _hoisted_7 = { class: "p-0" };
+const _hoisted_8 = { class: "num p-0" };
 const _hoisted_9 = { class: "num p-0" };
 const _hoisted_10 = { class: "num p-0" };
-const _hoisted_11 = { class: "num p-0" };
-const _hoisted_12 = { class: "p-0" };
+const _hoisted_11 = { class: "p-0" };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_carbon_bare_metal_server_01 = __unplugin_components_0;
   const _component_util_relay_list = __unplugin_components_1$1;
@@ -149,7 +146,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           }, null, 4),
           createBaseVNode("div", _hoisted_4, [
             createBaseVNode("div", _hoisted_5, [
-              _hoisted_6,
+              createTextVNode(" Host: "),
               withDirectives(createBaseVNode("input", {
                 class: "mx-1 p-2 rounded-lg flex-auto",
                 "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $setup.relay.peer = $event)
@@ -165,12 +162,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 onClick: _cache[3] || (_cache[3] = ($event) => $setup.resetPeer())
               }, "Reset")
             ]),
-            $setup.relay.status != "offline" ? (openBlock(), createElementBlock("div", _hoisted_7, [
-              createBaseVNode("div", _hoisted_8, "Relay server is " + toDisplayString($setup.relay.status) + " for " + toDisplayString($setup.relay.age), 1),
-              createBaseVNode("div", _hoisted_9, "Delay: " + toDisplayString($setup.relay.delay) + " ms", 1),
-              createBaseVNode("div", _hoisted_10, "Pulse drift: " + toDisplayString($setup.relay.lag) + " ms", 1),
-              createBaseVNode("div", _hoisted_11, "Active wires: " + toDisplayString($setup.relay.activeWires) + " / " + toDisplayString($setup.relay.totalConnections), 1),
-              createBaseVNode("div", _hoisted_12, "Data storage is " + toDisplayString($setup.relay.store ? "enabled" : "disabled"), 1)
+            $setup.relay.status != "offline" ? (openBlock(), createElementBlock("div", _hoisted_6, [
+              createBaseVNode("div", _hoisted_7, "Relay server is " + toDisplayString($setup.relay.status) + " for " + toDisplayString($setup.relay.age), 1),
+              createBaseVNode("div", _hoisted_8, "Delay: " + toDisplayString($setup.relay.delay) + " ms", 1),
+              createBaseVNode("div", _hoisted_9, "Pulse drift: " + toDisplayString($setup.relay.lag) + " ms", 1),
+              createBaseVNode("div", _hoisted_10, "Active wires: " + toDisplayString($setup.relay.activeWires) + " / " + toDisplayString($setup.relay.totalConnections), 1),
+              createBaseVNode("div", _hoisted_11, "Data storage is " + toDisplayString($setup.relay.store ? "enabled" : "disabled"), 1)
             ])) : createCommentVNode("v-if", true)
           ]),
           createVNode(_component_util_relay_list)

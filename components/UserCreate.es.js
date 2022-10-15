@@ -3,7 +3,6 @@ import __unplugin_components_0 from "./AccountAvatar.es.js";
 import { useColor, useUser, updateProfile } from "./useDraw.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 const _hoisted_1$2 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 256 256",
   width: "1.2em",
   height: "1.2em"
@@ -23,7 +22,6 @@ function render$1(_ctx, _cache) {
 }
 const __unplugin_components_2 = { name: "fad-random1dice", render: render$1 };
 const _hoisted_1$1 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"

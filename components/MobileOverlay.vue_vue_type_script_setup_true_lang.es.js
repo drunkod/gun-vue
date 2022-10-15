@@ -1,11 +1,4 @@
 import { defineComponent, resolveComponent, openBlock, createBlock, withCtx, createBaseVNode, renderSlot, normalizeClass, withKeys, mergeProps, watch, scrollIntoView, onMounted, ref, computed, onUnmounted, createElementBlock, withModifiers, normalizeStyle, unref, useMediaQuery, toDisplayString, createVNode, Icon, createCommentVNode, Transition } from "./vendor.es.js";
-var _export_sfc = (sfc, props) => {
-  const target = sfc.__vccOpts || sfc;
-  for (const [key, val] of props) {
-    target[key] = val;
-  }
-  return target;
-};
 const _sfc_main$2 = defineComponent({
   inheritAttrs: false,
   props: {
@@ -27,6 +20,13 @@ const _sfc_main$2 = defineComponent({
     };
   }
 });
+const _export_sfc = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
 const _hoisted_1$2 = ["href", "onClick", "onKeyup"];
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_RouterLink = resolveComponent("RouterLink");
@@ -52,7 +52,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16);
 }
-var BaseListItemLink = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render]]);
+const BaseListItemLink = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render]]);
 function useScrollOnActive(active, el) {
   watch(active, (value) => {
     if (value) {
@@ -226,7 +226,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         createBaseVNode("div", {
           class: normalizeClass(["htw-relative htw-top-0 htw-left-0 htw-z-20", {
             "htw-pointer-events-none": dragging.value,
-            "htw-border-r htw-border-gray-200 dark:htw-border-gray-850": __props.orientation === "landscape",
+            "htw-border-r htw-border-gray-300/30 dark:htw-border-gray-800": __props.orientation === "landscape",
             "htw-flex-none": __props.fixed
           }]),
           style: normalizeStyle(unref(leftStyle))
@@ -245,7 +245,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         createBaseVNode("div", {
           class: normalizeClass(["htw-relative htw-bottom-0 htw-right-0", {
             "htw-pointer-events-none": dragging.value,
-            "htw-border-t htw-border-gray-200 dark:htw-border-gray-850": __props.orientation === "portrait",
+            "htw-border-t htw-border-gray-300/30 dark:htw-border-gray-800": __props.orientation === "portrait",
             "htw-flex-1": __props.fixed
           }]),
           style: normalizeStyle(unref(rightStyle))
@@ -256,7 +256,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var BaseSplitPane = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-328ea07c"]]);
+const BaseSplitPane = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-bb6c600c"]]);
 const isMobile = useMediaQuery("(max-width: 640px)");
 const _hoisted_1 = {
   key: 0,

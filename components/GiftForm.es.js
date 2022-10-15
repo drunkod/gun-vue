@@ -1,5 +1,5 @@
 import { useUser, useProject, useColor, currentRoom, useGun } from "./useDraw.es.js";
-import { createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, createBlock$1 as createBlock, withCtx$1 as withCtx, toDisplayString$1 as toDisplayString, Fragment$1 as Fragment, renderList$1 as renderList, createVNode$1 as createVNode, mergeProps$1 as mergeProps, withDirectives$1 as withDirectives, vModelText$1 as vModelText, createCommentVNode$1 as createCommentVNode, normalizeStyle$1 as normalizeStyle, createTextVNode$1 as createTextVNode, openBlock$1 as openBlock, toRef, watch$1 as watch, computed$1 as computed, reactive$1 as reactive, script, Ce } from "./vendor.es.js";
+import { createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, createBlock$1 as createBlock, withCtx$1 as withCtx, toDisplayString$1 as toDisplayString, Fragment$1 as Fragment, renderList$1 as renderList, createVNode$1 as createVNode, mergeProps$1 as mergeProps, withDirectives$1 as withDirectives, vModelText$1 as vModelText, createTextVNode$1 as createTextVNode, createCommentVNode$1 as createCommentVNode, normalizeStyle$1 as normalizeStyle, openBlock$1 as openBlock, toRef, watch$1 as watch, computed$1 as computed, reactive$1 as reactive, script, Ce } from "./vendor.es.js";
 import { useProjects } from "./useProjects.es.js";
 import { useGuests } from "./useGuests.es.js";
 import { __unplugin_components_7, currencies } from "./GiftWallets.es.js";
@@ -47,23 +47,22 @@ const _hoisted_11 = /* @__PURE__ */ createBaseVNode("div", { class: "p-2 text-ri
 const _hoisted_12 = /* @__PURE__ */ createBaseVNode("div", { class: "p-2 text-right" }, "Quality", -1);
 const _hoisted_13 = /* @__PURE__ */ createBaseVNode("div", { class: "p-2 text-right self-start" }, "Wish ", -1);
 const _hoisted_14 = { class: "p-2 text-right" };
-const _hoisted_15 = /* @__PURE__ */ createTextVNode("PROJECT ");
-const _hoisted_16 = {
+const _hoisted_15 = {
   key: 0,
   class: "w-full"
 };
-const _hoisted_17 = {
+const _hoisted_16 = {
   key: 1,
   class: "flex flex-wrap gap-1"
 };
-const _hoisted_18 = ["onClick"];
-const _hoisted_19 = { class: "font-bold" };
-const _hoisted_20 = /* @__PURE__ */ createBaseVNode("div", { class: "p-2 text-right" }, "ROOM", -1);
-const _hoisted_21 = {
+const _hoisted_17 = ["onClick"];
+const _hoisted_18 = { class: "font-bold" };
+const _hoisted_19 = /* @__PURE__ */ createBaseVNode("div", { class: "p-2 text-right" }, "ROOM", -1);
+const _hoisted_20 = {
   key: 2,
   class: "flex"
 };
-const _hoisted_22 = { class: "overflow-scroll font-mono text-xs m-4 opacity-50 break-all col-span-2" };
+const _hoisted_21 = { class: "overflow-scroll font-mono text-xs m-4 opacity-50 break-all col-span-2" };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_account_badge = __unplugin_components_0$1;
   const _component_user_auth = __unplugin_components_0$3;
@@ -143,8 +142,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             [vModelText, $setup.newGift.wish]
           ]),
           createBaseVNode("div", _hoisted_14, [
-            _hoisted_15,
-            !$setup.newGift.project ? (openBlock(), createElementBlock("div", _hoisted_16, "SELECT")) : createCommentVNode("v-if", true)
+            createTextVNode("PROJECT "),
+            !$setup.newGift.project ? (openBlock(), createElementBlock("div", _hoisted_15, "SELECT")) : createCommentVNode("v-if", true)
           ]),
           $setup.newGift.project ? (openBlock(), createBlock(_component_project_card, {
             key: 0,
@@ -157,7 +156,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               })
             ]),
             _: 1
-          }, 8, ["project", "path"])) : (openBlock(), createElementBlock("div", _hoisted_17, [
+          }, 8, ["project", "path"])) : (openBlock(), createElementBlock("div", _hoisted_16, [
             (openBlock(true), createElementBlock(Fragment, null, renderList($setup.userProjects, (proj, p) => {
               return openBlock(), createElementBlock("div", {
                 class: "p-2 rounded-xl cursor-pointer",
@@ -165,13 +164,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 style: normalizeStyle({ backgroundColor: proj.color }),
                 onClick: ($event) => $setup.newGift.project = proj.path
               }, [
-                createBaseVNode("div", _hoisted_19, toDisplayString(proj.title), 1)
-              ], 12, _hoisted_18);
+                createBaseVNode("div", _hoisted_18, toDisplayString(proj.title), 1)
+              ], 12, _hoisted_17);
             }), 128))
           ])),
-          _hoisted_20,
+          _hoisted_19,
           createVNode(_component_room_button),
-          $setup.valid ? (openBlock(), createElementBlock("div", _hoisted_21, [
+          $setup.valid ? (openBlock(), createElementBlock("div", _hoisted_20, [
             createBaseVNode("button", {
               class: "button w-full justify-center",
               onClick: _cache[7] || (_cache[7] = ($event) => {
@@ -180,7 +179,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               })
             }, "Propose")
           ])) : createCommentVNode("v-if", true),
-          createBaseVNode("pre", _hoisted_22, toDisplayString($setup.cleanGift), 1),
+          createBaseVNode("pre", _hoisted_21, toDisplayString($setup.cleanGift), 1),
           createBaseVNode("div", {
             class: "font-mono text-xs col-span-2 text-center rounded-lg m-2 transition",
             style: normalizeStyle({ backgroundColor: $setup.color.hex($setup.hash || "") })

@@ -52,7 +52,6 @@ import "./UserRooms.es.js";
 import "./UtilGraph.es.js";
 import "./UtilRelay.es.js";
 const _hoisted_1$3 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"

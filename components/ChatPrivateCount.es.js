@@ -121,7 +121,6 @@ const _sfc_main$1 = {
 _sfc_main$1.__file = "src/mate/MateList.vue";
 const __unplugin_components_6 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", render$2], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/mate/MateList.vue"]]);
 const _hoisted_1$1 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 256 256",
   width: "1.2em",
   height: "1.2em"

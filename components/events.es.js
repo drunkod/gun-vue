@@ -1,6 +1,6 @@
 import { defineStore, reactive, ref, watch } from "./vendor.es.js";
 import { useStoryStore } from "./story.es.js";
-import "./GenericMountStory.es.js";
+import "./GenericMountStory.vue_vue_type_script_setup_true_lang.es.js";
 const useEventsStore = defineStore("events", () => {
   const storyStore = useStoryStore();
   const events = reactive([]);

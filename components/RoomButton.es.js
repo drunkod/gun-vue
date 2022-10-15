@@ -17,7 +17,6 @@ import "./times.es.js";
 import "./AccountAvatar.es.js";
 import "./UiLayer.es.js";
 const _hoisted_1$h = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -175,7 +174,6 @@ const _sfc_main$6 = {
 _sfc_main$6.__file = "src/form/FormTitle.vue";
 const __unplugin_components_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", render$g], ["__file", "/Users/davay/Documents/\u0424\u0420\u0423\u041A\u0422/DeFUCC/gun-vue/components/src/form/FormTitle.vue"]]);
 const _hoisted_1$e = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -192,7 +190,6 @@ function render$f(_ctx, _cache) {
 }
 const __unplugin_components_1$1 = { name: "la-lock-open", render: render$f };
 const _hoisted_1$d = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -209,7 +206,6 @@ function render$e(_ctx, _cache) {
 }
 const __unplugin_components_8 = { name: "la-sun", render: render$e };
 const _hoisted_1$c = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -226,7 +222,6 @@ function render$d(_ctx, _cache) {
 }
 const __unplugin_components_7 = { name: "la-toolbox", render: render$d };
 const _hoisted_1$b = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 256 256",
   width: "1.2em",
   height: "1.2em"
@@ -243,7 +238,6 @@ function render$c(_ctx, _cache) {
 }
 const __unplugin_components_6 = { name: "ph-books", render: render$c };
 const _hoisted_1$a = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 256 256",
   width: "1.2em",
   height: "1.2em"
@@ -260,7 +254,6 @@ function render$b(_ctx, _cache) {
 }
 const __unplugin_components_5$1 = { name: "ph-users", render: render$b };
 const _hoisted_1$9 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -277,7 +270,6 @@ function render$a(_ctx, _cache) {
 }
 const __unplugin_components_4$1 = { name: "la-broadcast-tower", render: render$a };
 const _hoisted_1$8 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 256 256",
   width: "1.2em",
   height: "1.2em"
@@ -294,7 +286,6 @@ function render$9(_ctx, _cache) {
 }
 const __unplugin_components_3$1 = { name: "ph-house", render: render$9 };
 const _hoisted_1$7 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 256 256",
   width: "1.2em",
   height: "1.2em"
@@ -311,7 +302,6 @@ function render$8(_ctx, _cache) {
 }
 const __unplugin_components_2 = { name: "ph-newspaper", render: render$8 };
 const _hoisted_1$6 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 256 256",
   width: "1.2em",
   height: "1.2em"
@@ -328,7 +318,6 @@ function render$7(_ctx, _cache) {
 }
 const __unplugin_components_1 = { name: "ph-hands-clapping", render: render$7 };
 const _hoisted_1$5 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 256 256",
   width: "1.2em",
   height: "1.2em"

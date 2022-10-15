@@ -1,10 +1,11 @@
 import { reactive, parseQuery, ref, createApp, createPinia, watch, computed, STATE_SYNC, PREVIEW_SETTINGS_SYNC, onMounted, h, SANDBOX_READY, applyState } from "../vendor.es.js";
-import { mapFile, files, _sfc_main, histoireConfig, isDark } from "../GenericMountStory.es.js";
+import { mapFile, files, _sfc_main, histoireConfig, isDark } from "../GenericMountStory.vue_vue_type_script_setup_true_lang.es.js";
 import { _sfc_main as _sfc_main$1, toRawDeep } from "../state.es.js";
 const sandbox = "";
 const receivedSettings = reactive({});
 function applyPreviewSettings(settings) {
   Object.assign(receivedSettings, settings);
+  document.documentElement.setAttribute("dir", settings.textDirection);
 }
 const query = parseQuery(window.location.search);
 const file = ref(mapFile(files.find((f) => f.id === query.storyId)));

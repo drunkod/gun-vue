@@ -1,9 +1,9 @@
-import { useRoute, computed, defineComponent, useCssVars, unref, toRefs, ref, openBlock, createElementBlock, createVNode, withCtx, Icon, normalizeClass, createBaseVNode, toDisplayString, useRouter, useResizeObserver, resolveComponent, createBlock, withModifiers, watch, normalizeStyle, Fragment, renderList, defineStore, useStorage, renderSlot, withKeys, resolveDirective, withDirectives, vModelText, createTextVNode, createCommentVNode, pushScopeId, popScopeId, onUnmounted, createStaticVNode, useEventListener, SANDBOX_READY, EVENT_SEND, STATE_SYNC, applyState, PREVIEW_SETTINGS_SYNC, toRaw, mergeProps, Dropdown, clone, omit, onMounted, useTimeoutFn, onClickOutside, isRef, nextTick, HstTextarea, HstCheckbox, HstNumber, HstText, resolveDynamicComponent, reactive, __vitePreload, watchEffect, markRaw, shallowRef, getHighlighter, unindent, HstCopyIcon, setCDN, Transition, h, onBeforeUnmount } from "./vendor.es.js";
-import { useStoryStore, base } from "./story.es.js";
-import { _export_sfc, useScrollOnActive, BaseListItemLink, isMobile, BaseSplitPane, _sfc_main as _sfc_main$w } from "./MobileOverlay.es.js";
+import { useRoute, computed, defineComponent, useCssVars, unref, toRefs, ref, openBlock, createElementBlock, createVNode, withCtx, Icon, normalizeClass, createBaseVNode, toDisplayString, defineStore, useStorage, resolveDirective, withDirectives, useRouter, useResizeObserver, resolveComponent, createBlock, createCommentVNode, withModifiers, pushScopeId, popScopeId, watch, renderSlot, withKeys, createTextVNode, renderList, Fragment, normalizeStyle, onMounted, vModelText, onUnmounted, createStaticVNode, useEventListener, SANDBOX_READY, EVENT_SEND, STATE_SYNC, applyState, PREVIEW_SETTINGS_SYNC, toRaw, mergeProps, Dropdown, clone, omit, useTimeoutFn, onClickOutside, isRef, nextTick, jg, Rg, Ng, Eg, resolveDynamicComponent, reactive, __vitePreload, watchEffect, markRaw, shallowRef, unindent, getHighlighter, _g, setCDN, Transition, h, onBeforeUnmount } from "./vendor.es.js";
+import { base, useStoryStore } from "./story.es.js";
+import { useScrollOnActive, BaseListItemLink, _export_sfc, isMobile, BaseSplitPane, _sfc_main as _sfc_main$x } from "./MobileOverlay.vue_vue_type_script_setup_true_lang.es.js";
 import { BaseEmpty } from "./BaseEmpty.es.js";
-import { _sfc_main as _sfc_main$v, toRawDeep } from "./state.es.js";
-import { histoireConfig, clientSupportPlugins, isDark } from "./GenericMountStory.es.js";
+import { _sfc_main as _sfc_main$w, toRawDeep } from "./state.es.js";
+import { histoireConfig, isDark, clientSupportPlugins } from "./GenericMountStory.vue_vue_type_script_setup_true_lang.es.js";
 import { useEventsStore } from "./events.es.js";
 function useCurrentVariantRoute(variant) {
   const route = useRoute();
@@ -20,8 +20,8 @@ function useCurrentVariantRoute(variant) {
     targetRoute
   };
 }
-const _hoisted_1$r = { class: "htw-truncate" };
-const _sfc_main$u = /* @__PURE__ */ defineComponent({
+const _hoisted_1$s = { class: "htw-truncate" };
+const _sfc_main$v = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantListItem",
   props: {
     variant: {
@@ -32,7 +32,7 @@ const _sfc_main$u = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const props = __props;
     useCssVars((_ctx) => ({
-      "cebc8760": unref(variant).iconColor
+      "36260edc": unref(variant).iconColor
     }));
     const { variant } = toRefs(props);
     const { isActive, targetRoute } = useCurrentVariantRoute(variant);
@@ -54,12 +54,12 @@ const _sfc_main$u = /* @__PURE__ */ defineComponent({
             return [
               createVNode(unref(Icon), {
                 icon: (_a = unref(variant).icon) != null ? _a : "carbon:cube",
-                class: normalizeClass(["base-list-item-link-icon htw-w-5 htw-h-5 sm:htw-w-4 sm:htw-h-4 htw-flex-none", {
+                class: normalizeClass(["htw-w-5 htw-h-5 sm:htw-w-4 sm:htw-h-4 htw-flex-none", {
                   "htw-text-gray-500": !active && !unref(variant).iconColor,
                   "bind-icon-color": !active && unref(variant).iconColor
                 }])
               }, null, 8, ["icon", "class"]),
-              createBaseVNode("span", _hoisted_1$r, toDisplayString(unref(variant).title), 1)
+              createBaseVNode("span", _hoisted_1$s, toDisplayString(unref(variant).title), 1)
             ];
           }),
           _: 1
@@ -68,9 +68,100 @@ const _sfc_main$u = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var StoryVariantListItem = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["__scopeId", "data-v-7f8cccbc"]]);
-const _hoisted_1$q = { class: "htw-flex-none htw-flex htw-items-center" };
-const _sfc_main$t = /* @__PURE__ */ defineComponent({
+const StoryVariantListItem = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["__scopeId", "data-v-02816158"]]);
+const usePreviewSettingsStore = defineStore("preview-settings", () => {
+  const currentSettings = useStorage("_histoire-sandbox-settings-v3", {
+    responsiveWidth: 720,
+    responsiveHeight: null,
+    rotate: false,
+    backgroundColor: "transparent",
+    checkerboard: false,
+    textDirection: "ltr"
+  });
+  return {
+    currentSettings
+  };
+});
+function getSandboxUrl(story, variant) {
+  const url = new URLSearchParams();
+  url.append("storyId", story.id);
+  url.append("variantId", variant.id);
+  return `${base}__sandbox.html?${url.toString()}`;
+}
+const _hoisted_1$r = ["href"];
+const _sfc_main$u = /* @__PURE__ */ defineComponent({
+  __name: "ToolbarNewTab",
+  props: {
+    variant: null,
+    story: null
+  },
+  setup(__props) {
+    const props = __props;
+    const sandboxUrl = computed(() => {
+      return getSandboxUrl(props.story, props.variant);
+    });
+    return (_ctx, _cache) => {
+      const _directive_tooltip = resolveDirective("tooltip");
+      return withDirectives((openBlock(), createElementBlock("a", {
+        href: unref(sandboxUrl),
+        target: "_blank",
+        class: "htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-2 hover:htw-text-primary-500 htw-opacity-50 hover:htw-opacity-100 dark:hover:htw-text-primary-400 htw-text-gray-900 dark:htw-text-gray-100"
+      }, [
+        createVNode(unref(Icon), {
+          icon: "carbon:launch",
+          class: "htw-w-4 htw-h-4"
+        })
+      ], 8, _hoisted_1$r)), [
+        [_directive_tooltip, "Open variant in new tab"]
+      ]);
+    };
+  }
+});
+const _sfc_main$t = {};
+const _hoisted_1$q = { fill: "none" };
+const _hoisted_2$k = /* @__PURE__ */ createBaseVNode("pattern", {
+  id: "checkerboard",
+  width: "64",
+  height: "64",
+  patternUnits: "userSpaceOnUse"
+}, [
+  /* @__PURE__ */ createBaseVNode("rect", {
+    x: "0",
+    y: "0",
+    width: "32",
+    height: "32",
+    fill: "currentColor"
+  }),
+  /* @__PURE__ */ createBaseVNode("rect", {
+    x: "32",
+    y: "32",
+    width: "32",
+    height: "32",
+    fill: "currentColor"
+  })
+], -1);
+const _hoisted_3$d = /* @__PURE__ */ createBaseVNode("rect", {
+  x: "0",
+  y: "0",
+  width: "100%",
+  height: "100%",
+  fill: "url(#checkerboard)"
+}, null, -1);
+const _hoisted_4$9 = [
+  _hoisted_2$k,
+  _hoisted_3$d
+];
+function _sfc_render$3(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$q, _hoisted_4$9);
+}
+const CheckerboardPattern = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$3]]);
+const _withScopeId$3 = (n) => (pushScopeId("data-v-601cc357"), n = n(), popScopeId(), n);
+const _hoisted_1$p = { class: "htw-flex-none htw-flex htw-items-center" };
+const _hoisted_2$j = { class: "htw-truncate htw-flex-1" };
+const _hoisted_3$c = { class: "htw-flex-none htw-ml-auto htw-hidden group-hover:htw-flex htw-items-center" };
+const _hoisted_4$8 = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createBaseVNode("div", { class: "htw-absolute htw-inset-0 htw-rounded bind-preview-bg" }, null, -1));
+const _hoisted_5$6 = { class: "htw-relative htw-h-full" };
+const _sfc_main$s = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantGridItem",
   props: {
     variant: {
@@ -88,7 +179,8 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
   setup(__props, { emit }) {
     const props = __props;
     useCssVars((_ctx) => ({
-      "1eec3e4a": unref(variant).iconColor
+      "f3384526": unref(variant).iconColor,
+      "75db4c5e": unref(settings).backgroundColor
     }));
     const { variant } = toRefs(props);
     const { isActive, targetRoute } = useCurrentVariantRoute(variant);
@@ -114,17 +206,19 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
         }
       }
     });
+    const settings = usePreviewSettingsStore().currentSettings;
     return (_ctx, _cache) => {
       const _component_RouterLink = resolveComponent("RouterLink");
+      const _directive_tooltip = resolveDirective("tooltip");
       return openBlock(), createElementBlock("div", {
         ref_key: "el",
         ref: el,
-        class: "htw-cursor-default htw-flex htw-flex-col htw-gap-y-1"
+        class: "htw-cursor-default htw-flex htw-flex-col htw-gap-y-1 htw-group"
       }, [
-        createBaseVNode("div", _hoisted_1$q, [
-          createVNode(_component_RouterLink, {
+        createBaseVNode("div", _hoisted_1$p, [
+          withDirectives((openBlock(), createBlock(_component_RouterLink, {
             to: unref(targetRoute),
-            class: normalizeClass(["htw-rounded htw-w-max htw-px-2 htw-py-0.5 htw-min-w-16 htw-cursor-pointer htw-flex htw-items-center htw-gap-1", {
+            class: normalizeClass(["htw-rounded htw-w-max htw-px-2 htw-py-0.5 htw-min-w-16 htw-cursor-pointer htw-flex htw-items-center htw-gap-1 htw-flex-shrink", {
               "hover:htw-bg-gray-200 htw-text-gray-500 dark:hover:htw-bg-gray-800": !unref(isActive),
               "htw-bg-primary-200 hover:htw-bg-primary-300 htw-text-primary-800 dark:htw-bg-primary-700 dark:hover:htw-bg-primary-800 dark:htw-text-primary-200": unref(isActive)
             }])
@@ -134,19 +228,27 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
               return [
                 createVNode(unref(Icon), {
                   icon: (_a = unref(variant).icon) != null ? _a : "carbon:cube",
-                  class: normalizeClass(["base-list-item-link-icon htw-w-4 htw-h-4 htw-opacity-50", {
+                  class: normalizeClass(["htw-w-4 htw-h-4 htw-opacity-50", {
                     "htw-text-gray-500": !unref(isActive) && !unref(variant).iconColor,
                     "bind-icon-color": !unref(isActive) && unref(variant).iconColor
                   }])
                 }, null, 8, ["icon", "class"]),
-                createBaseVNode("span", null, toDisplayString(unref(variant).title), 1)
+                createBaseVNode("span", _hoisted_2$j, toDisplayString(unref(variant).title), 1)
               ];
             }),
             _: 1
-          }, 8, ["to", "class"])
+          }, 8, ["to", "class"])), [
+            [_directive_tooltip, unref(variant).title]
+          ]),
+          createBaseVNode("div", _hoisted_3$c, [
+            createVNode(_sfc_main$u, {
+              variant: unref(variant),
+              story: __props.story
+            }, null, 8, ["variant", "story"])
+          ])
         ]),
         createBaseVNode("div", {
-          class: normalizeClass(["htw-border htw-bg-white dark:htw-bg-gray-700 htw-rounded-lg htw-flex-1 htw-p-4", {
+          class: normalizeClass(["htw-border htw-bg-white dark:htw-bg-gray-700 htw-rounded htw-flex-1 htw-p-4 htw-relative", {
             "htw-border-gray-100 dark:htw-border-gray-800": !unref(isActive),
             "htw-border-primary-200 dark:htw-border-primary-900": unref(isActive)
           }]),
@@ -154,149 +256,35 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
           onClick: _cache[0] || (_cache[0] = withModifiers(($event) => selectVariant(), ["stop"])),
           onKeyup: _cache[1] || (_cache[1] = ($event) => selectVariant())
         }, [
-          (openBlock(), createBlock(_sfc_main$v, {
-            key: `${__props.story.id}-${unref(variant).id}`,
-            variant: unref(variant),
-            story: __props.story,
-            onReady
-          }, null, 8, ["variant", "story"]))
+          _hoisted_4$8,
+          unref(settings).checkerboard ? (openBlock(), createBlock(CheckerboardPattern, {
+            key: 0,
+            class: "htw-absolute htw-inset-0 htw-w-full htw-h-full htw-text-gray-500/20"
+          })) : createCommentVNode("", true),
+          createBaseVNode("div", _hoisted_5$6, [
+            (openBlock(), createBlock(_sfc_main$w, {
+              key: `${__props.story.id}-${unref(variant).id}`,
+              variant: unref(variant),
+              story: __props.story,
+              dir: unref(settings).textDirection,
+              onReady
+            }, null, 8, ["variant", "story", "dir"]))
+          ])
         ], 34)
       ], 512);
     };
   }
 });
-var StoryVariantGridItem = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["__scopeId", "data-v-2db4d3d2"]]);
-const _sfc_main$s = /* @__PURE__ */ defineComponent({
-  __name: "StoryVariantGrid",
-  setup(__props) {
-    const storyStore = useStoryStore();
-    const gridTemplateWidth = computed(() => {
-      if (storyStore.currentStory.layout.type !== "grid") {
-        return;
-      }
-      const layoutWidth = storyStore.currentStory.layout.width;
-      if (!layoutWidth) {
-        return "200px";
-      }
-      if (typeof layoutWidth === "number") {
-        return layoutWidth + "px";
-      }
-      return layoutWidth;
-    });
-    const margin = 16;
-    const gap = 16;
-    const itemWidth = ref(16);
-    const maxItemHeight = ref(0);
-    const maxCount = ref(10);
-    const countPerRow = ref(0);
-    const visibleRows = ref(0);
-    const el = ref(null);
-    useResizeObserver(el, () => {
-      updateMaxCount();
-    });
-    function updateMaxCount() {
-      if (!maxItemHeight.value)
-        return;
-      const width = el.value.clientWidth - margin * 2;
-      const height = el.value.clientHeight;
-      const scrollTop = el.value.scrollTop;
-      countPerRow.value = Math.floor((width + gap) / (itemWidth.value + gap));
-      visibleRows.value = Math.ceil((height + scrollTop + gap) / (maxItemHeight.value + gap));
-      const newMaxCount = countPerRow.value * visibleRows.value;
-      if (maxCount.value < newMaxCount) {
-        maxCount.value = newMaxCount;
-      }
-      if (storyStore.currentVariant) {
-        const index = storyStore.currentStory.variants.indexOf(storyStore.currentVariant);
-        if (index + 1 > maxCount.value) {
-          maxCount.value = index + 1;
-        }
-      }
-    }
-    function onItemResize(w, h2) {
-      itemWidth.value = w;
-      if (maxItemHeight.value < h2) {
-        maxItemHeight.value = h2;
-        updateMaxCount();
-      }
-    }
-    watch(() => storyStore.currentVariant, () => {
-      updateMaxCount();
-    });
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", {
-        ref_key: "el",
-        ref: el,
-        class: "htw-h-full htw-overflow-y-auto",
-        onScroll: _cache[0] || (_cache[0] = ($event) => updateMaxCount())
-      }, [
-        createBaseVNode("div", {
-          style: normalizeStyle({
-            minHeight: `${unref(storyStore).currentStory.variants.length / countPerRow.value * (maxItemHeight.value + gap) - gap}px`
-          })
-        }, [
-          createBaseVNode("div", {
-            class: "htw-grid htw-gap-4 htw-m-4",
-            style: normalizeStyle({
-              gridTemplateColumns: `repeat(auto-fill, ${unref(gridTemplateWidth)})`
-            })
-          }, [
-            (openBlock(true), createElementBlock(Fragment, null, renderList(unref(storyStore).currentStory.variants.slice(0, maxCount.value), (variant, index) => {
-              return openBlock(), createBlock(StoryVariantGridItem, {
-                key: index,
-                variant,
-                story: unref(storyStore).currentStory,
-                onResize: onItemResize
-              }, null, 8, ["variant", "story"]);
-            }), 128))
-          ], 4)
-        ], 4)
-      ], 544);
-    };
-  }
-});
-const _hoisted_1$p = { class: "htw-flex htw-items-center htw-gap-1 htw-text-gray-500 htw-flex-1 htw-truncate htw-min-w-0" };
-const _sfc_main$r = /* @__PURE__ */ defineComponent({
-  __name: "StoryVariantTitle",
-  props: {
-    variant: null
-  },
-  setup(__props) {
-    return (_ctx, _cache) => {
-      var _a;
-      return openBlock(), createElementBlock("div", _hoisted_1$p, [
-        createVNode(unref(Icon), {
-          icon: (_a = __props.variant.icon) != null ? _a : "carbon:cube",
-          class: normalizeClass(["base-list-item-link-icon htw-w-4 htw-h-4 htw-opacity-50", [
-            __props.variant.iconColor ? "bind-icon-color" : "htw-text-gray-500"
-          ]])
-        }, null, 8, ["icon", "class"]),
-        createBaseVNode("span", null, toDisplayString(__props.variant.title), 1)
-      ]);
-    };
-  }
-});
-const usePreviewSettingsStore = defineStore("preview-settings", () => {
-  const currentSettings = useStorage("_histoire-sandbox-settings-v2", {
-    responsiveWidth: 720,
-    responsiveHeight: null,
-    rotate: false,
-    backgroundColor: "transparent",
-    checkerboard: false
-  });
-  return {
-    currentSettings
-  };
-});
+const StoryVariantGridItem = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["__scopeId", "data-v-601cc357"]]);
 const _hoisted_1$o = { class: "htw-text-white htw-w-[16px] htw-h-[16px] htw-relative" };
-const _hoisted_2$k = {
+const _hoisted_2$i = {
   width: "16",
   height: "16",
   viewBox: "0 0 24 24",
   class: "htw-relative htw-z-10"
 };
-const _hoisted_3$d = ["stroke-dasharray", "stroke-dashoffset"];
-const _sfc_main$q = /* @__PURE__ */ defineComponent({
+const _hoisted_3$b = ["stroke-dasharray", "stroke-dashoffset"];
+const _sfc_main$r = /* @__PURE__ */ defineComponent({
   __name: "BaseCheckbox",
   props: {
     modelValue: {
@@ -339,7 +327,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
               __props.modelValue ? "htw-border-primary-500 htw-border-8" : "htw-border-black/25 dark:htw-border-white/25 htw-delay-150"
             ]])
           }, null, 2),
-          (openBlock(), createElementBlock("svg", _hoisted_2$k, [
+          (openBlock(), createElementBlock("svg", _hoisted_2$i, [
             createBaseVNode("path", {
               ref_key: "path",
               ref: path,
@@ -353,7 +341,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
               ]]),
               "stroke-dasharray": dasharray.value,
               "stroke-dashoffset": unref(dashoffset)
-            }, null, 10, _hoisted_3$d)
+            }, null, 10, _hoisted_3$b)
           ]))
         ]),
         renderSlot(_ctx.$slots, "default")
@@ -361,19 +349,257 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _hoisted_1$n = { class: "htw-flex htw-flex-col htw-items-stretch" };
-const _hoisted_2$j = /* @__PURE__ */ createTextVNode(" Rotate ");
-const _hoisted_3$c = { class: "htw-flex htw-gap-2 htw-px-4 htw-py-3" };
-const _hoisted_4$9 = /* @__PURE__ */ createBaseVNode("span", { class: "htw-opacity-50" }, "x", -1);
-const _hoisted_5$6 = ["onClick"];
-const _hoisted_6$6 = { class: "htw-ml-auto htw-opacity-70 htw-flex htw-gap-1" };
-const _hoisted_7$3 = { key: 0 };
-const _hoisted_8$2 = { key: 0 };
-const _hoisted_9$1 = { key: 1 };
-const _hoisted_10 = { key: 2 };
-const _hoisted_11 = { key: 0 };
+const _withScopeId$2 = (n) => (pushScopeId("data-v-8d0cb17e"), n = n(), popScopeId(), n);
+const _hoisted_1$n = { class: "htw-cursor-pointer hover:htw-text-primary-500 htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-2 htw-group" };
+const _hoisted_2$h = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createBaseVNode("div", { class: "bind-preview-bg htw-w-4 htw-h-4 htw-rounded-full htw-border htw-border-black/50 dark:htw-border-white/50" }, null, -1));
+const _hoisted_3$a = { class: "htw-flex htw-flex-col htw-items-stretch" };
+const _hoisted_4$7 = ["onClick"];
+const _hoisted_5$5 = { class: "htw-mr-auto" };
+const _hoisted_6$4 = { class: "htw-ml-auto htw-opacity-70" };
+const _sfc_main$q = /* @__PURE__ */ defineComponent({
+  __name: "ToolbarBackground",
+  setup(__props) {
+    useCssVars((_ctx) => ({
+      "25c5213c": unref(settings).backgroundColor
+    }));
+    const settings = usePreviewSettingsStore().currentSettings;
+    return (_ctx, _cache) => {
+      const _component_VDropdown = resolveComponent("VDropdown");
+      const _directive_tooltip = resolveDirective("tooltip");
+      return unref(histoireConfig).backgroundPresets.length ? (openBlock(), createBlock(_component_VDropdown, {
+        key: 0,
+        placement: "bottom-end",
+        skidding: 6,
+        class: "htw-h-full htw-flex-none"
+      }, {
+        popper: withCtx(({ hide }) => [
+          createBaseVNode("div", _hoisted_3$a, [
+            createVNode(_sfc_main$r, {
+              modelValue: unref(settings).checkerboard,
+              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => unref(settings).checkerboard = $event)
+            }, {
+              default: withCtx(() => [
+                createTextVNode(" Checkerboard ")
+              ]),
+              _: 1
+            }, 8, ["modelValue"]),
+            (openBlock(true), createElementBlock(Fragment, null, renderList(unref(histoireConfig).backgroundPresets, (option, index) => {
+              return openBlock(), createElementBlock("button", {
+                key: index,
+                class: normalizeClass(["htw-px-4 htw-py-3 htw-cursor-pointer htw-text-left htw-flex htw-gap-4", [
+                  unref(settings).backgroundColor === option.color ? "htw-bg-primary-500 hover:htw-bg-primary-600 htw-text-white dark:htw-text-black" : "htw-bg-transparent hover:htw-bg-primary-100 dark:hover:htw-bg-primary-700"
+                ]]),
+                onClick: ($event) => {
+                  unref(settings).backgroundColor = option.color;
+                  hide();
+                }
+              }, [
+                createBaseVNode("span", _hoisted_5$5, toDisplayString(option.label), 1),
+                option.color !== "$checkerboard" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+                  createBaseVNode("span", _hoisted_6$4, toDisplayString(option.color), 1),
+                  createBaseVNode("div", {
+                    class: "htw-w-4 htw-h-4 htw-rounded-full htw-border htw-border-black/20 dark:htw-border-white/20",
+                    style: normalizeStyle({
+                      backgroundColor: option.color
+                    })
+                  }, null, 4)
+                ], 64)) : createCommentVNode("", true)
+              ], 10, _hoisted_4$7);
+            }), 128))
+          ])
+        ]),
+        default: withCtx(() => [
+          withDirectives((openBlock(), createElementBlock("div", _hoisted_1$n, [
+            _hoisted_2$h,
+            createVNode(unref(Icon), {
+              icon: "carbon:caret-down",
+              class: "htw-w-4 htw-h-4 htw-opacity-50 group-hover:htw-opacity-100"
+            })
+          ])), [
+            [_directive_tooltip, "Background color"]
+          ])
+        ]),
+        _: 1
+      })) : createCommentVNode("", true);
+    };
+  }
+});
+const ToolbarBackground = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["__scopeId", "data-v-8d0cb17e"]]);
 const _sfc_main$p = /* @__PURE__ */ defineComponent({
-  __name: "StoryVariantResponsiveSize",
+  __name: "ToolbarTextDirection",
+  setup(__props) {
+    const settings = usePreviewSettingsStore().currentSettings;
+    return (_ctx, _cache) => {
+      const _directive_tooltip = resolveDirective("tooltip");
+      return withDirectives((openBlock(), createElementBlock("a", {
+        class: "htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-2 hover:htw-text-primary-500 htw-opacity-50 hover:htw-opacity-100 dark:hover:htw-text-primary-400 htw-text-gray-900 dark:htw-text-gray-100",
+        onClick: _cache[0] || (_cache[0] = ($event) => unref(settings).textDirection = unref(settings).textDirection === "ltr" ? "rtl" : "ltr")
+      }, [
+        createVNode(unref(Icon), {
+          icon: unref(settings).textDirection === "ltr" ? "fluent:text-paragraph-direction-right-16-regular" : "fluent:text-paragraph-direction-left-16-regular",
+          class: "htw-w-4 htw-h-4"
+        }, null, 8, ["icon"])
+      ])), [
+        [_directive_tooltip, `Switch to text direction ${unref(settings).textDirection === "ltr" ? "Right to Left" : "Left to Right"}`]
+      ]);
+    };
+  }
+});
+const _hoisted_1$m = { class: "htw-flex htw-flex-col htw-items-stretch htw-h-full __histoire-pane-shadow-from-right" };
+const _hoisted_2$g = {
+  key: 0,
+  class: "htw-flex-none htw-flex htw-items-center htw-justify-end htw-h-8 htw-mx-2 htw-mt-1"
+};
+const _sfc_main$o = /* @__PURE__ */ defineComponent({
+  __name: "StoryVariantGrid",
+  setup(__props) {
+    const storyStore = useStoryStore();
+    const gridTemplateWidth = computed(() => {
+      if (storyStore.currentStory.layout.type !== "grid") {
+        return;
+      }
+      const layoutWidth = storyStore.currentStory.layout.width;
+      if (!layoutWidth) {
+        return "200px";
+      }
+      if (typeof layoutWidth === "number") {
+        return layoutWidth + "px";
+      }
+      return layoutWidth;
+    });
+    const margin = 16;
+    const gap = 16;
+    const itemWidth = ref(16);
+    const maxItemHeight = ref(0);
+    const maxCount = ref(10);
+    const countPerRow = ref(0);
+    const visibleRows = ref(0);
+    const el = ref(null);
+    useResizeObserver(el, () => {
+      updateMaxCount();
+      updateSize();
+    });
+    function updateMaxCount() {
+      if (!maxItemHeight.value)
+        return;
+      const width = el.value.clientWidth - margin * 2;
+      const height = el.value.clientHeight;
+      const scrollTop = el.value.scrollTop;
+      countPerRow.value = Math.floor((width + gap) / (itemWidth.value + gap));
+      visibleRows.value = Math.ceil((height + scrollTop + gap) / (maxItemHeight.value + gap));
+      const newMaxCount = countPerRow.value * visibleRows.value;
+      if (maxCount.value < newMaxCount) {
+        maxCount.value = newMaxCount;
+      }
+      if (storyStore.currentVariant) {
+        const index = storyStore.currentStory.variants.indexOf(storyStore.currentVariant);
+        if (index + 1 > maxCount.value) {
+          maxCount.value = index + 1;
+        }
+      }
+    }
+    function onItemResize(w, h2) {
+      itemWidth.value = w;
+      if (maxItemHeight.value < h2) {
+        maxItemHeight.value = h2;
+        updateMaxCount();
+      }
+    }
+    watch(() => storyStore.currentVariant, () => {
+      updateMaxCount();
+    });
+    const gridEl = ref(null);
+    const gridColumnWidth = ref(1);
+    const viewWidth = ref(1);
+    function updateSize() {
+      if (!el.value)
+        return;
+      viewWidth.value = el.value.clientWidth;
+      if (!gridEl.value)
+        return;
+      const firstCellEl = gridEl.value.children[0];
+      if (!firstCellEl)
+        return;
+      gridColumnWidth.value = firstCellEl.clientWidth;
+    }
+    onMounted(() => {
+      updateSize();
+    });
+    const columnCount = computed(() => Math.min(storyStore.currentStory.variants.length, Math.floor((viewWidth.value + gap) / (gridColumnWidth.value + gap))));
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("div", _hoisted_1$m, [
+        !unref(isMobile) ? (openBlock(), createElementBlock("div", _hoisted_2$g, [
+          createVNode(ToolbarBackground),
+          createVNode(_sfc_main$p)
+        ])) : createCommentVNode("", true),
+        createBaseVNode("div", {
+          ref_key: "el",
+          ref: el,
+          class: "htw-overflow-y-auto htw-flex htw-flex-1",
+          onScroll: _cache[0] || (_cache[0] = ($event) => updateMaxCount())
+        }, [
+          createBaseVNode("div", {
+            class: "htw-m-auto",
+            style: normalizeStyle({
+              minHeight: `${unref(storyStore).currentStory.variants.length / countPerRow.value * (maxItemHeight.value + gap) - gap}px`
+            })
+          }, [
+            createBaseVNode("div", {
+              ref_key: "gridEl",
+              ref: gridEl,
+              class: "htw-grid htw-gap-4 htw-m-4",
+              style: normalizeStyle({
+                gridTemplateColumns: `repeat(${unref(columnCount)}, ${unref(gridTemplateWidth)})`
+              })
+            }, [
+              (openBlock(true), createElementBlock(Fragment, null, renderList(unref(storyStore).currentStory.variants.slice(0, maxCount.value), (variant, index) => {
+                return openBlock(), createBlock(StoryVariantGridItem, {
+                  key: index,
+                  variant,
+                  story: unref(storyStore).currentStory,
+                  onResize: onItemResize
+                }, null, 8, ["variant", "story"]);
+              }), 128))
+            ], 4)
+          ], 4)
+        ], 544)
+      ]);
+    };
+  }
+});
+const _hoisted_1$l = { class: "htw-flex htw-items-center htw-gap-1 htw-text-gray-500 htw-flex-1 htw-truncate htw-min-w-0" };
+const _sfc_main$n = /* @__PURE__ */ defineComponent({
+  __name: "ToolbarTitle",
+  props: {
+    variant: null
+  },
+  setup(__props) {
+    return (_ctx, _cache) => {
+      var _a;
+      return openBlock(), createElementBlock("div", _hoisted_1$l, [
+        createVNode(unref(Icon), {
+          icon: (_a = __props.variant.icon) != null ? _a : "carbon:cube",
+          class: normalizeClass(["htw-w-4 htw-h-4 htw-opacity-50", [
+            __props.variant.iconColor ? "bind-icon-color" : "htw-text-gray-500"
+          ]])
+        }, null, 8, ["icon", "class"]),
+        createBaseVNode("span", null, toDisplayString(__props.variant.title), 1)
+      ]);
+    };
+  }
+});
+const _hoisted_1$k = { class: "htw-flex htw-flex-col htw-items-stretch" };
+const _hoisted_2$f = { class: "htw-flex htw-gap-2 htw-px-4 htw-py-3" };
+const _hoisted_3$9 = /* @__PURE__ */ createBaseVNode("span", { class: "htw-opacity-50" }, "x", -1);
+const _hoisted_4$6 = ["onClick"];
+const _hoisted_5$4 = { class: "htw-ml-auto htw-opacity-70 htw-flex htw-gap-1" };
+const _hoisted_6$3 = { key: 0 };
+const _hoisted_7$2 = { key: 0 };
+const _hoisted_8$1 = { key: 1 };
+const _hoisted_9$1 = { key: 2 };
+const _hoisted_10 = { key: 0 };
+const _sfc_main$m = /* @__PURE__ */ defineComponent({
+  __name: "ToolbarResponsiveSize",
   setup(__props) {
     const settings = usePreviewSettingsStore().currentSettings;
     return (_ctx, _cache) => {
@@ -387,17 +613,17 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
         class: "htw-h-full htw-flex-none"
       }, {
         popper: withCtx(({ hide }) => [
-          createBaseVNode("div", _hoisted_1$n, [
-            createVNode(_sfc_main$q, {
+          createBaseVNode("div", _hoisted_1$k, [
+            createVNode(_sfc_main$r, {
               modelValue: unref(settings).rotate,
               "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => unref(settings).rotate = $event)
             }, {
               default: withCtx(() => [
-                _hoisted_2$j
+                createTextVNode(" Rotate ")
               ]),
               _: 1
             }, 8, ["modelValue"]),
-            createBaseVNode("div", _hoisted_3$c, [
+            createBaseVNode("div", _hoisted_2$f, [
               withDirectives(createBaseVNode("input", {
                 "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => unref(settings).responsiveWidth = $event),
                 type: "number",
@@ -413,7 +639,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
                 ],
                 [_directive_tooltip, "Responsive width (px)"]
               ]),
-              _hoisted_4$9,
+              _hoisted_3$9,
               withDirectives(createBaseVNode("input", {
                 "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => unref(settings).responsiveHeight = $event),
                 type: "number",
@@ -443,18 +669,18 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
                 }
               }, [
                 createTextVNode(toDisplayString(preset.label) + " ", 1),
-                createBaseVNode("span", _hoisted_6$6, [
-                  preset.width ? (openBlock(), createElementBlock("span", _hoisted_7$3, [
+                createBaseVNode("span", _hoisted_5$4, [
+                  preset.width ? (openBlock(), createElementBlock("span", _hoisted_6$3, [
                     createTextVNode(toDisplayString(preset.width), 1),
-                    !preset.height ? (openBlock(), createElementBlock("span", _hoisted_8$2, "px")) : createCommentVNode("", true)
+                    !preset.height ? (openBlock(), createElementBlock("span", _hoisted_7$2, "px")) : createCommentVNode("", true)
                   ])) : createCommentVNode("", true),
-                  preset.width && preset.height ? (openBlock(), createElementBlock("span", _hoisted_9$1, "x")) : createCommentVNode("", true),
-                  preset.height ? (openBlock(), createElementBlock("span", _hoisted_10, [
+                  preset.width && preset.height ? (openBlock(), createElementBlock("span", _hoisted_8$1, "x")) : createCommentVNode("", true),
+                  preset.height ? (openBlock(), createElementBlock("span", _hoisted_9$1, [
                     createTextVNode(toDisplayString(preset.height), 1),
-                    !preset.width ? (openBlock(), createElementBlock("span", _hoisted_11, "px")) : createCommentVNode("", true)
+                    !preset.width ? (openBlock(), createElementBlock("span", _hoisted_10, "px")) : createCommentVNode("", true)
                   ])) : createCommentVNode("", true)
                 ])
-              ], 10, _hoisted_5$6);
+              ], 10, _hoisted_4$6);
             }), 128))
           ])
         ]),
@@ -484,172 +710,23 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _withScopeId$2 = (n) => (pushScopeId("data-v-bc4883a4"), n = n(), popScopeId(), n);
-const _hoisted_1$m = { class: "htw-cursor-pointer hover:htw-text-primary-500 htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-2 htw-group" };
-const _hoisted_2$i = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createBaseVNode("div", { class: "bind-preview-bg htw-w-4 htw-h-4 htw-rounded-full htw-border htw-border-black/50 dark:htw-border-white/50" }, null, -1));
-const _hoisted_3$b = { class: "htw-flex htw-flex-col htw-items-stretch" };
-const _hoisted_4$8 = /* @__PURE__ */ createTextVNode(" Checkerboard ");
-const _hoisted_5$5 = ["onClick"];
-const _hoisted_6$5 = { class: "htw-mr-auto" };
-const _hoisted_7$2 = { class: "htw-ml-auto htw-opacity-70" };
-const _sfc_main$o = /* @__PURE__ */ defineComponent({
-  __name: "StoryVariantBackground",
-  setup(__props) {
-    useCssVars((_ctx) => ({
-      "6bcdf233": unref(settings).backgroundColor
-    }));
-    const settings = usePreviewSettingsStore().currentSettings;
-    return (_ctx, _cache) => {
-      const _component_VDropdown = resolveComponent("VDropdown");
-      const _directive_tooltip = resolveDirective("tooltip");
-      return unref(histoireConfig).backgroundPresets.length ? (openBlock(), createBlock(_component_VDropdown, {
-        key: 0,
-        placement: "bottom-end",
-        skidding: 6,
-        class: "htw-h-full htw-flex-none"
-      }, {
-        popper: withCtx(({ hide }) => [
-          createBaseVNode("div", _hoisted_3$b, [
-            createVNode(_sfc_main$q, {
-              modelValue: unref(settings).checkerboard,
-              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => unref(settings).checkerboard = $event)
-            }, {
-              default: withCtx(() => [
-                _hoisted_4$8
-              ]),
-              _: 1
-            }, 8, ["modelValue"]),
-            (openBlock(true), createElementBlock(Fragment, null, renderList(unref(histoireConfig).backgroundPresets, (option, index) => {
-              return openBlock(), createElementBlock("button", {
-                key: index,
-                class: normalizeClass(["htw-px-4 htw-py-3 htw-cursor-pointer htw-text-left htw-flex htw-gap-4", [
-                  unref(settings).backgroundColor === option.color ? "htw-bg-primary-500 hover:htw-bg-primary-600 htw-text-white dark:htw-text-black" : "htw-bg-transparent hover:htw-bg-primary-100 dark:hover:htw-bg-primary-700"
-                ]]),
-                onClick: ($event) => {
-                  unref(settings).backgroundColor = option.color;
-                  hide();
-                }
-              }, [
-                createBaseVNode("span", _hoisted_6$5, toDisplayString(option.label), 1),
-                option.color !== "$checkerboard" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-                  createBaseVNode("span", _hoisted_7$2, toDisplayString(option.color), 1),
-                  createBaseVNode("div", {
-                    class: "htw-w-4 htw-h-4 htw-rounded-full htw-border htw-border-black/20 dark:htw-border-white/20",
-                    style: normalizeStyle({
-                      backgroundColor: option.color
-                    })
-                  }, null, 4)
-                ], 64)) : createCommentVNode("", true)
-              ], 10, _hoisted_5$5);
-            }), 128))
-          ])
-        ]),
-        default: withCtx(() => [
-          withDirectives((openBlock(), createElementBlock("div", _hoisted_1$m, [
-            _hoisted_2$i,
-            createVNode(unref(Icon), {
-              icon: "carbon:caret-down",
-              class: "htw-w-4 htw-h-4 htw-opacity-50 group-hover:htw-opacity-100"
-            })
-          ])), [
-            [_directive_tooltip, "Background color"]
-          ])
-        ]),
-        _: 1
-      })) : createCommentVNode("", true);
-    };
-  }
-});
-var StoryVariantBackground = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["__scopeId", "data-v-bc4883a4"]]);
-function getSandboxUrl(story, variant) {
-  const url = new URLSearchParams();
-  url.append("storyId", story.id);
-  url.append("variantId", variant.id);
-  return `${base}__sandbox.html?${url.toString()}`;
-}
-const _hoisted_1$l = ["href"];
-const _sfc_main$n = /* @__PURE__ */ defineComponent({
-  __name: "StoryVariantNewTab",
-  props: {
-    variant: null,
-    story: null
-  },
-  setup(__props) {
-    const props = __props;
-    const sandboxUrl = computed(() => {
-      return getSandboxUrl(props.story, props.variant);
-    });
-    return (_ctx, _cache) => {
-      const _directive_tooltip = resolveDirective("tooltip");
-      return withDirectives((openBlock(), createElementBlock("a", {
-        href: unref(sandboxUrl),
-        target: "_blank",
-        class: "htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-2 hover:htw-text-primary-500 htw-opacity-50 hover:htw-opacity-100 dark:hover:htw-text-primary-400 htw-text-gray-900 dark:htw-text-gray-100"
-      }, [
-        createVNode(unref(Icon), {
-          icon: "carbon:launch",
-          class: "base-list-item-link-icon htw-w-4 htw-h-4"
-        })
-      ], 8, _hoisted_1$l)), [
-        [_directive_tooltip, "Open variant in new tab"]
-      ]);
-    };
-  }
-});
-const _sfc_main$m = {};
-const _hoisted_1$k = { class: "__histoire-hatched-pattern" };
-function _sfc_render$3(_ctx, _cache) {
-  return openBlock(), createElementBlock("div", _hoisted_1$k);
-}
-var HatchedPattern = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$3], ["__scopeId", "data-v-0bb8c4e8"]]);
 const _sfc_main$l = {};
-const _hoisted_1$j = { fill: "none" };
-const _hoisted_2$h = /* @__PURE__ */ createBaseVNode("pattern", {
-  id: "checkerboard",
-  width: "64",
-  height: "64",
-  patternUnits: "userSpaceOnUse"
-}, [
-  /* @__PURE__ */ createBaseVNode("rect", {
-    x: "0",
-    y: "0",
-    width: "32",
-    height: "32",
-    fill: "currentColor"
-  }),
-  /* @__PURE__ */ createBaseVNode("rect", {
-    x: "32",
-    y: "32",
-    width: "32",
-    height: "32",
-    fill: "currentColor"
-  })
-], -1);
-const _hoisted_3$a = /* @__PURE__ */ createBaseVNode("rect", {
-  x: "0",
-  y: "0",
-  width: "100%",
-  height: "100%",
-  fill: "url(#checkerboard)"
-}, null, -1);
-const _hoisted_4$7 = [
-  _hoisted_2$h,
-  _hoisted_3$a
-];
+const _hoisted_1$j = { class: "__histoire-hatched-pattern" };
 function _sfc_render$2(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$j, _hoisted_4$7);
+  return openBlock(), createElementBlock("div", _hoisted_1$j);
 }
-var CheckerboardPattern = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$2]]);
-const _withScopeId$1 = (n) => (pushScopeId("data-v-4514e446"), n = n(), popScopeId(), n);
-const _hoisted_1$i = { class: "htw-w-full htw-h-full htw-flex-1 htw-border htw-border-gray-100 dark:htw-border-gray-800 htw-rounded-lg htw-relative htw-overflow-hidden" };
-const _hoisted_2$g = {
+const HatchedPattern = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$2], ["__scopeId", "data-v-91561117"]]);
+const _withScopeId$1 = (n) => (pushScopeId("data-v-1375d05a"), n = n(), popScopeId(), n);
+const _hoisted_1$i = { class: "htw-w-full htw-h-full htw-flex-1 htw-rounded-lg htw-relative htw-overflow-hidden" };
+const _hoisted_2$e = {
   key: 0,
-  class: "htw-absolute htw-inset-0 htw-w-full htw-h-full htw-bg-gray-200 dark:htw-bg-gray-850 htw-rounded-r-lg htw-border-l-2 htw-border-gray-500/10 dark:htw-border-gray-700/30 htw-overflow-hidden"
+  class: "htw-absolute htw-inset-0 htw-w-full htw-h-full htw-bg-gray-100 dark:htw-bg-gray-750 htw-rounded-r-lg htw-border-l-2 htw-border-gray-500/10 dark:htw-border-gray-700/30 htw-overflow-hidden"
 };
-const _hoisted_3$9 = { class: "htw-p-4 htw-h-full htw-relative" };
-const _hoisted_4$6 = { class: "htw-w-full htw-h-full htw-border htw-border-gray-100 dark:htw-border-gray-800 htw-rounded-sm htw-relative" };
-const _hoisted_5$4 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createBaseVNode("div", { class: "bind-preview-bg htw-absolute htw-inset-0" }, null, -1));
-const _hoisted_6$4 = /* @__PURE__ */ createStaticVNode('<div class="htw-absolute htw-top-1 htw-left-4 htw-h-2 htw-w-px htw-bg-gray-200 dark:htw-bg-gray-800" data-v-4514e446></div><div class="htw-absolute htw-top-1 htw-right-4 htw-h-2 htw-w-px htw-bg-gray-200 dark:htw-bg-gray-800" data-v-4514e446></div><div class="htw-absolute htw-bottom-1 htw-left-4 htw-h-2 htw-w-px htw-bg-gray-200 dark:htw-bg-gray-800" data-v-4514e446></div><div class="htw-absolute htw-bottom-1 htw-right-4 htw-h-2 htw-w-px htw-bg-gray-200 dark:htw-bg-gray-800" data-v-4514e446></div><div class="htw-absolute htw-left-1 htw-top-4 htw-w-2 htw-h-px htw-bg-gray-200 dark:htw-bg-gray-800" data-v-4514e446></div><div class="htw-absolute htw-left-1 htw-bottom-4 htw-w-2 htw-h-px htw-bg-gray-200 dark:htw-bg-gray-800" data-v-4514e446></div><div class="htw-absolute htw-right-1 htw-top-4 htw-w-2 htw-h-px htw-bg-gray-200 dark:htw-bg-gray-800" data-v-4514e446></div><div class="htw-absolute htw-right-1 htw-bottom-4 htw-w-2 htw-h-px htw-bg-gray-200 dark:htw-bg-gray-800" data-v-4514e446></div>', 8);
+const _hoisted_3$8 = { class: "bind-preview-bg htw-rounded-lg htw-h-full" };
+const _hoisted_4$5 = { class: "htw-p-8 htw-h-full htw-relative" };
+const _hoisted_5$3 = { class: "htw-w-full htw-h-full htw-relative" };
+const _hoisted_6$2 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createBaseVNode("div", { class: "htw-absolute htw-inset-0" }, null, -1));
+const _hoisted_7$1 = /* @__PURE__ */ createStaticVNode('<div class="htw-absolute htw-top-5 htw-left-8 htw-h-2 htw-w-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-top-5 htw-right-8 htw-h-2 htw-w-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-bottom-5 htw-left-8 htw-h-2 htw-w-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-bottom-5 htw-right-8 htw-h-2 htw-w-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-left-5 htw-top-8 htw-w-2 htw-h-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-left-5 htw-bottom-8 htw-w-2 htw-h-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-right-5 htw-top-8 htw-w-2 htw-h-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-right-5 htw-bottom-8 htw-w-2 htw-h-px htw-bg-gray-400/25" data-v-1375d05a></div>', 8);
 const _sfc_main$k = /* @__PURE__ */ defineComponent({
   __name: "StoryResponsivePreview",
   props: {
@@ -658,7 +735,7 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const props = __props;
     useCssVars((_ctx) => ({
-      "65757cd6": unref(settings).backgroundColor
+      "cfc058d0": unref(settings).backgroundColor
     }));
     const settings = usePreviewSettingsStore().currentSettings;
     const resizing = ref(false);
@@ -748,8 +825,8 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
     const isResponsiveEnabled = computed(() => !props.variant.responsiveDisabled);
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$i, [
-        unref(isResponsiveEnabled) ? (openBlock(), createElementBlock("div", _hoisted_2$g, [
-          createVNode(HatchedPattern, { class: "htw-w-full htw-h-full htw-text-black/[2%] dark:htw-text-white/[2%]" })
+        unref(isResponsiveEnabled) ? (openBlock(), createElementBlock("div", _hoisted_2$e, [
+          createVNode(HatchedPattern, { class: "htw-w-full htw-h-full htw-text-black/[1%] dark:htw-text-white/[1%]" })
         ])) : createCommentVNode("", true),
         createBaseVNode("div", {
           ref_key: "previewWrapper",
@@ -757,61 +834,63 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
           class: "htw-h-full htw-overflow-auto htw-relative"
         }, [
           createBaseVNode("div", {
-            class: normalizeClass(["htw-h-full htw-p-4 htw-overflow-hidden htw-bg-white dark:htw-bg-gray-700 htw-rounded-lg htw-relative", unref(isResponsiveEnabled) ? {
+            class: normalizeClass(["htw-h-full htw-overflow-hidden htw-bg-white dark:htw-bg-gray-700 htw-rounded-lg htw-relative", unref(isResponsiveEnabled) ? {
               "htw-w-fit": !!unref(finalWidth),
               "htw-h-fit": !!unref(finalHeight)
             } : void 0])
           }, [
-            createBaseVNode("div", _hoisted_3$9, [
-              createBaseVNode("div", _hoisted_4$6, [
-                _hoisted_5$4,
-                unref(settings).checkerboard ? (openBlock(), createBlock(CheckerboardPattern, {
-                  key: 0,
-                  class: "htw-absolute htw-inset-0 htw-w-full htw-h-full htw-text-gray-500/20"
-                })) : createCommentVNode("", true),
-                renderSlot(_ctx.$slots, "default", {
-                  isResponsiveEnabled: unref(isResponsiveEnabled),
-                  finalWidth: unref(finalWidth),
-                  finalHeight: unref(finalHeight),
-                  resizing: resizing.value
-                }, void 0, true)
+            createBaseVNode("div", _hoisted_3$8, [
+              unref(settings).checkerboard ? (openBlock(), createBlock(CheckerboardPattern, {
+                key: 0,
+                class: "htw-absolute htw-inset-0 htw-w-full htw-h-full htw-text-gray-500/20"
+              })) : createCommentVNode("", true),
+              createBaseVNode("div", _hoisted_4$5, [
+                createBaseVNode("div", _hoisted_5$3, [
+                  _hoisted_6$2,
+                  renderSlot(_ctx.$slots, "default", {
+                    isResponsiveEnabled: unref(isResponsiveEnabled),
+                    finalWidth: unref(finalWidth),
+                    finalHeight: unref(finalHeight),
+                    resizing: resizing.value
+                  }, void 0, true)
+                ]),
+                _hoisted_7$1
               ]),
-              _hoisted_6$4
-            ]),
-            unref(isResponsiveEnabled) ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-              createBaseVNode("div", {
-                ref_key: "horizontalDragger",
-                ref: horizontalDragger,
-                class: "htw-absolute htw-w-4 htw-top-0 htw-bottom-4 htw-right-0 hover:htw-bg-primary-100 dark:hover:htw-bg-primary-800 htw-flex htw-items-center htw-justify-center htw-cursor-ew-resize htw-group hover:htw-text-primary-500"
-              }, [
-                createVNode(unref(Icon), {
-                  icon: "mdi:drag-vertical-variant",
-                  class: "htw-w-4 htw-h-4 htw-opacity-20 group-hover:htw-opacity-90"
-                })
-              ], 512),
-              createBaseVNode("div", {
-                ref_key: "verticalDragger",
-                ref: verticalDragger,
-                class: "htw-absolute htw-h-4 htw-left-0 htw-right-4 htw-bottom-0 hover:htw-bg-primary-100 dark:hover:htw-bg-primary-800 htw-flex htw-items-center htw-justify-center htw-cursor-ns-resize htw-group hover:htw-text-primary-500"
-              }, [
-                createVNode(unref(Icon), {
-                  icon: "mdi:drag-horizontal-variant",
-                  class: "htw-w-4 htw-h-4 htw-opacity-20 group-hover:htw-opacity-90"
-                })
-              ], 512),
-              createBaseVNode("div", {
-                ref_key: "cornerDragger",
-                ref: cornerDragger,
-                class: "htw-absolute htw-w-4 htw-h-4 htw-right-0 htw-bottom-0 hover:htw-bg-primary-100 dark:hover:htw-bg-primary-800 htw-flex htw-items-center htw-justify-center htw-cursor-nwse-resize htw-group hover:htw-text-primary-500"
-              }, null, 512)
-            ], 64)) : createCommentVNode("", true)
+              unref(isResponsiveEnabled) ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+                createBaseVNode("div", {
+                  ref_key: "horizontalDragger",
+                  ref: horizontalDragger,
+                  class: "htw-absolute htw-w-4 htw-top-0 htw-bottom-4 htw-right-0 hover:htw-bg-primary-500/30 htw-flex htw-items-center htw-justify-center htw-cursor-ew-resize htw-group hover:htw-text-primary-500"
+                }, [
+                  createVNode(unref(Icon), {
+                    icon: "mdi:drag-vertical-variant",
+                    class: "htw-w-4 htw-h-4 htw-opacity-20 group-hover:htw-opacity-90"
+                  })
+                ], 512),
+                createBaseVNode("div", {
+                  ref_key: "verticalDragger",
+                  ref: verticalDragger,
+                  class: "htw-absolute htw-h-4 htw-left-0 htw-right-4 htw-bottom-0 hover:htw-bg-primary-500/30 htw-flex htw-items-center htw-justify-center htw-cursor-ns-resize htw-group hover:htw-text-primary-500"
+                }, [
+                  createVNode(unref(Icon), {
+                    icon: "mdi:drag-horizontal-variant",
+                    class: "htw-w-4 htw-h-4 htw-opacity-20 group-hover:htw-opacity-90"
+                  })
+                ], 512),
+                createBaseVNode("div", {
+                  ref_key: "cornerDragger",
+                  ref: cornerDragger,
+                  class: "htw-absolute htw-w-4 htw-h-4 htw-right-0 htw-bottom-0 hover:htw-bg-primary-500/30 htw-flex htw-items-center htw-justify-center htw-cursor-nwse-resize htw-group hover:htw-text-primary-500"
+                }, null, 512)
+              ], 64)) : createCommentVNode("", true)
+            ])
           ], 2)
         ], 512)
       ]);
     };
   }
 });
-var StoryResponsivePreview = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["__scopeId", "data-v-4514e446"]]);
+const StoryResponsivePreview = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["__scopeId", "data-v-1375d05a"]]);
 const _sfc_main$j = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantSinglePreviewNative",
   props: {
@@ -828,6 +907,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
         previewReady: true
       });
     }
+    const settings = usePreviewSettingsStore().currentSettings;
     return (_ctx, _cache) => {
       return openBlock(), createBlock(StoryResponsivePreview, { variant: __props.variant }, {
         default: withCtx(({ isResponsiveEnabled, finalWidth, finalHeight }) => [
@@ -839,13 +919,14 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
             class: "htw-relative",
             "data-test-id": "sandbox-render"
           }, [
-            (openBlock(), createBlock(_sfc_main$v, {
+            (openBlock(), createBlock(_sfc_main$w, {
               key: `${__props.story.id}-${__props.variant.id}`,
               variant: __props.variant,
               story: __props.story,
-              class: "htw-h-full",
+              class: normalizeClass(["htw-h-full", [unref(isDark) ? unref(histoireConfig).sandboxDarkClass : void 0]]),
+              dir: unref(settings).textDirection,
               onReady
-            }, null, 8, ["variant", "story"]))
+            }, null, 8, ["variant", "story", "class", "dir"]))
           ], 4)
         ]),
         _: 1
@@ -969,7 +1050,7 @@ const _hoisted_1$g = {
   class: "htw-h-full htw-flex htw-flex-col",
   "data-test-id": "story-variant-single-view"
 };
-const _hoisted_2$f = {
+const _hoisted_2$d = {
   key: 0,
   class: "htw-flex-none htw-flex htw-items-center htw-h-8 -htw-mt-1"
 };
@@ -983,11 +1064,12 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       var _a;
       return openBlock(), createElementBlock("div", _hoisted_1$g, [
-        !unref(isMobile) ? (openBlock(), createElementBlock("div", _hoisted_2$f, [
-          createVNode(_sfc_main$r, { variant: __props.variant }, null, 8, ["variant"]),
-          !__props.variant.responsiveDisabled ? (openBlock(), createBlock(_sfc_main$p, { key: 0 })) : createCommentVNode("", true),
-          createVNode(StoryVariantBackground),
-          createVNode(_sfc_main$n, {
+        !unref(isMobile) ? (openBlock(), createElementBlock("div", _hoisted_2$d, [
+          createVNode(_sfc_main$n, { variant: __props.variant }, null, 8, ["variant"]),
+          !__props.variant.responsiveDisabled ? (openBlock(), createBlock(_sfc_main$m, { key: 0 })) : createCommentVNode("", true),
+          createVNode(ToolbarBackground),
+          createVNode(_sfc_main$p),
+          createVNode(_sfc_main$u, {
             variant: __props.variant,
             story: __props.story
           }, null, 8, ["variant", "story"])
@@ -1007,21 +1089,20 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent({
 });
 const _hoisted_1$f = {
   key: 0,
-  class: "htw-p-2 htw-h-full"
+  class: "htw-p-2 htw-h-full __histoire-pane-shadow-from-right"
 };
-const _hoisted_2$e = {
+const _hoisted_2$c = {
   key: 0,
   class: "htw-divide-y htw-divide-gray-100 dark:htw-divide-gray-800 htw-h-full htw-flex htw-flex-col"
 };
-const _hoisted_3$8 = /* @__PURE__ */ createTextVNode(" Select a variant... ");
-const _hoisted_4$5 = {
+const _hoisted_3$7 = {
   key: 0,
   class: "htw-p-2 htw-h-full"
 };
-const _hoisted_5$3 = { class: "htw-h-full htw-overflow-y-auto" };
-const _hoisted_6$3 = {
+const _hoisted_4$4 = { class: "htw-h-full htw-overflow-y-auto" };
+const _hoisted_5$2 = {
   key: 0,
-  class: "htw-p-2 htw-h-full"
+  class: "htw-p-2 htw-h-full __histoire-pane-shadow-from-right"
 };
 const _sfc_main$g = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantSingle",
@@ -1032,7 +1113,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
     useCssVars((_ctx) => {
       var _a;
       return {
-        "0589c2c6": (_a = unref(variant)) == null ? void 0 : _a.iconColor
+        "513cd7c8": (_a = unref(variant)) == null ? void 0 : _a.iconColor
       };
     });
     const storyStore = useStoryStore();
@@ -1049,7 +1130,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
           story: unref(storyStore).currentStory
         }, null, 8, ["variant", "story"])
       ])) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-        unref(isMobile) ? (openBlock(), createElementBlock("div", _hoisted_2$e, [
+        unref(isMobile) ? (openBlock(), createElementBlock("div", _hoisted_2$c, [
           createBaseVNode("a", {
             class: "htw-px-6 htw-h-12 hover:htw-text-primary-500 dark:hover:htw-text-primary-400 htw-cursor-pointer htw-flex htw-gap-2 htw-flex-wrap htw-w-full htw-items-center htw-flex-none",
             onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("open-variant-menu"))
@@ -1057,21 +1138,21 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
             unref(variant) ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
               createVNode(unref(Icon), {
                 icon: (_a = unref(variant).icon) != null ? _a : "carbon:cube",
-                class: normalizeClass(["base-list-item-link-icon htw-w-5 htw-h-5 htw-flex-none", {
+                class: normalizeClass(["htw-w-5 htw-h-5 htw-flex-none", {
                   "htw-text-gray-500": !unref(variant).iconColor,
                   "bind-icon-color": unref(variant).iconColor
                 }])
               }, null, 8, ["icon", "class"]),
               createTextVNode(" " + toDisplayString(unref(variant).title), 1)
             ], 64)) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-              _hoisted_3$8
+              createTextVNode(" Select a variant... ")
             ], 64)),
             createVNode(unref(Icon), {
               icon: "carbon:chevron-sort",
               class: "htw-w-5 htw-h-5 htw-shrink-0 htw-ml-auto"
             })
           ]),
-          unref(storyStore).currentVariant ? (openBlock(), createElementBlock("div", _hoisted_4$5, [
+          unref(storyStore).currentVariant ? (openBlock(), createElementBlock("div", _hoisted_3$7, [
             createVNode(_sfc_main$h, {
               variant: unref(storyStore).currentVariant,
               story: unref(storyStore).currentStory
@@ -1085,7 +1166,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
           "default-split": 17
         }, {
           first: withCtx(() => [
-            createBaseVNode("div", _hoisted_5$3, [
+            createBaseVNode("div", _hoisted_4$4, [
               (openBlock(true), createElementBlock(Fragment, null, renderList(unref(storyStore).currentStory.variants, (v, index) => {
                 return openBlock(), createBlock(StoryVariantListItem, {
                   key: index,
@@ -1095,7 +1176,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
             ])
           ]),
           last: withCtx(() => [
-            unref(storyStore).currentVariant ? (openBlock(), createElementBlock("div", _hoisted_6$3, [
+            unref(storyStore).currentVariant ? (openBlock(), createElementBlock("div", _hoisted_5$2, [
               createVNode(_sfc_main$h, {
                 variant: unref(storyStore).currentVariant,
                 story: unref(storyStore).currentStory
@@ -1108,7 +1189,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var StoryVariantSingle = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-2ca2325e"]]);
+const StoryVariantSingle = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-89489ae4"]]);
 const _hoisted_1$e = { class: "htw-bg-gray-50 htw-h-full dark:htw-bg-gray-750" };
 const _sfc_main$f = /* @__PURE__ */ defineComponent({
   __name: "StoryViewer",
@@ -1116,7 +1197,7 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent({
     useCssVars((_ctx) => {
       var _a;
       return {
-        "10f93ca4": (_a = unref(variant)) == null ? void 0 : _a.iconColor
+        "249174dc": (_a = unref(variant)) == null ? void 0 : _a.iconColor
       };
     });
     const storyStore = useStoryStore();
@@ -1131,12 +1212,12 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", _hoisted_1$e, [
-          unref(storyStore).currentStory.layout.type === "grid" ? (openBlock(), createBlock(_sfc_main$s, { key: 0 })) : unref(storyStore).currentStory.layout.type === "single" ? (openBlock(), createBlock(StoryVariantSingle, {
+          unref(storyStore).currentStory.layout.type === "grid" ? (openBlock(), createBlock(_sfc_main$o, { key: 0 })) : unref(storyStore).currentStory.layout.type === "single" ? (openBlock(), createBlock(StoryVariantSingle, {
             key: 1,
             onOpenVariantMenu: _cache[0] || (_cache[0] = ($event) => isMenuOpened.value = true)
           })) : createCommentVNode("", true)
         ]),
-        createVNode(_sfc_main$w, {
+        createVNode(_sfc_main$x, {
           title: "Select a variant",
           opened: isMenuOpened.value,
           onClose: closeMenu
@@ -1155,11 +1236,11 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var StoryViewer = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-b9d4a640"]]);
+const StoryViewer = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-54d5a557"]]);
 const _hoisted_1$d = { class: "htw-cursor-pointer htw-w-full htw-outline-none htw-px-2 htw-h-[27px] -htw-my-1 htw-border htw-border-solid htw-border-black/25 dark:htw-border-white/25 hover:htw-border-primary-500 dark:hover:htw-border-primary-500 htw-rounded-sm htw-flex htw-gap-2 htw-items-center htw-leading-normal" };
-const _hoisted_2$d = { class: "htw-flex-1 htw-truncate" };
-const _hoisted_3$7 = { class: "htw-flex htw-flex-col htw-bg-gray-50 dark:htw-bg-gray-700" };
-const _hoisted_4$4 = ["onClick"];
+const _hoisted_2$b = { class: "htw-flex-1 htw-truncate" };
+const _hoisted_3$6 = { class: "htw-flex htw-flex-col htw-bg-gray-50 dark:htw-bg-gray-700" };
+const _hoisted_4$3 = ["onClick"];
 const _sfc_main$e = /* @__PURE__ */ defineComponent({
   __name: "BaseSelect",
   props: {
@@ -1184,7 +1265,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createBlock(unref(Dropdown), { "auto-size": "" }, {
         popper: withCtx(({ hide }) => [
-          createBaseVNode("div", _hoisted_3$7, [
+          createBaseVNode("div", _hoisted_3$6, [
             (openBlock(true), createElementBlock(Fragment, null, renderList(unref(formattedOptions), (label, value) => {
               return openBlock(), createElementBlock("div", mergeProps({ ..._ctx.$attrs, class: null, style: null }, {
                 key: label,
@@ -1199,13 +1280,13 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                 }, () => [
                   createTextVNode(toDisplayString(label), 1)
                 ])
-              ], 16, _hoisted_4$4);
+              ], 16, _hoisted_4$3);
             }), 128))
           ])
         ]),
         default: withCtx(() => [
           createBaseVNode("div", _hoisted_1$d, [
-            createBaseVNode("div", _hoisted_2$d, [
+            createBaseVNode("div", _hoisted_2$b, [
               renderSlot(_ctx.$slots, "default", { label: unref(selectedLabel) }, () => [
                 createTextVNode(toDisplayString(unref(selectedLabel)), 1)
               ])
@@ -1222,14 +1303,14 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
   }
 });
 const _hoisted_1$c = { class: "htw-flex htw-gap-2 htw-w-full htw-items-center" };
-const _hoisted_2$c = ["onUpdate:modelValue"];
-const _hoisted_3$6 = {
+const _hoisted_2$a = ["onUpdate:modelValue"];
+const _hoisted_3$5 = {
   key: 1,
   class: "htw-flex htw-items-center htw-gap-2"
 };
-const _hoisted_4$3 = { class: "htw-flex-1 htw-truncate" };
-const _hoisted_5$2 = { class: "htw-flex htw-gap-2 htw-items-center" };
-const _hoisted_6$2 = { class: "htw-flex-1 htw-truncate" };
+const _hoisted_4$2 = { class: "htw-flex-1 htw-truncate" };
+const _hoisted_5$1 = { class: "htw-flex htw-gap-2 htw-items-center" };
+const _hoisted_6$1 = { class: "htw-flex-1 htw-truncate" };
 const _sfc_main$d = /* @__PURE__ */ defineComponent({
   __name: "StatePresets",
   props: {
@@ -1347,10 +1428,10 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent({
                 class: "htw-text-inherit htw-bg-transparent htw-w-full htw-h-full htw-outline-none",
                 onClick: _cache[0] || (_cache[0] = withModifiers(() => {
                 }, ["stop", "prevent"]))
-              }, null, 8, _hoisted_2$c)), [
+              }, null, 8, _hoisted_2$a)), [
                 [vModelText, unref(presetStates).get(unref(selectedOption)).label]
-              ]) : (openBlock(), createElementBlock("div", _hoisted_3$6, [
-                createBaseVNode("span", _hoisted_4$3, toDisplayString(label), 1),
+              ]) : (openBlock(), createElementBlock("div", _hoisted_3$5, [
+                createBaseVNode("span", _hoisted_4$2, toDisplayString(label), 1),
                 unref(canEdit) ? withDirectives((openBlock(), createBlock(unref(Icon), {
                   key: 0,
                   icon: "carbon:edit",
@@ -1362,8 +1443,8 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent({
               ]))
             ]),
             option: withCtx(({ label, value }) => [
-              createBaseVNode("div", _hoisted_5$2, [
-                createBaseVNode("span", _hoisted_6$2, toDisplayString(label), 1),
+              createBaseVNode("div", _hoisted_5$1, [
+                createBaseVNode("span", _hoisted_6$1, toDisplayString(label), 1),
                 value !== DEFAULT_ID ? withDirectives((openBlock(), createBlock(unref(Icon), {
                   key: 0,
                   icon: "carbon:trash-can",
@@ -1417,40 +1498,22 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
       var _a;
       switch ((_a = props.definition.types) == null ? void 0 : _a[0]) {
         case "string":
-          return HstText;
+          return Eg;
         case "number":
-          return HstNumber;
+          return Ng;
         case "boolean":
-          return HstCheckbox;
+          return Rg;
         case "object":
         default:
-          return HstTextarea;
+          return jg;
       }
     });
-    const isJSON = computed(() => comp.value === HstTextarea);
-    const invalidValue = ref("");
     const model = computed({
       get: () => {
         var _a;
-        if (invalidValue.value) {
-          return invalidValue.value;
-        }
-        let val = (_a = props.variant.state._hPropState[props.component.index]) == null ? void 0 : _a[props.definition.name];
-        if (val && isJSON.value) {
-          val = JSON.stringify(val, null, 2);
-        }
-        return val;
+        return (_a = props.variant.state._hPropState[props.component.index]) == null ? void 0 : _a[props.definition.name];
       },
       set: (value) => {
-        invalidValue.value = "";
-        if (isJSON.value) {
-          try {
-            value = JSON.parse(value);
-          } catch (e) {
-            invalidValue.value = value;
-            return;
-          }
-        }
         if (!props.variant.state._hPropState[props.component.index]) {
           props.variant.state._hPropState[props.component.index] = {};
         }
@@ -1472,17 +1535,9 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
         key: 0,
         modelValue: unref(model),
         "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => isRef(model) ? model.value = $event : null),
-        title: `${__props.definition.name}${unref(canReset) ? " *" : ""}`,
-        placeholder: unref(isJSON) ? "Enter JSON" : null
+        title: `${__props.definition.name}${unref(canReset) ? " *" : ""}`
       }, {
         actions: withCtx(() => [
-          invalidValue.value ? withDirectives((openBlock(), createBlock(unref(Icon), {
-            key: 0,
-            icon: "carbon:warning-alt",
-            class: "htw-text-orange-500"
-          }, null, 512)), [
-            [_directive_tooltip, "JSON error"]
-          ]) : createCommentVNode("", true),
           withDirectives(createVNode(unref(Icon), {
             icon: "carbon:erase",
             class: normalizeClass(["htw-cursor-pointer htw-w-4 htw-h-4 hover:htw-text-primary-500 dark:hover:htw-text-primary-400 htw-text-gray-900 dark:htw-text-gray-100", [
@@ -1494,13 +1549,13 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
           ])
         ]),
         _: 1
-      }, 8, ["modelValue", "title", "placeholder"])) : createCommentVNode("", true);
+      }, 8, ["modelValue", "title"])) : createCommentVNode("", true);
     };
   }
 });
 const _hoisted_1$b = { class: "htw-font-mono htw-p-2 htw-flex htw-items-center htw-gap-1" };
-const _hoisted_2$b = /* @__PURE__ */ createBaseVNode("span", { class: "htw-opacity-30" }, "<", -1);
-const _hoisted_3$5 = /* @__PURE__ */ createBaseVNode("span", { class: "htw-opacity-30" }, ">", -1);
+const _hoisted_2$9 = /* @__PURE__ */ createBaseVNode("span", { class: "htw-opacity-30" }, "<", -1);
+const _hoisted_3$4 = /* @__PURE__ */ createBaseVNode("span", { class: "htw-opacity-30" }, ">", -1);
 const _sfc_main$b = /* @__PURE__ */ defineComponent({
   __name: "ControlsComponentProps",
   props: {
@@ -1519,9 +1574,9 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
             [_directive_tooltip, "Auto-detected props"]
           ]),
           createBaseVNode("div", null, [
-            _hoisted_2$b,
+            _hoisted_2$9,
             createTextVNode(toDisplayString(__props.definition.name), 1),
-            _hoisted_3$5
+            _hoisted_3$4
           ])
         ]),
         (openBlock(true), createElementBlock(Fragment, null, renderList(__props.definition.props, (prop) => {
@@ -1540,9 +1595,9 @@ const _hoisted_1$a = {
   "data-test-id": "story-controls",
   class: "htw-flex htw-flex-col htw-divide-y htw-divide-gray-100 dark:htw-divide-gray-750"
 };
-const _hoisted_2$a = { class: "htw-h-9 htw-flex-none htw-px-2 htw-flex htw-items-center" };
-const _hoisted_3$4 = /* @__PURE__ */ createBaseVNode("span", null, "No controls available for this story", -1);
-const _hoisted_4$2 = { key: 2 };
+const _hoisted_2$8 = { class: "htw-h-9 htw-flex-none htw-px-2 htw-flex htw-items-center" };
+const _hoisted_3$3 = /* @__PURE__ */ createBaseVNode("span", null, "No controls available for this story", -1);
+const _hoisted_4$1 = { key: 2 };
 const _sfc_main$a = /* @__PURE__ */ defineComponent({
   __name: "StoryControls",
   props: {
@@ -1561,17 +1616,18 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
     watch(() => props.variant, () => {
       ready.value = false;
     });
+    const hasCustomControls = computed(() => props.variant.slots().controls || props.story.slots().controls);
     return (_ctx, _cache) => {
       var _a, _b, _c, _d;
       return openBlock(), createElementBlock("div", _hoisted_1$a, [
-        createBaseVNode("div", _hoisted_2$a, [
-          ready.value ? (openBlock(), createBlock(_sfc_main$d, {
+        createBaseVNode("div", _hoisted_2$8, [
+          ready.value || !unref(hasCustomControls) ? (openBlock(), createBlock(_sfc_main$d, {
             key: 0,
             story: __props.story,
             variant: __props.variant
           }, null, 8, ["story", "variant"])) : createCommentVNode("", true)
         ]),
-        __props.variant.slots().controls || __props.story.slots().controls ? (openBlock(), createBlock(_sfc_main$v, {
+        unref(hasCustomControls) ? (openBlock(), createBlock(_sfc_main$w, {
           key: `${__props.story.id}-${__props.variant.id}`,
           "slot-name": "controls",
           variant: __props.variant,
@@ -1584,11 +1640,11 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
               icon: "carbon:audio-console",
               class: "htw-w-8 htw-h-8 htw-opacity-50 htw-mb-6"
             }),
-            _hoisted_3$4
+            _hoisted_3$3
           ]),
           _: 1
         })) : createCommentVNode("", true),
-        ((_d = (_c = __props.variant.state) == null ? void 0 : _c._hPropDefs) == null ? void 0 : _d.length) ? (openBlock(), createElementBlock("div", _hoisted_4$2, [
+        ((_d = (_c = __props.variant.state) == null ? void 0 : _c._hPropDefs) == null ? void 0 : _d.length) ? (openBlock(), createElementBlock("div", _hoisted_4$1, [
           (openBlock(true), createElementBlock(Fragment, null, renderList(__props.variant.state._hPropDefs, (def, index) => {
             return openBlock(), createBlock(_sfc_main$b, {
               key: index,
@@ -1602,9 +1658,8 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const markdownFiles = reactive({ "src/docs/Components.story.md": () => __vitePreload(() => import("./Components.story.es.js"), true ? [] : void 0) });
-const _hoisted_1$9 = /* @__PURE__ */ createTextVNode(" No documentation available ");
-const _hoisted_2$9 = ["innerHTML"];
+const markdownFiles = reactive({ "src/docs/Components.story.md": () => __vitePreload(() => import("./__resolved__virtual_md_src-docs-components-story-md.es.js"), true ? [] : void 0) });
+const _hoisted_1$9 = ["innerHTML"];
 function useStoryDoc(story) {
   const renderedDoc = ref("");
   watchEffect(async () => {
@@ -1637,7 +1692,7 @@ function useStoryDoc(story) {
     renderedDoc
   };
 }
-const _sfc_main$9 = defineComponent({
+const _sfc_main$9 = /* @__PURE__ */ defineComponent({
   __name: "StoryDocs",
   props: {
     story: {
@@ -1657,7 +1712,7 @@ const _sfc_main$9 = defineComponent({
               icon: "carbon:document-unknown",
               class: "htw-w-8 htw-h-8 htw-opacity-50 htw-mb-6"
             }),
-            _hoisted_1$9
+            createTextVNode(" No documentation available ")
           ]),
           _: 1
         })) : (openBlock(), createElementBlock("div", {
@@ -1665,7 +1720,7 @@ const _sfc_main$9 = defineComponent({
           class: "htw-prose dark:htw-prose-invert htw-p-4 htw-max-w-none",
           "data-test-id": "story-docs",
           innerHTML: unref(renderedDoc)
-        }, null, 8, _hoisted_2$9))
+        }, null, 8, _hoisted_1$9))
       ]);
     };
   }
@@ -1674,8 +1729,8 @@ const _hoisted_1$8 = {
   key: 0,
   class: "htw-text-xs htw-opacity-50 htw-truncate"
 };
-const _hoisted_2$8 = { class: "htw-overflow-auto htw-max-w-[400px] htw-max-h-[400px]" };
-const _hoisted_3$3 = { class: "htw-p-4" };
+const _hoisted_2$7 = { class: "htw-overflow-auto htw-max-w-[400px] htw-max-h-[400px]" };
+const _hoisted_3$2 = { class: "htw-p-4" };
 const _sfc_main$8 = /* @__PURE__ */ defineComponent({
   __name: "StoryEvent",
   props: {
@@ -1715,8 +1770,8 @@ const _sfc_main$8 = /* @__PURE__ */ defineComponent({
           ], 2)
         ]),
         popper: withCtx(() => [
-          createBaseVNode("div", _hoisted_2$8, [
-            createBaseVNode("pre", _hoisted_3$3, toDisplayString(__props.event.argument), 1)
+          createBaseVNode("div", _hoisted_2$7, [
+            createBaseVNode("pre", _hoisted_3$2, toDisplayString(__props.event.argument), 1)
           ])
         ]),
         _: 1
@@ -1724,8 +1779,7 @@ const _sfc_main$8 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _hoisted_1$7 = /* @__PURE__ */ createTextVNode(" No event fired ");
-const _hoisted_2$7 = { key: 1 };
+const _hoisted_1$7 = { key: 1 };
 const _sfc_main$7 = /* @__PURE__ */ defineComponent({
   __name: "StoryEvents",
   setup(__props) {
@@ -1752,10 +1806,10 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
               icon: "carbon:event-schedule",
               class: "htw-w-8 htw-h-8 htw-opacity-50 htw-mb-6"
             }),
-            _hoisted_1$7
+            createTextVNode(" No event fired ")
           ]),
           _: 1
-        })) : (openBlock(), createElementBlock("div", _hoisted_2$7, [
+        })) : (openBlock(), createElementBlock("div", _hoisted_1$7, [
           (openBlock(true), createElementBlock(Fragment, null, renderList(unref(eventsStore).events, (event, key) => {
             return openBlock(), createBlock(_sfc_main$8, {
               key,
@@ -1767,25 +1821,21 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _withScopeId = (n) => (pushScopeId("data-v-68151bff"), n = n(), popScopeId(), n);
-const _hoisted_1$6 = { class: "htw-bg-gray-100 dark:htw-bg-gray-800 htw-h-full htw-overflow-hidden htw-flex htw-flex-col" };
+const _withScopeId = (n) => (pushScopeId("data-v-0d096b10"), n = n(), popScopeId(), n);
+const _hoisted_1$6 = { class: "htw-bg-gray-50 dark:htw-bg-gray-750 htw-h-full htw-overflow-hidden htw-flex htw-flex-col" };
 const _hoisted_2$6 = {
   key: 0,
-  class: "htw-h-10 htw-flex-none htw-border-b htw-border-solid htw-border-gray-150 dark:htw-border-gray-850 htw-px-4 htw-flex htw-items-center"
+  class: "htw-h-10 htw-flex-none htw-border-b htw-border-solid htw-border-gray-500/5 htw-px-4 htw-flex htw-items-center htw-gap-2"
 };
-const _hoisted_3$2 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("div", { class: "htw-text-gray-900 dark:htw-text-gray-100" }, " Source ", -1));
-const _hoisted_4$1 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("div", { class: "htw-flex-1" }, null, -1));
-const _hoisted_5$1 = {
+const _hoisted_3$1 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("div", { class: "htw-text-gray-900 dark:htw-text-gray-100" }, " Source ", -1));
+const _hoisted_4 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("div", { class: "htw-flex-1" }, null, -1));
+const _hoisted_5 = { class: "htw-flex htw-flex-none htw-gap-px htw-h-full htw-py-2" };
+const _hoisted_6 = {
   key: 1,
   class: "htw-text-red-500 htw-h-full htw-p-2 htw-overflow-auto htw-font-mono htw-text-sm"
 };
-const _hoisted_6$1 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("span", null, "Not available", -1));
-const _hoisted_7$1 = ["value"];
-const _hoisted_8$1 = {
-  key: 4,
-  class: "htw-w-full htw-h-full htw-overflow-auto",
-  "data-test-id": "story-source-code"
-};
+const _hoisted_7 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("span", null, "Not available", -1));
+const _hoisted_8 = ["value"];
 const _hoisted_9 = ["innerHTML"];
 const _sfc_main$6 = /* @__PURE__ */ defineComponent({
   __name: "StorySourceCode",
@@ -1804,9 +1854,58 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
         generateSourceCodeFn.value = markRaw(pluginModule.generateSourceCode);
       }
     });
-    const sourceCode = ref("");
     const highlighter = shallowRef();
+    const dynamicSourceCode = ref("");
     const error = ref(null);
+    watch(() => [props.variant, generateSourceCodeFn.value], async () => {
+      var _a, _b, _c, _d;
+      if (!generateSourceCodeFn.value)
+        return;
+      error.value = null;
+      dynamicSourceCode.value = "";
+      try {
+        if (props.variant.source) {
+          dynamicSourceCode.value = props.variant.source;
+        } else if ((_b = (_a = props.variant).slots) == null ? void 0 : _b.call(_a).source) {
+          const source = (_d = (_c = props.variant).slots) == null ? void 0 : _d.call(_c).source()[0].children;
+          if (source) {
+            dynamicSourceCode.value = await unindent(source);
+          }
+        } else {
+          dynamicSourceCode.value = await generateSourceCodeFn.value(props.variant);
+        }
+      } catch (e) {
+        console.error(e);
+        error.value = e.message;
+      }
+      if (!dynamicSourceCode.value) {
+        displayedSource.value = "static";
+      }
+    }, {
+      deep: true,
+      immediate: true
+    });
+    const staticSourceCode = ref("");
+    watch(() => {
+      var _a, _b;
+      return [props.story, (_b = (_a = props.story) == null ? void 0 : _a.file) == null ? void 0 : _b.source];
+    }, async () => {
+      var _a;
+      staticSourceCode.value = "";
+      const sourceLoader = (_a = props.story.file) == null ? void 0 : _a.source;
+      if (sourceLoader) {
+        staticSourceCode.value = (await sourceLoader()).default;
+      }
+    }, {
+      immediate: true
+    });
+    const displayedSource = ref("dynamic");
+    const displayedSourceCode = computed(() => {
+      if (displayedSource.value === "dynamic") {
+        return dynamicSourceCode.value;
+      }
+      return staticSourceCode.value;
+    });
     onMounted(async () => {
       setCDN("https://unpkg.com/shiki@0.10.1/");
       highlighter.value = await getHighlighter({
@@ -1820,73 +1919,116 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
         ]
       });
     });
-    watch(() => [props.variant, generateSourceCodeFn.value], async () => {
-      var _a, _b, _c, _d;
-      if (!generateSourceCodeFn.value)
-        return;
-      error.value = null;
-      try {
-        if (props.variant.source) {
-          sourceCode.value = props.variant.source;
-        } else if ((_b = (_a = props.variant).slots) == null ? void 0 : _b.call(_a).source) {
-          const source = (_d = (_c = props.variant).slots) == null ? void 0 : _d.call(_c).source()[0].children;
-          if (source) {
-            sourceCode.value = await unindent(source);
-          }
-        } else {
-          sourceCode.value = await generateSourceCodeFn.value(props.variant);
-        }
-      } catch (e) {
-        console.error(e);
-        error.value = e.message;
-      }
-    }, {
-      deep: true,
-      immediate: true
-    });
     const sourceHtml = computed(() => {
       var _a;
-      return sourceCode.value ? (_a = highlighter.value) == null ? void 0 : _a.codeToHtml(sourceCode.value, {
+      return displayedSourceCode.value ? (_a = highlighter.value) == null ? void 0 : _a.codeToHtml(displayedSourceCode.value, {
         lang: "html",
         theme: isDark.value ? "github-dark" : "github-light"
       }) : "";
     });
+    let lastScroll = 0;
+    watch(() => props.variant, () => {
+      lastScroll = 0;
+    });
+    const scroller = ref();
+    function onScroll(event) {
+      if (sourceHtml.value) {
+        lastScroll = event.target.scrollTop;
+      }
+    }
+    watch(sourceHtml, async () => {
+      await nextTick();
+      if (scroller.value) {
+        scroller.value.scrollTop = lastScroll;
+      }
+    });
     return (_ctx, _cache) => {
+      const _directive_tooltip = resolveDirective("tooltip");
       return openBlock(), createElementBlock("div", _hoisted_1$6, [
         !error.value ? (openBlock(), createElementBlock("div", _hoisted_2$6, [
-          _hoisted_3$2,
-          _hoisted_4$1,
-          createVNode(unref(HstCopyIcon), {
-            content: sourceCode.value,
+          _hoisted_3$1,
+          _hoisted_4,
+          createBaseVNode("div", _hoisted_5, [
+            withDirectives((openBlock(), createElementBlock("button", {
+              class: normalizeClass(["htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-1 htw-bg-gray-500/10 htw-rounded-l htw-transition-all htw-ease-[cubic-bezier(0,1,.6,1)] htw-duration-300 htw-overflow-hidden", [
+                displayedSource.value !== "dynamic" ? "htw-max-w-6 htw-opacity-70" : "htw-max-w-[82px] htw-text-primary-600 dark:htw-text-primary-400",
+                dynamicSourceCode.value ? "htw-cursor-pointer hover:htw-bg-gray-500/30 active:htw-bg-gray-600/50" : "htw-opacity-50"
+              ]]),
+              onClick: _cache[0] || (_cache[0] = ($event) => dynamicSourceCode.value && (displayedSource.value = "dynamic"))
+            }, [
+              createVNode(unref(Icon), {
+                icon: "carbon:flash",
+                class: "htw-w-4 htw-h-4 htw-flex-none"
+              }),
+              createBaseVNode("span", {
+                class: normalizeClass(["transition-opacity duration-300", {
+                  "opacity-0": displayedSource.value !== "dynamic"
+                }])
+              }, " Dynamic ", 2)
+            ], 2)), [
+              [_directive_tooltip, !dynamicSourceCode.value ? "Dynamic source code is not available" : displayedSource.value !== "dynamic" ? "Switch to dynamic source" : null]
+            ]),
+            withDirectives((openBlock(), createElementBlock("button", {
+              class: normalizeClass(["htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-1 htw-bg-gray-500/10 htw-rounded-r htw-transition-all htw-ease-[cubic-bezier(0,1,.6,1)] htw-duration-300 htw-overflow-hidden", [
+                displayedSource.value !== "static" ? "htw-max-w-6 htw-opacity-70" : "htw-max-w-[63px] htw-text-primary-600 dark:htw-text-primary-400",
+                staticSourceCode.value ? "htw-cursor-pointer hover:htw-bg-gray-500/30 active:htw-bg-gray-600/50" : "htw-opacity-50"
+              ]]),
+              onClick: _cache[1] || (_cache[1] = ($event) => staticSourceCode.value && (displayedSource.value = "static"))
+            }, [
+              createVNode(unref(Icon), {
+                icon: "carbon:document",
+                class: "htw-w-4 htw-h-4 htw-flex-none"
+              }),
+              createBaseVNode("span", {
+                class: normalizeClass(["transition-opacity duration-300", {
+                  "opacity-0": displayedSource.value !== "static"
+                }])
+              }, " Static ", 2)
+            ], 2)), [
+              [_directive_tooltip, !staticSourceCode.value ? "Static source code is not available" : displayedSource.value !== "static" ? "Switch to static source" : null]
+            ])
+          ]),
+          createVNode(unref(_g), {
+            content: unref(displayedSourceCode),
             class: "htw-flex-none"
           }, null, 8, ["content"])
         ])) : createCommentVNode("", true),
-        error.value ? (openBlock(), createElementBlock("div", _hoisted_5$1, " Error: " + toDisplayString(error.value), 1)) : !sourceCode.value ? (openBlock(), createBlock(BaseEmpty, { key: 2 }, {
+        error.value ? (openBlock(), createElementBlock("div", _hoisted_6, " Error: " + toDisplayString(error.value), 1)) : !unref(displayedSourceCode) ? (openBlock(), createBlock(BaseEmpty, { key: 2 }, {
           default: withCtx(() => [
             createVNode(unref(Icon), {
               icon: "carbon:code-hide",
               class: "htw-w-8 htw-h-8 htw-opacity-50 htw-mb-6"
             }),
-            _hoisted_6$1
+            _hoisted_7
           ]),
           _: 1
         })) : !unref(sourceHtml) ? (openBlock(), createElementBlock("textarea", {
           key: 3,
+          ref_key: "scroller",
+          ref: scroller,
           class: "__histoire-code-placeholder htw-w-full htw-h-full htw-p-4 htw-outline-none htw-bg-transparent htw-resize-none htw-m-0",
-          value: sourceCode.value,
+          value: unref(displayedSourceCode),
           readonly: "",
-          "data-test-id": "story-source-code"
-        }, null, 8, _hoisted_7$1)) : (openBlock(), createElementBlock("div", _hoisted_8$1, [
+          "data-test-id": "story-source-code",
+          onScroll
+        }, null, 40, _hoisted_8)) : (openBlock(), createElementBlock("div", {
+          key: 4,
+          ref_key: "scroller",
+          ref: scroller,
+          class: "htw-w-full htw-h-full htw-overflow-auto",
+          "data-test-id": "story-source-code",
+          onScroll
+        }, [
           createBaseVNode("div", {
             class: "__histoire-code htw-p-4 htw-w-fit",
             innerHTML: unref(sourceHtml)
           }, null, 8, _hoisted_9)
-        ]))
+        ], 544))
       ]);
     };
   }
 });
-var StorySourceCode = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-68151bff"]]);
+const StorySourceCode = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-0d096b10"]]);
 const _sfc_main$5 = defineComponent({
   inheritAttrs: false,
   props: {
@@ -1928,7 +2070,7 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16);
 }
-var BaseTab = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$1]]);
+const BaseTab = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$1]]);
 const _hoisted_1$4 = {
   role: "button",
   class: "htw-cursor-pointer hover:htw-bg-primary-50 dark:hover:htw-bg-primary-900 htw-w-8 htw-h-full htw-flex htw-items-center htw-justify-center htw-absolute htw-top-0 htw-right-0"
@@ -2063,18 +2205,12 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16);
 }
-var BaseOverflowTab = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render]]);
-const _hoisted_1$2 = /* @__PURE__ */ createTextVNode(" Controls ");
-const _hoisted_2$2 = /* @__PURE__ */ createTextVNode(" Docs ");
-const _hoisted_3$1 = /* @__PURE__ */ createTextVNode(" Events ");
-const _hoisted_4 = {
+const BaseOverflowTab = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render]]);
+const _hoisted_1$2 = {
   key: 0,
   class: "htw-text-center htw-text-xs htw-mx-1 htw-px-0.5 htw-h-4 htw-min-w-4 htw-rounded-full active htw-bg-primary-500 htw-text-white dark:htw-text-black"
 };
-const _hoisted_5 = /* @__PURE__ */ createTextVNode(" Controls ");
-const _hoisted_6 = /* @__PURE__ */ createTextVNode(" Docs ");
-const _hoisted_7 = /* @__PURE__ */ createTextVNode(" Events ");
-const _hoisted_8 = {
+const _hoisted_2$2 = {
   key: 0,
   class: "htw-text-center htw-text-xs htw-mx-1 htw-px-0.5 htw-h-4 htw-min-w-4 htw-rounded-full active htw-bg-primary-500 htw-text-white dark:htw-text-black"
 };
@@ -2098,7 +2234,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             matched: !_ctx.$route.query.tab
           }, {
             default: withCtx(() => [
-              _hoisted_5
+              createTextVNode(" Controls ")
             ]),
             _: 1
           }, 8, ["to", "matched"]),
@@ -2110,7 +2246,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             })
           }, {
             default: withCtx(() => [
-              _hoisted_6
+              createTextVNode(" Docs ")
             ]),
             _: 1
           }, 8, ["to", "matched", "class"]),
@@ -2122,8 +2258,8 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             })
           }, {
             default: withCtx(() => [
-              _hoisted_7,
-              unref(eventsStore).unseen ? (openBlock(), createElementBlock("span", _hoisted_8, toDisplayString(unref(eventsStore).unseen <= 99 ? unref(eventsStore).unseen : "99+"), 1)) : createCommentVNode("", true)
+              createTextVNode(" Events "),
+              unref(eventsStore).unseen ? (openBlock(), createElementBlock("span", _hoisted_2$2, toDisplayString(unref(eventsStore).unseen <= 99 ? unref(eventsStore).unseen : "99+"), 1)) : createCommentVNode("", true)
             ]),
             _: 1
           }, 8, ["to", "matched", "class"])
@@ -2134,7 +2270,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             matched: !_ctx.$route.query.tab
           }, {
             default: withCtx(() => [
-              _hoisted_1$2
+              createTextVNode(" Controls ")
             ]),
             _: 1
           }, 8, ["to", "matched"]),
@@ -2146,7 +2282,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             })
           }, {
             default: withCtx(() => [
-              _hoisted_2$2
+              createTextVNode(" Docs ")
             ]),
             _: 1
           }, 8, ["to", "matched", "class"]),
@@ -2158,8 +2294,8 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             })
           }, {
             default: withCtx(() => [
-              _hoisted_3$1,
-              unref(eventsStore).unseen ? (openBlock(), createElementBlock("span", _hoisted_4, toDisplayString(unref(eventsStore).unseen <= 99 ? unref(eventsStore).unseen : "99+"), 1)) : createCommentVNode("", true)
+              createTextVNode(" Events "),
+              unref(eventsStore).unseen ? (openBlock(), createElementBlock("span", _hoisted_1$2, toDisplayString(unref(eventsStore).unseen <= 99 ? unref(eventsStore).unseen : "99+"), 1)) : createCommentVNode("", true)
             ]),
             _: 1
           }, 8, ["to", "matched", "class"])

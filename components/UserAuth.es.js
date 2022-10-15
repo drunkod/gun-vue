@@ -5,7 +5,6 @@ import __unplugin_components_4 from "./QrLoad.es.js";
 import { __unplugin_components_6, __unplugin_components_8 } from "./qrcode.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 const _hoisted_1$2 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"
@@ -22,7 +21,6 @@ function render$2(_ctx, _cache) {
 }
 const __unplugin_components_3 = { name: "la-sign-in-alt", render: render$2 };
 const _hoisted_1$1 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"

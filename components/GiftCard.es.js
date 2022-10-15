@@ -7,7 +7,6 @@ import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 import { useGift, giftState } from "./useGift.es.js";
 import "./AccountAvatar.es.js";
 const _hoisted_1$2 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"

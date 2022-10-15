@@ -4,7 +4,6 @@ import { __unplugin_components_2 } from "./eye.es.js";
 import { __unplugin_components_1 } from "./check.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 const _hoisted_1$1 = {
-  preserveAspectRatio: "xMidYMid meet",
   viewBox: "0 0 32 32",
   width: "1.2em",
   height: "1.2em"

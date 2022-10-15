@@ -1,5 +1,5 @@
 import { createRouter, __vitePreload, createWebHistory, createWebHashHistory, defineStore, ref, computed } from "./vendor.es.js";
-import { histoireConfig } from "./GenericMountStory.es.js";
+import { histoireConfig } from "./GenericMountStory.vue_vue_type_script_setup_true_lang.es.js";
 const base = "/components/";
 function createRouterHistory() {
   switch (histoireConfig.routerMode) {
@@ -16,12 +16,12 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: () => __vitePreload(() => import("./HomeView.es.js"), true ? ["HomeView.es.js","GenericMountStory.es.js","vendor.es.js"] : void 0)
+      component: () => __vitePreload(() => import("./HomeView.es.js"), true ? ["HomeView.es.js","GenericMountStory.vue_vue_type_script_setup_true_lang.es.js","vendor.es.js"] : void 0)
     },
     {
       path: "/story/:storyId",
       name: "story",
-      component: () => __vitePreload(() => import("./StoryView.es.js"), true ? ["StoryView.es.js","vendor.es.js","MobileOverlay.es.js","BaseEmpty.es.js","state.es.js","GenericMountStory.es.js","events.es.js"] : void 0)
+      component: () => __vitePreload(() => import("./StoryView.es.js"), true ? ["StoryView.es.js","vendor.es.js","MobileOverlay.vue_vue_type_script_setup_true_lang.es.js","BaseEmpty.es.js","state.es.js","GenericMountStory.vue_vue_type_script_setup_true_lang.es.js","events.es.js"] : void 0)
     }
   ]
 });
