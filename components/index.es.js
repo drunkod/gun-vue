@@ -1,5 +1,5 @@
 import { useGun, hashText } from "./useDraw.es.js";
-import { addPersonal, addProfileField, addProject, auth, brush, createRoom, currentRoom as currentRoom2, decFrom, defaultGift, defaultPeer, dictLang, dictRecord, drauu, drauuOptions, draw, encFor, enterRoom, genUUID, generateCerts, getShortHash, giftPath, gun as gun2, gun2 as gun22, hasPass, hashObj as hashObj2, hashText as hashText2, isHash, isMine, isPair, issueCert, joinRoom, leave, leaveRoom, letterFilter, listPersonal, loadCanvas, loadRelays, newProject, parseHashLink, parseLink, pass, peer, projectsPath, recreateRoom, relay, removeProject, renderStress, rootRoom as rootRoom2, safeHash, safeJSONParse as safeJSONParse2, selectedUser, setPetname, soul, submitRoom, unsafeHash, updateProfile, updateProjectField, updateRoomProfile, updateState, useAccount, useColor, useDefs, useDictAuthors, useDictLangs, useDictRecordsBy, useDictRecordsFor, useDraw, useGun as useGun2, useGun2 as useGun22, usePass, usePassLink, useProject, useRelay, useRelays, useRoom, useRoomLogo, useRooms, useUser, useWord, useWords, user as user2 } from "./useDraw.es.js";
+import { addPersonal, addProfileField, addProject, auth, brush, createRoom, currentRoom as currentRoom2, decFrom, defaultGift, defaultPeer, dictLang, dictRecord, drauu, drauuOptions, draw, encFor, enterRoom, genUUID, generateCerts, getShortHash, giftPath, gun as gun2, gun2 as gun22, hasPass, hashObj as hashObj2, hashText as hashText2, isHash, isMine, isPair, issueCert, joinRoom, leave, leaveRoom, letterFilter, listPersonal, loadCanvas, loadRelays, newProject, parseHashLink, parseLink, pass, peer, projectsPath, recreateRoom, relay, removeProject, renderStress, rootRoom as rootRoom2, safeHash, safeJSONParse as safeJSONParse2, selectedUser, setPetname, soul, submitRoom, unsafeHash, updateProfile, updateProjectField, updateRoomProfile, updateState, useAccount, useColor, useComputedProject, useDefs, useDictAuthors, useDictLangs, useDictRecordsBy, useDictRecordsFor, useDraw, useGun as useGun2, useGun2 as useGun22, usePass, usePassLink, useProject, useRelay, useRelays, useRoom, useRoomLogo, useRooms, useUser, useWord, useWords, user as user2 } from "./useDraw.es.js";
 import { useChat } from "./useChat.es.js";
 import { usePrivateChat, usePrivateChatCount, usePrivateChatList } from "./usePrivate.es.js";
 import { downloadFeed, langParts, languages, uploadFeed, usePosts } from "./usePosts.es.js";
@@ -230,6 +230,7 @@ export {
   useBackground,
   useChat,
   useColor,
+  useComputedProject,
   useDefs,
   useDictAuthors,
   useDictLangs,

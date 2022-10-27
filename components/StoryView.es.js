@@ -1,8 +1,8 @@
-import { useRoute, computed, defineComponent, useCssVars, unref, toRefs, ref, openBlock, createElementBlock, createVNode, withCtx, Icon, normalizeClass, createBaseVNode, toDisplayString, defineStore, useStorage, resolveDirective, withDirectives, useRouter, useResizeObserver, resolveComponent, createBlock, createCommentVNode, withModifiers, pushScopeId, popScopeId, watch, renderSlot, withKeys, createTextVNode, renderList, Fragment, normalizeStyle, onMounted, vModelText, onUnmounted, createStaticVNode, useEventListener, SANDBOX_READY, EVENT_SEND, STATE_SYNC, applyState, PREVIEW_SETTINGS_SYNC, toRaw, mergeProps, Dropdown, clone, omit, useTimeoutFn, onClickOutside, isRef, nextTick, jg, Rg, Ng, Eg, resolveDynamicComponent, reactive, __vitePreload, watchEffect, markRaw, shallowRef, unindent, getHighlighter, _g, setCDN, Transition, h, onBeforeUnmount } from "./vendor.es.js";
+import { useRoute, computed, defineComponent, useCssVars, unref, toRefs, ref, openBlock, createElementBlock, createVNode, withCtx, Icon, normalizeClass, createBaseVNode, toDisplayString, defineStore, useStorage, resolveDirective, withDirectives, useRouter, useResizeObserver, resolveComponent, createBlock, createCommentVNode, normalizeStyle, withModifiers, pushScopeId, popScopeId, watch, renderSlot, withKeys, createTextVNode, renderList, Fragment, onMounted, vModelText, onUnmounted, VTooltip, createStaticVNode, useEventListener, SANDBOX_READY, EVENT_SEND, STATE_SYNC, applyState, PREVIEW_SETTINGS_SYNC, toRaw, mergeProps, Dropdown, clone, omit, useTimeoutFn, onClickOutside, isRef, nextTick, jg, Rg, Ng, Eg, resolveDynamicComponent, reactive, __vitePreload, watchEffect, markRaw, shallowRef, unindent, getHighlighter, _g, setCDN, Transition, h, onBeforeUnmount } from "./vendor.es.js";
 import { base, useStoryStore } from "./story.es.js";
-import { useScrollOnActive, BaseListItemLink, _export_sfc, isMobile, BaseSplitPane, _sfc_main as _sfc_main$x } from "./MobileOverlay.vue_vue_type_script_setup_true_lang.es.js";
+import { useScrollOnActive, BaseListItemLink, _export_sfc, isMobile, BaseSplitPane, _sfc_main as _sfc_main$y } from "./MobileOverlay.vue_vue_type_script_setup_true_lang.es.js";
 import { BaseEmpty } from "./BaseEmpty.es.js";
-import { _sfc_main as _sfc_main$w, toRawDeep } from "./state.es.js";
+import { getContrastColor, _sfc_main as _sfc_main$x, toRawDeep } from "./state.es.js";
 import { histoireConfig, isDark, clientSupportPlugins } from "./GenericMountStory.vue_vue_type_script_setup_true_lang.es.js";
 import { useEventsStore } from "./events.es.js";
 function useCurrentVariantRoute(variant) {
@@ -21,7 +21,7 @@ function useCurrentVariantRoute(variant) {
   };
 }
 const _hoisted_1$s = { class: "htw-truncate" };
-const _sfc_main$v = /* @__PURE__ */ defineComponent({
+const _sfc_main$w = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantListItem",
   props: {
     variant: {
@@ -32,7 +32,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const props = __props;
     useCssVars((_ctx) => ({
-      "36260edc": unref(variant).iconColor
+      "89126aaa": unref(variant).iconColor
     }));
     const { variant } = toRefs(props);
     const { isActive, targetRoute } = useCurrentVariantRoute(variant);
@@ -42,6 +42,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
       return openBlock(), createElementBlock("div", {
         ref_key: "el",
         ref: el,
+        class: "histoire-story-variant-list-item",
         "data-test-id": "story-variant-list-item"
       }, [
         createVNode(BaseListItemLink, {
@@ -68,7 +69,7 @@ const _sfc_main$v = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const StoryVariantListItem = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["__scopeId", "data-v-02816158"]]);
+const StoryVariantListItem = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["__scopeId", "data-v-ab890d9c"]]);
 const usePreviewSettingsStore = defineStore("preview-settings", () => {
   const currentSettings = useStorage("_histoire-sandbox-settings-v3", {
     responsiveWidth: 720,
@@ -89,7 +90,7 @@ function getSandboxUrl(story, variant) {
   return `${base}__sandbox.html?${url.toString()}`;
 }
 const _hoisted_1$r = ["href"];
-const _sfc_main$u = /* @__PURE__ */ defineComponent({
+const _sfc_main$v = /* @__PURE__ */ defineComponent({
   __name: "ToolbarNewTab",
   props: {
     variant: null,
@@ -105,7 +106,7 @@ const _sfc_main$u = /* @__PURE__ */ defineComponent({
       return withDirectives((openBlock(), createElementBlock("a", {
         href: unref(sandboxUrl),
         target: "_blank",
-        class: "htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-2 hover:htw-text-primary-500 htw-opacity-50 hover:htw-opacity-100 dark:hover:htw-text-primary-400 htw-text-gray-900 dark:htw-text-gray-100"
+        class: "histoire-toolbar-new-tab htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-2 hover:htw-text-primary-500 htw-opacity-50 hover:htw-opacity-100 dark:hover:htw-text-primary-400 htw-text-gray-900 dark:htw-text-gray-100"
       }, [
         createVNode(unref(Icon), {
           icon: "carbon:launch",
@@ -117,9 +118,9 @@ const _sfc_main$u = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_main$t = {};
+const _sfc_main$u = {};
 const _hoisted_1$q = { fill: "none" };
-const _hoisted_2$k = /* @__PURE__ */ createBaseVNode("pattern", {
+const _hoisted_2$j = /* @__PURE__ */ createBaseVNode("pattern", {
   id: "checkerboard",
   width: "64",
   height: "64",
@@ -147,21 +148,23 @@ const _hoisted_3$d = /* @__PURE__ */ createBaseVNode("rect", {
   height: "100%",
   fill: "url(#checkerboard)"
 }, null, -1);
-const _hoisted_4$9 = [
-  _hoisted_2$k,
+const _hoisted_4$a = [
+  _hoisted_2$j,
   _hoisted_3$d
 ];
-function _sfc_render$3(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$q, _hoisted_4$9);
+function _sfc_render$4(_ctx, _cache) {
+  return openBlock(), createElementBlock("svg", _hoisted_1$q, _hoisted_4$a);
 }
-const CheckerboardPattern = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$3]]);
-const _withScopeId$3 = (n) => (pushScopeId("data-v-601cc357"), n = n(), popScopeId(), n);
+const CheckerboardPattern = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$4]]);
+const _withScopeId$2 = (n) => (pushScopeId("data-v-f7c98176"), n = n(), popScopeId(), n);
 const _hoisted_1$p = { class: "htw-flex-none htw-flex htw-items-center" };
-const _hoisted_2$j = { class: "htw-truncate htw-flex-1" };
+const _hoisted_2$i = { class: "htw-truncate htw-flex-1" };
 const _hoisted_3$c = { class: "htw-flex-none htw-ml-auto htw-hidden group-hover:htw-flex htw-items-center" };
-const _hoisted_4$8 = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createBaseVNode("div", { class: "htw-absolute htw-inset-0 htw-rounded bind-preview-bg" }, null, -1));
-const _hoisted_5$6 = { class: "htw-relative htw-h-full" };
-const _sfc_main$s = /* @__PURE__ */ defineComponent({
+const _hoisted_4$9 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createBaseVNode("div", {
+  class: "htw-absolute htw-inset-0 htw-rounded bind-preview-bg",
+  "data-test-id": "responsive-preview-bg"
+}, null, -1));
+const _sfc_main$t = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantGridItem",
   props: {
     variant: {
@@ -179,8 +182,8 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
   setup(__props, { emit }) {
     const props = __props;
     useCssVars((_ctx) => ({
-      "f3384526": unref(variant).iconColor,
-      "75db4c5e": unref(settings).backgroundColor
+      "edeb0368": unref(variant).iconColor,
+      "f4b27ac2": unref(settings).backgroundColor
     }));
     const { variant } = toRefs(props);
     const { isActive, targetRoute } = useCurrentVariantRoute(variant);
@@ -207,13 +210,15 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
       }
     });
     const settings = usePreviewSettingsStore().currentSettings;
+    const contrastColor = computed(() => getContrastColor(settings));
+    const autoApplyContrastColor = computed(() => !!histoireConfig.autoApplyContrastColor);
     return (_ctx, _cache) => {
       const _component_RouterLink = resolveComponent("RouterLink");
       const _directive_tooltip = resolveDirective("tooltip");
       return openBlock(), createElementBlock("div", {
         ref_key: "el",
         ref: el,
-        class: "htw-cursor-default htw-flex htw-flex-col htw-gap-y-1 htw-group"
+        class: "histoire-story-variant-grid-item htw-cursor-default htw-flex htw-flex-col htw-gap-y-1 htw-group"
       }, [
         createBaseVNode("div", _hoisted_1$p, [
           withDirectives((openBlock(), createBlock(_component_RouterLink, {
@@ -233,7 +238,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
                     "bind-icon-color": !unref(isActive) && unref(variant).iconColor
                   }])
                 }, null, 8, ["icon", "class"]),
-                createBaseVNode("span", _hoisted_2$j, toDisplayString(unref(variant).title), 1)
+                createBaseVNode("span", _hoisted_2$i, toDisplayString(unref(variant).title), 1)
               ];
             }),
             _: 1
@@ -241,7 +246,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
             [_directive_tooltip, unref(variant).title]
           ]),
           createBaseVNode("div", _hoisted_3$c, [
-            createVNode(_sfc_main$u, {
+            createVNode(_sfc_main$v, {
               variant: unref(variant),
               story: __props.story
             }, null, 8, ["variant", "story"])
@@ -256,35 +261,41 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
           onClick: _cache[0] || (_cache[0] = withModifiers(($event) => selectVariant(), ["stop"])),
           onKeyup: _cache[1] || (_cache[1] = ($event) => selectVariant())
         }, [
-          _hoisted_4$8,
+          _hoisted_4$9,
           unref(settings).checkerboard ? (openBlock(), createBlock(CheckerboardPattern, {
             key: 0,
             class: "htw-absolute htw-inset-0 htw-w-full htw-h-full htw-text-gray-500/20"
           })) : createCommentVNode("", true),
-          createBaseVNode("div", _hoisted_5$6, [
-            (openBlock(), createBlock(_sfc_main$w, {
+          createBaseVNode("div", {
+            class: "htw-relative htw-h-full",
+            style: normalizeStyle({
+              "--histoire-contrast-color": unref(contrastColor),
+              color: unref(autoApplyContrastColor) ? unref(contrastColor) : void 0
+            })
+          }, [
+            (openBlock(), createBlock(_sfc_main$x, {
               key: `${__props.story.id}-${unref(variant).id}`,
               variant: unref(variant),
               story: __props.story,
               dir: unref(settings).textDirection,
               onReady
             }, null, 8, ["variant", "story", "dir"]))
-          ])
+          ], 4)
         ], 34)
       ], 512);
     };
   }
 });
-const StoryVariantGridItem = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["__scopeId", "data-v-601cc357"]]);
+const StoryVariantGridItem = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["__scopeId", "data-v-f7c98176"]]);
 const _hoisted_1$o = { class: "htw-text-white htw-w-[16px] htw-h-[16px] htw-relative" };
-const _hoisted_2$i = {
+const _hoisted_2$h = {
   width: "16",
   height: "16",
   viewBox: "0 0 24 24",
   class: "htw-relative htw-z-10"
 };
 const _hoisted_3$b = ["stroke-dasharray", "stroke-dashoffset"];
-const _sfc_main$r = /* @__PURE__ */ defineComponent({
+const _sfc_main$s = /* @__PURE__ */ defineComponent({
   __name: "BaseCheckbox",
   props: {
     modelValue: {
@@ -314,7 +325,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
       return openBlock(), createElementBlock("div", {
         role: "checkbox",
         tabindex: "0",
-        class: "htw-flex htw-items-center htw-gap-2 htw-select-none htw-px-4 htw-py-3 htw-cursor-pointer hover:htw-bg-primary-100 dark:hover:htw-bg-primary-700",
+        class: "histoire-base-checkbox htw-flex htw-items-center htw-gap-2 htw-select-none htw-px-4 htw-py-3 htw-cursor-pointer hover:htw-bg-primary-100 dark:hover:htw-bg-primary-700",
         onClick: _cache[0] || (_cache[0] = ($event) => toggle()),
         onKeydown: [
           _cache[1] || (_cache[1] = withKeys(withModifiers(($event) => toggle(), ["prevent"]), ["enter"])),
@@ -327,7 +338,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
               __props.modelValue ? "htw-border-primary-500 htw-border-8" : "htw-border-black/25 dark:htw-border-white/25 htw-delay-150"
             ]])
           }, null, 2),
-          (openBlock(), createElementBlock("svg", _hoisted_2$i, [
+          (openBlock(), createElementBlock("svg", _hoisted_2$h, [
             createBaseVNode("path", {
               ref_key: "path",
               ref: path,
@@ -349,20 +360,26 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _withScopeId$2 = (n) => (pushScopeId("data-v-8d0cb17e"), n = n(), popScopeId(), n);
 const _hoisted_1$n = { class: "htw-cursor-pointer hover:htw-text-primary-500 htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-2 htw-group" };
-const _hoisted_2$h = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createBaseVNode("div", { class: "bind-preview-bg htw-w-4 htw-h-4 htw-rounded-full htw-border htw-border-black/50 dark:htw-border-white/50" }, null, -1));
-const _hoisted_3$a = { class: "htw-flex htw-flex-col htw-items-stretch" };
-const _hoisted_4$7 = ["onClick"];
-const _hoisted_5$5 = { class: "htw-mr-auto" };
-const _hoisted_6$4 = { class: "htw-ml-auto htw-opacity-70" };
-const _sfc_main$q = /* @__PURE__ */ defineComponent({
+const _hoisted_2$g = { class: "bind-preview-bg htw-w-4 htw-h-4 htw-rounded-full htw-border htw-border-black/50 dark:htw-border-white/50 htw-flex htw-items-center htw-justify-center htw-text-xs" };
+const _hoisted_3$a = { key: 0 };
+const _hoisted_4$8 = {
+  class: "htw-flex htw-flex-col htw-items-stretch",
+  "data-test-id": "background-popper"
+};
+const _hoisted_5$5 = ["onClick"];
+const _hoisted_6$4 = { class: "htw-mr-auto" };
+const _hoisted_7$3 = { class: "htw-ml-auto htw-opacity-70" };
+const _hoisted_8$2 = { key: 0 };
+const _sfc_main$r = /* @__PURE__ */ defineComponent({
   __name: "ToolbarBackground",
   setup(__props) {
     useCssVars((_ctx) => ({
-      "25c5213c": unref(settings).backgroundColor
+      "627bec82": unref(settings).backgroundColor,
+      "35068428": unref(contrastColor)
     }));
     const settings = usePreviewSettingsStore().currentSettings;
+    const contrastColor = computed(() => getContrastColor(settings));
     return (_ctx, _cache) => {
       const _component_VDropdown = resolveComponent("VDropdown");
       const _directive_tooltip = resolveDirective("tooltip");
@@ -370,11 +387,12 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
         key: 0,
         placement: "bottom-end",
         skidding: 6,
-        class: "htw-h-full htw-flex-none"
+        class: "histoire-toolbar-background htw-h-full htw-flex-none",
+        "data-test-id": "toolbar-background"
       }, {
         popper: withCtx(({ hide }) => [
-          createBaseVNode("div", _hoisted_3$a, [
-            createVNode(_sfc_main$r, {
+          createBaseVNode("div", _hoisted_4$8, [
+            createVNode(_sfc_main$s, {
               modelValue: unref(settings).checkerboard,
               "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => unref(settings).checkerboard = $event)
             }, {
@@ -386,7 +404,7 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
             (openBlock(true), createElementBlock(Fragment, null, renderList(unref(histoireConfig).backgroundPresets, (option, index) => {
               return openBlock(), createElementBlock("button", {
                 key: index,
-                class: normalizeClass(["htw-px-4 htw-py-3 htw-cursor-pointer htw-text-left htw-flex htw-gap-4", [
+                class: normalizeClass(["htw-px-4 htw-py-3 htw-cursor-pointer htw-text-left htw-flex htw-items-baseline htw-gap-4", [
                   unref(settings).backgroundColor === option.color ? "htw-bg-primary-500 hover:htw-bg-primary-600 htw-text-white dark:htw-text-black" : "htw-bg-transparent hover:htw-bg-primary-100 dark:hover:htw-bg-primary-700"
                 ]]),
                 onClick: ($event) => {
@@ -394,23 +412,28 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
                   hide();
                 }
               }, [
-                createBaseVNode("span", _hoisted_5$5, toDisplayString(option.label), 1),
+                createBaseVNode("span", _hoisted_6$4, toDisplayString(option.label), 1),
                 option.color !== "$checkerboard" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-                  createBaseVNode("span", _hoisted_6$4, toDisplayString(option.color), 1),
+                  createBaseVNode("span", _hoisted_7$3, toDisplayString(option.color), 1),
                   createBaseVNode("div", {
-                    class: "htw-w-4 htw-h-4 htw-rounded-full htw-border htw-border-black/20 dark:htw-border-white/20",
+                    class: "htw-w-4 htw-h-4 htw-rounded-full htw-border htw-border-black/20 dark:htw-border-white/20 htw-flex htw-items-center htw-justify-center htw-text-xs",
                     style: normalizeStyle({
-                      backgroundColor: option.color
+                      backgroundColor: option.color,
+                      color: option.contrastColor
                     })
-                  }, null, 4)
+                  }, [
+                    option.contrastColor ? (openBlock(), createElementBlock("span", _hoisted_8$2, "a")) : createCommentVNode("", true)
+                  ], 4)
                 ], 64)) : createCommentVNode("", true)
-              ], 10, _hoisted_4$7);
+              ], 10, _hoisted_5$5);
             }), 128))
           ])
         ]),
         default: withCtx(() => [
           withDirectives((openBlock(), createElementBlock("div", _hoisted_1$n, [
-            _hoisted_2$h,
+            createBaseVNode("div", _hoisted_2$g, [
+              unref(contrastColor) ? (openBlock(), createElementBlock("span", _hoisted_3$a, "a")) : createCommentVNode("", true)
+            ]),
             createVNode(unref(Icon), {
               icon: "carbon:caret-down",
               class: "htw-w-4 htw-h-4 htw-opacity-50 group-hover:htw-opacity-100"
@@ -424,15 +447,15 @@ const _sfc_main$q = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const ToolbarBackground = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["__scopeId", "data-v-8d0cb17e"]]);
-const _sfc_main$p = /* @__PURE__ */ defineComponent({
+const ToolbarBackground = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["__scopeId", "data-v-c48fb2b2"]]);
+const _sfc_main$q = /* @__PURE__ */ defineComponent({
   __name: "ToolbarTextDirection",
   setup(__props) {
     const settings = usePreviewSettingsStore().currentSettings;
     return (_ctx, _cache) => {
       const _directive_tooltip = resolveDirective("tooltip");
       return withDirectives((openBlock(), createElementBlock("a", {
-        class: "htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-2 hover:htw-text-primary-500 htw-opacity-50 hover:htw-opacity-100 dark:hover:htw-text-primary-400 htw-text-gray-900 dark:htw-text-gray-100",
+        class: "histoire-toolbar-text-direction htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-2 hover:htw-text-primary-500 htw-opacity-50 hover:htw-opacity-100 dark:hover:htw-text-primary-400 htw-text-gray-900 dark:htw-text-gray-100",
         onClick: _cache[0] || (_cache[0] = ($event) => unref(settings).textDirection = unref(settings).textDirection === "ltr" ? "rtl" : "ltr")
       }, [
         createVNode(unref(Icon), {
@@ -445,12 +468,12 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _hoisted_1$m = { class: "htw-flex htw-flex-col htw-items-stretch htw-h-full __histoire-pane-shadow-from-right" };
-const _hoisted_2$g = {
+const _hoisted_1$m = { class: "histoire-story-variant-grid htw-flex htw-flex-col htw-items-stretch htw-h-full __histoire-pane-shadow-from-right" };
+const _hoisted_2$f = {
   key: 0,
   class: "htw-flex-none htw-flex htw-items-center htw-justify-end htw-h-8 htw-mx-2 htw-mt-1"
 };
-const _sfc_main$o = /* @__PURE__ */ defineComponent({
+const _sfc_main$p = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantGrid",
   setup(__props) {
     const storyStore = useStoryStore();
@@ -525,12 +548,15 @@ const _sfc_main$o = /* @__PURE__ */ defineComponent({
     onMounted(() => {
       updateSize();
     });
+    useResizeObserver(gridEl, () => {
+      updateSize();
+    });
     const columnCount = computed(() => Math.min(storyStore.currentStory.variants.length, Math.floor((viewWidth.value + gap) / (gridColumnWidth.value + gap))));
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$m, [
-        !unref(isMobile) ? (openBlock(), createElementBlock("div", _hoisted_2$g, [
+        !unref(isMobile) ? (openBlock(), createElementBlock("div", _hoisted_2$f, [
           createVNode(ToolbarBackground),
-          createVNode(_sfc_main$p)
+          createVNode(_sfc_main$q)
         ])) : createCommentVNode("", true),
         createBaseVNode("div", {
           ref_key: "el",
@@ -567,8 +593,8 @@ const _sfc_main$o = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _hoisted_1$l = { class: "htw-flex htw-items-center htw-gap-1 htw-text-gray-500 htw-flex-1 htw-truncate htw-min-w-0" };
-const _sfc_main$n = /* @__PURE__ */ defineComponent({
+const _hoisted_1$l = { class: "histoire-toolbar-title htw-flex htw-items-center htw-gap-1 htw-text-gray-500 htw-flex-1 htw-truncate htw-min-w-0" };
+const _sfc_main$o = /* @__PURE__ */ defineComponent({
   __name: "ToolbarTitle",
   props: {
     variant: null
@@ -589,16 +615,16 @@ const _sfc_main$n = /* @__PURE__ */ defineComponent({
   }
 });
 const _hoisted_1$k = { class: "htw-flex htw-flex-col htw-items-stretch" };
-const _hoisted_2$f = { class: "htw-flex htw-gap-2 htw-px-4 htw-py-3" };
-const _hoisted_3$9 = /* @__PURE__ */ createBaseVNode("span", { class: "htw-opacity-50" }, "x", -1);
-const _hoisted_4$6 = ["onClick"];
+const _hoisted_2$e = { class: "htw-flex htw-items-center htw-gap-2 htw-px-4 htw-py-3" };
+const _hoisted_3$9 = /* @__PURE__ */ createBaseVNode("span", { class: "htw-opacity-50" }, "\xD7", -1);
+const _hoisted_4$7 = ["onClick"];
 const _hoisted_5$4 = { class: "htw-ml-auto htw-opacity-70 htw-flex htw-gap-1" };
 const _hoisted_6$3 = { key: 0 };
 const _hoisted_7$2 = { key: 0 };
 const _hoisted_8$1 = { key: 1 };
 const _hoisted_9$1 = { key: 2 };
 const _hoisted_10 = { key: 0 };
-const _sfc_main$m = /* @__PURE__ */ defineComponent({
+const _sfc_main$n = /* @__PURE__ */ defineComponent({
   __name: "ToolbarResponsiveSize",
   setup(__props) {
     const settings = usePreviewSettingsStore().currentSettings;
@@ -610,11 +636,11 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
         placement: "bottom-end",
         skidding: 6,
         disabled: !((_a = unref(histoireConfig).responsivePresets) == null ? void 0 : _a.length),
-        class: "htw-h-full htw-flex-none"
+        class: "histoire-toolbar-responsive-size htw-h-full htw-flex-none"
       }, {
         popper: withCtx(({ hide }) => [
           createBaseVNode("div", _hoisted_1$k, [
-            createVNode(_sfc_main$r, {
+            createVNode(_sfc_main$s, {
               modelValue: unref(settings).rotate,
               "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => unref(settings).rotate = $event)
             }, {
@@ -623,7 +649,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
               ]),
               _: 1
             }, 8, ["modelValue"]),
-            createBaseVNode("div", _hoisted_2$f, [
+            createBaseVNode("div", _hoisted_2$e, [
               withDirectives(createBaseVNode("input", {
                 "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => unref(settings).responsiveWidth = $event),
                 type: "number",
@@ -680,7 +706,7 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
                     !preset.width ? (openBlock(), createElementBlock("span", _hoisted_10, "px")) : createCommentVNode("", true)
                   ])) : createCommentVNode("", true)
                 ])
-              ], 10, _hoisted_4$6);
+              ], 10, _hoisted_4$7);
             }), 128))
           ])
         ]),
@@ -710,24 +736,27 @@ const _sfc_main$m = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_main$l = {};
+const _sfc_main$m = {};
 const _hoisted_1$j = { class: "__histoire-hatched-pattern" };
-function _sfc_render$2(_ctx, _cache) {
+function _sfc_render$3(_ctx, _cache) {
   return openBlock(), createElementBlock("div", _hoisted_1$j);
 }
-const HatchedPattern = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$2], ["__scopeId", "data-v-91561117"]]);
-const _withScopeId$1 = (n) => (pushScopeId("data-v-1375d05a"), n = n(), popScopeId(), n);
-const _hoisted_1$i = { class: "htw-w-full htw-h-full htw-flex-1 htw-rounded-lg htw-relative htw-overflow-hidden" };
-const _hoisted_2$e = {
+const HatchedPattern = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$3], ["__scopeId", "data-v-91561117"]]);
+const _withScopeId$1 = (n) => (pushScopeId("data-v-a83b1911"), n = n(), popScopeId(), n);
+const _hoisted_1$i = { class: "histoire-story-responsive-preview htw-w-full htw-h-full htw-flex-1 htw-rounded-lg htw-relative htw-overflow-hidden" };
+const _hoisted_2$d = {
   key: 0,
   class: "htw-absolute htw-inset-0 htw-w-full htw-h-full htw-bg-gray-100 dark:htw-bg-gray-750 htw-rounded-r-lg htw-border-l-2 htw-border-gray-500/10 dark:htw-border-gray-700/30 htw-overflow-hidden"
 };
-const _hoisted_3$8 = { class: "bind-preview-bg htw-rounded-lg htw-h-full" };
-const _hoisted_4$5 = { class: "htw-p-8 htw-h-full htw-relative" };
+const _hoisted_3$8 = {
+  class: "bind-preview-bg htw-rounded-lg htw-h-full",
+  "data-test-id": "responsive-preview-bg"
+};
+const _hoisted_4$6 = { class: "htw-p-8 htw-h-full htw-relative" };
 const _hoisted_5$3 = { class: "htw-w-full htw-h-full htw-relative" };
 const _hoisted_6$2 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createBaseVNode("div", { class: "htw-absolute htw-inset-0" }, null, -1));
-const _hoisted_7$1 = /* @__PURE__ */ createStaticVNode('<div class="htw-absolute htw-top-5 htw-left-8 htw-h-2 htw-w-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-top-5 htw-right-8 htw-h-2 htw-w-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-bottom-5 htw-left-8 htw-h-2 htw-w-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-bottom-5 htw-right-8 htw-h-2 htw-w-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-left-5 htw-top-8 htw-w-2 htw-h-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-left-5 htw-bottom-8 htw-w-2 htw-h-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-right-5 htw-top-8 htw-w-2 htw-h-px htw-bg-gray-400/25" data-v-1375d05a></div><div class="htw-absolute htw-right-5 htw-bottom-8 htw-w-2 htw-h-px htw-bg-gray-400/25" data-v-1375d05a></div>', 8);
-const _sfc_main$k = /* @__PURE__ */ defineComponent({
+const _hoisted_7$1 = /* @__PURE__ */ createStaticVNode('<div class="htw-absolute htw-top-5 htw-left-8 htw-h-2 htw-w-px htw-bg-gray-400/25" data-v-a83b1911></div><div class="htw-absolute htw-top-5 htw-right-8 htw-h-2 htw-w-px htw-bg-gray-400/25" data-v-a83b1911></div><div class="htw-absolute htw-bottom-5 htw-left-8 htw-h-2 htw-w-px htw-bg-gray-400/25" data-v-a83b1911></div><div class="htw-absolute htw-bottom-5 htw-right-8 htw-h-2 htw-w-px htw-bg-gray-400/25" data-v-a83b1911></div><div class="htw-absolute htw-left-5 htw-top-8 htw-w-2 htw-h-px htw-bg-gray-400/25" data-v-a83b1911></div><div class="htw-absolute htw-left-5 htw-bottom-8 htw-w-2 htw-h-px htw-bg-gray-400/25" data-v-a83b1911></div><div class="htw-absolute htw-right-5 htw-top-8 htw-w-2 htw-h-px htw-bg-gray-400/25" data-v-a83b1911></div><div class="htw-absolute htw-right-5 htw-bottom-8 htw-w-2 htw-h-px htw-bg-gray-400/25" data-v-a83b1911></div>', 8);
+const _sfc_main$l = /* @__PURE__ */ defineComponent({
   __name: "StoryResponsivePreview",
   props: {
     variant: null
@@ -735,7 +764,7 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const props = __props;
     useCssVars((_ctx) => ({
-      "cfc058d0": unref(settings).backgroundColor
+      "03d1950e": unref(settings).backgroundColor
     }));
     const settings = usePreviewSettingsStore().currentSettings;
     const resizing = ref(false);
@@ -823,9 +852,13 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
     const finalWidth = computed(() => settings.rotate ? settings.responsiveHeight : settings.responsiveWidth);
     const finalHeight = computed(() => settings.rotate ? settings.responsiveWidth : settings.responsiveHeight);
     const isResponsiveEnabled = computed(() => !props.variant.responsiveDisabled);
+    const sizeTooltip = computed(() => {
+      var _a, _b;
+      return ((_a = responsiveWidth.value) != null ? _a : "Auto") + " \xD7 " + ((_b = responsiveHeight.value) != null ? _b : "Auto");
+    });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$i, [
-        unref(isResponsiveEnabled) ? (openBlock(), createElementBlock("div", _hoisted_2$e, [
+        unref(isResponsiveEnabled) ? (openBlock(), createElementBlock("div", _hoisted_2$d, [
           createVNode(HatchedPattern, { class: "htw-w-full htw-h-full htw-text-black/[1%] dark:htw-text-white/[1%]" })
         ])) : createCommentVNode("", true),
         createBaseVNode("div", {
@@ -844,7 +877,7 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
                 key: 0,
                 class: "htw-absolute htw-inset-0 htw-w-full htw-h-full htw-text-gray-500/20"
               })) : createCommentVNode("", true),
-              createBaseVNode("div", _hoisted_4$5, [
+              createBaseVNode("div", _hoisted_4$6, [
                 createBaseVNode("div", _hoisted_5$3, [
                   _hoisted_6$2,
                   renderSlot(_ctx.$slots, "default", {
@@ -857,7 +890,7 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
                 _hoisted_7$1
               ]),
               unref(isResponsiveEnabled) ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-                createBaseVNode("div", {
+                withDirectives((openBlock(), createElementBlock("div", {
                   ref_key: "horizontalDragger",
                   ref: horizontalDragger,
                   class: "htw-absolute htw-w-4 htw-top-0 htw-bottom-4 htw-right-0 hover:htw-bg-primary-500/30 htw-flex htw-items-center htw-justify-center htw-cursor-ew-resize htw-group hover:htw-text-primary-500"
@@ -866,8 +899,15 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
                     icon: "mdi:drag-vertical-variant",
                     class: "htw-w-4 htw-h-4 htw-opacity-20 group-hover:htw-opacity-90"
                   })
-                ], 512),
-                createBaseVNode("div", {
+                ])), [
+                  [
+                    unref(VTooltip),
+                    unref(sizeTooltip),
+                    void 0,
+                    { right: true }
+                  ]
+                ]),
+                withDirectives((openBlock(), createElementBlock("div", {
                   ref_key: "verticalDragger",
                   ref: verticalDragger,
                   class: "htw-absolute htw-h-4 htw-left-0 htw-right-4 htw-bottom-0 hover:htw-bg-primary-500/30 htw-flex htw-items-center htw-justify-center htw-cursor-ns-resize htw-group hover:htw-text-primary-500"
@@ -876,12 +916,26 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
                     icon: "mdi:drag-horizontal-variant",
                     class: "htw-w-4 htw-h-4 htw-opacity-20 group-hover:htw-opacity-90"
                   })
-                ], 512),
-                createBaseVNode("div", {
+                ])), [
+                  [
+                    unref(VTooltip),
+                    unref(sizeTooltip),
+                    void 0,
+                    { bottom: true }
+                  ]
+                ]),
+                withDirectives(createBaseVNode("div", {
                   ref_key: "cornerDragger",
                   ref: cornerDragger,
                   class: "htw-absolute htw-w-4 htw-h-4 htw-right-0 htw-bottom-0 hover:htw-bg-primary-500/30 htw-flex htw-items-center htw-justify-center htw-cursor-nwse-resize htw-group hover:htw-text-primary-500"
-                }, null, 512)
+                }, null, 512), [
+                  [
+                    unref(VTooltip),
+                    unref(sizeTooltip),
+                    void 0,
+                    { bottom: true }
+                  ]
+                ])
               ], 64)) : createCommentVNode("", true)
             ])
           ], 2)
@@ -890,8 +944,8 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const StoryResponsivePreview = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["__scopeId", "data-v-1375d05a"]]);
-const _sfc_main$j = /* @__PURE__ */ defineComponent({
+const StoryResponsivePreview = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["__scopeId", "data-v-a83b1911"]]);
+const _sfc_main$k = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantSinglePreviewNative",
   props: {
     story: null,
@@ -908,18 +962,29 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
       });
     }
     const settings = usePreviewSettingsStore().currentSettings;
+    const contrastColor = computed(() => getContrastColor(settings));
+    const autoApplyContrastColor = computed(() => !!histoireConfig.autoApplyContrastColor);
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(StoryResponsivePreview, { variant: __props.variant }, {
+      return openBlock(), createBlock(StoryResponsivePreview, {
+        class: "histoire-story-variant-single-preview-native",
+        variant: __props.variant
+      }, {
         default: withCtx(({ isResponsiveEnabled, finalWidth, finalHeight }) => [
           createBaseVNode("div", {
-            style: normalizeStyle(isResponsiveEnabled ? {
-              width: finalWidth ? `${finalWidth}px` : "100%",
-              height: finalHeight ? `${finalHeight}px` : "100%"
-            } : { width: "100%", height: "100%" }),
+            style: normalizeStyle([
+              isResponsiveEnabled ? {
+                width: finalWidth ? `${finalWidth}px` : "100%",
+                height: finalHeight ? `${finalHeight}px` : "100%"
+              } : { width: "100%", height: "100%" },
+              {
+                "--histoire-contrast-color": unref(contrastColor),
+                color: unref(autoApplyContrastColor) ? unref(contrastColor) : void 0
+              }
+            ]),
             class: "htw-relative",
             "data-test-id": "sandbox-render"
           }, [
-            (openBlock(), createBlock(_sfc_main$w, {
+            (openBlock(), createBlock(_sfc_main$x, {
               key: `${__props.story.id}-${__props.variant.id}`,
               variant: __props.variant,
               story: __props.story,
@@ -935,7 +1000,7 @@ const _sfc_main$j = /* @__PURE__ */ defineComponent({
   }
 });
 const _hoisted_1$h = ["src"];
-const _sfc_main$i = /* @__PURE__ */ defineComponent({
+const _sfc_main$j = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantSinglePreviewRemote",
   props: {
     story: null,
@@ -1023,7 +1088,10 @@ const _sfc_main$i = /* @__PURE__ */ defineComponent({
       syncSettings();
     }
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(StoryResponsivePreview, { variant: __props.variant }, {
+      return openBlock(), createBlock(StoryResponsivePreview, {
+        class: "histoire-story-variant-single-preview-remote",
+        variant: __props.variant
+      }, {
         default: withCtx(({ isResponsiveEnabled, finalWidth, finalHeight, resizing }) => [
           createBaseVNode("iframe", {
             ref_key: "iframe",
@@ -1047,14 +1115,14 @@ const _sfc_main$i = /* @__PURE__ */ defineComponent({
   }
 });
 const _hoisted_1$g = {
-  class: "htw-h-full htw-flex htw-flex-col",
+  class: "histoire-story-variant-single-view htw-h-full htw-flex htw-flex-col",
   "data-test-id": "story-variant-single-view"
 };
-const _hoisted_2$d = {
+const _hoisted_2$c = {
   key: 0,
   class: "htw-flex-none htw-flex htw-items-center htw-h-8 -htw-mt-1"
 };
-const _sfc_main$h = /* @__PURE__ */ defineComponent({
+const _sfc_main$i = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantSingleView",
   props: {
     variant: null,
@@ -1064,21 +1132,21 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       var _a;
       return openBlock(), createElementBlock("div", _hoisted_1$g, [
-        !unref(isMobile) ? (openBlock(), createElementBlock("div", _hoisted_2$d, [
-          createVNode(_sfc_main$n, { variant: __props.variant }, null, 8, ["variant"]),
-          !__props.variant.responsiveDisabled ? (openBlock(), createBlock(_sfc_main$m, { key: 0 })) : createCommentVNode("", true),
+        !unref(isMobile) ? (openBlock(), createElementBlock("div", _hoisted_2$c, [
+          createVNode(_sfc_main$o, { variant: __props.variant }, null, 8, ["variant"]),
+          !__props.variant.responsiveDisabled ? (openBlock(), createBlock(_sfc_main$n, { key: 0 })) : createCommentVNode("", true),
           createVNode(ToolbarBackground),
-          createVNode(_sfc_main$p),
-          createVNode(_sfc_main$u, {
+          createVNode(_sfc_main$q),
+          createVNode(_sfc_main$v, {
             variant: __props.variant,
             story: __props.story
           }, null, 8, ["variant", "story"])
         ])) : createCommentVNode("", true),
-        ((_a = __props.story.layout) == null ? void 0 : _a.iframe) === false ? (openBlock(), createBlock(_sfc_main$j, {
+        ((_a = __props.story.layout) == null ? void 0 : _a.iframe) === false ? (openBlock(), createBlock(_sfc_main$k, {
           key: 1,
           story: __props.story,
           variant: __props.variant
-        }, null, 8, ["story", "variant"])) : (openBlock(), createBlock(_sfc_main$i, {
+        }, null, 8, ["story", "variant"])) : (openBlock(), createBlock(_sfc_main$j, {
           key: 2,
           story: __props.story,
           variant: __props.variant
@@ -1089,9 +1157,9 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent({
 });
 const _hoisted_1$f = {
   key: 0,
-  class: "htw-p-2 htw-h-full __histoire-pane-shadow-from-right"
+  class: "histoire-story-variant-single htw-p-2 htw-h-full __histoire-pane-shadow-from-right"
 };
-const _hoisted_2$c = {
+const _hoisted_2$b = {
   key: 0,
   class: "htw-divide-y htw-divide-gray-100 dark:htw-divide-gray-800 htw-h-full htw-flex htw-flex-col"
 };
@@ -1099,12 +1167,12 @@ const _hoisted_3$7 = {
   key: 0,
   class: "htw-p-2 htw-h-full"
 };
-const _hoisted_4$4 = { class: "htw-h-full htw-overflow-y-auto" };
+const _hoisted_4$5 = { class: "htw-h-full htw-overflow-y-auto" };
 const _hoisted_5$2 = {
   key: 0,
   class: "htw-p-2 htw-h-full __histoire-pane-shadow-from-right"
 };
-const _sfc_main$g = /* @__PURE__ */ defineComponent({
+const _sfc_main$h = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantSingle",
   emits: {
     "open-variant-menu": () => true
@@ -1113,7 +1181,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
     useCssVars((_ctx) => {
       var _a;
       return {
-        "513cd7c8": (_a = unref(variant)) == null ? void 0 : _a.iconColor
+        "4d25d048": (_a = unref(variant)) == null ? void 0 : _a.iconColor
       };
     });
     const storyStore = useStoryStore();
@@ -1125,12 +1193,12 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       var _a;
       return unref(hasSingleVariant) && unref(variant) ? (openBlock(), createElementBlock("div", _hoisted_1$f, [
-        createVNode(_sfc_main$h, {
+        createVNode(_sfc_main$i, {
           variant: unref(variant),
           story: unref(storyStore).currentStory
         }, null, 8, ["variant", "story"])
       ])) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-        unref(isMobile) ? (openBlock(), createElementBlock("div", _hoisted_2$c, [
+        unref(isMobile) ? (openBlock(), createElementBlock("div", _hoisted_2$b, [
           createBaseVNode("a", {
             class: "htw-px-6 htw-h-12 hover:htw-text-primary-500 dark:hover:htw-text-primary-400 htw-cursor-pointer htw-flex htw-gap-2 htw-flex-wrap htw-w-full htw-items-center htw-flex-none",
             onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("open-variant-menu"))
@@ -1153,7 +1221,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
             })
           ]),
           unref(storyStore).currentVariant ? (openBlock(), createElementBlock("div", _hoisted_3$7, [
-            createVNode(_sfc_main$h, {
+            createVNode(_sfc_main$i, {
               variant: unref(storyStore).currentVariant,
               story: unref(storyStore).currentStory
             }, null, 8, ["variant", "story"])
@@ -1166,7 +1234,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
           "default-split": 17
         }, {
           first: withCtx(() => [
-            createBaseVNode("div", _hoisted_4$4, [
+            createBaseVNode("div", _hoisted_4$5, [
               (openBlock(true), createElementBlock(Fragment, null, renderList(unref(storyStore).currentStory.variants, (v, index) => {
                 return openBlock(), createBlock(StoryVariantListItem, {
                   key: index,
@@ -1177,7 +1245,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
           ]),
           last: withCtx(() => [
             unref(storyStore).currentVariant ? (openBlock(), createElementBlock("div", _hoisted_5$2, [
-              createVNode(_sfc_main$h, {
+              createVNode(_sfc_main$i, {
                 variant: unref(storyStore).currentVariant,
                 story: unref(storyStore).currentStory
               }, null, 8, ["variant", "story"])
@@ -1189,15 +1257,15 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const StoryVariantSingle = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-89489ae4"]]);
-const _hoisted_1$e = { class: "htw-bg-gray-50 htw-h-full dark:htw-bg-gray-750" };
-const _sfc_main$f = /* @__PURE__ */ defineComponent({
+const StoryVariantSingle = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["__scopeId", "data-v-ddfc5b4f"]]);
+const _hoisted_1$e = { class: "histoire-story-viewer htw-bg-gray-50 htw-h-full dark:htw-bg-gray-750" };
+const _sfc_main$g = /* @__PURE__ */ defineComponent({
   __name: "StoryViewer",
   setup(__props) {
     useCssVars((_ctx) => {
       var _a;
       return {
-        "249174dc": (_a = unref(variant)) == null ? void 0 : _a.iconColor
+        "663732b6": (_a = unref(variant)) == null ? void 0 : _a.iconColor
       };
     });
     const storyStore = useStoryStore();
@@ -1212,12 +1280,12 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createBaseVNode("div", _hoisted_1$e, [
-          unref(storyStore).currentStory.layout.type === "grid" ? (openBlock(), createBlock(_sfc_main$o, { key: 0 })) : unref(storyStore).currentStory.layout.type === "single" ? (openBlock(), createBlock(StoryVariantSingle, {
+          unref(storyStore).currentStory.layout.type === "grid" ? (openBlock(), createBlock(_sfc_main$p, { key: 0 })) : unref(storyStore).currentStory.layout.type === "single" ? (openBlock(), createBlock(StoryVariantSingle, {
             key: 1,
             onOpenVariantMenu: _cache[0] || (_cache[0] = ($event) => isMenuOpened.value = true)
           })) : createCommentVNode("", true)
         ]),
-        createVNode(_sfc_main$x, {
+        createVNode(_sfc_main$y, {
           title: "Select a variant",
           opened: isMenuOpened.value,
           onClose: closeMenu
@@ -1236,12 +1304,12 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const StoryViewer = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-54d5a557"]]);
+const StoryViewer = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["__scopeId", "data-v-6046525f"]]);
 const _hoisted_1$d = { class: "htw-cursor-pointer htw-w-full htw-outline-none htw-px-2 htw-h-[27px] -htw-my-1 htw-border htw-border-solid htw-border-black/25 dark:htw-border-white/25 hover:htw-border-primary-500 dark:hover:htw-border-primary-500 htw-rounded-sm htw-flex htw-gap-2 htw-items-center htw-leading-normal" };
-const _hoisted_2$b = { class: "htw-flex-1 htw-truncate" };
+const _hoisted_2$a = { class: "htw-flex-1 htw-truncate" };
 const _hoisted_3$6 = { class: "htw-flex htw-flex-col htw-bg-gray-50 dark:htw-bg-gray-700" };
-const _hoisted_4$3 = ["onClick"];
-const _sfc_main$e = /* @__PURE__ */ defineComponent({
+const _hoisted_4$4 = ["onClick"];
+const _sfc_main$f = /* @__PURE__ */ defineComponent({
   __name: "BaseSelect",
   props: {
     modelValue: null,
@@ -1263,7 +1331,10 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
       hide();
     }
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(unref(Dropdown), { "auto-size": "" }, {
+      return openBlock(), createBlock(unref(Dropdown), {
+        class: "histoire-base-select",
+        "auto-size": ""
+      }, {
         popper: withCtx(({ hide }) => [
           createBaseVNode("div", _hoisted_3$6, [
             (openBlock(true), createElementBlock(Fragment, null, renderList(unref(formattedOptions), (label, value) => {
@@ -1280,13 +1351,13 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
                 }, () => [
                   createTextVNode(toDisplayString(label), 1)
                 ])
-              ], 16, _hoisted_4$3);
+              ], 16, _hoisted_4$4);
             }), 128))
           ])
         ]),
         default: withCtx(() => [
           createBaseVNode("div", _hoisted_1$d, [
-            createBaseVNode("div", _hoisted_2$b, [
+            createBaseVNode("div", _hoisted_2$a, [
               renderSlot(_ctx.$slots, "default", { label: unref(selectedLabel) }, () => [
                 createTextVNode(toDisplayString(unref(selectedLabel)), 1)
               ])
@@ -1302,16 +1373,16 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _hoisted_1$c = { class: "htw-flex htw-gap-2 htw-w-full htw-items-center" };
-const _hoisted_2$a = ["onUpdate:modelValue"];
+const _hoisted_1$c = { class: "histoire-state-presets htw-flex htw-gap-2 htw-w-full htw-items-center" };
+const _hoisted_2$9 = ["onUpdate:modelValue"];
 const _hoisted_3$5 = {
   key: 1,
   class: "htw-flex htw-items-center htw-gap-2"
 };
-const _hoisted_4$2 = { class: "htw-flex-1 htw-truncate" };
+const _hoisted_4$3 = { class: "htw-flex-1 htw-truncate" };
 const _hoisted_5$1 = { class: "htw-flex htw-gap-2 htw-items-center" };
 const _hoisted_6$1 = { class: "htw-flex-1 htw-truncate" };
-const _sfc_main$d = /* @__PURE__ */ defineComponent({
+const _sfc_main$e = /* @__PURE__ */ defineComponent({
   __name: "StatePresets",
   props: {
     story: null,
@@ -1407,7 +1478,7 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent({
           ref: select,
           class: "htw-flex-1 htw-min-w-0"
         }, [
-          createVNode(_sfc_main$e, {
+          createVNode(_sfc_main$f, {
             modelValue: unref(selectedOption),
             "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => isRef(selectedOption) ? selectedOption.value = $event : null),
             options: unref(presetsOptions),
@@ -1428,10 +1499,10 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent({
                 class: "htw-text-inherit htw-bg-transparent htw-w-full htw-h-full htw-outline-none",
                 onClick: _cache[0] || (_cache[0] = withModifiers(() => {
                 }, ["stop", "prevent"]))
-              }, null, 8, _hoisted_2$a)), [
+              }, null, 8, _hoisted_2$9)), [
                 [vModelText, unref(presetStates).get(unref(selectedOption)).label]
               ]) : (openBlock(), createElementBlock("div", _hoisted_3$5, [
-                createBaseVNode("span", _hoisted_4$2, toDisplayString(label), 1),
+                createBaseVNode("span", _hoisted_4$3, toDisplayString(label), 1),
                 unref(canEdit) ? withDirectives((openBlock(), createBlock(unref(Icon), {
                   key: 0,
                   icon: "carbon:edit",
@@ -1485,7 +1556,7 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_main$c = /* @__PURE__ */ defineComponent({
+const _sfc_main$d = /* @__PURE__ */ defineComponent({
   __name: "ControlsComponentPropItem",
   props: {
     variant: null,
@@ -1535,6 +1606,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
         key: 0,
         modelValue: unref(model),
         "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => isRef(model) ? model.value = $event : null),
+        class: "histoire-controls-component-prop-item",
         title: `${__props.definition.name}${unref(canReset) ? " *" : ""}`
       }, {
         actions: withCtx(() => [
@@ -1553,10 +1625,11 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _hoisted_1$b = { class: "htw-font-mono htw-p-2 htw-flex htw-items-center htw-gap-1" };
-const _hoisted_2$9 = /* @__PURE__ */ createBaseVNode("span", { class: "htw-opacity-30" }, "<", -1);
-const _hoisted_3$4 = /* @__PURE__ */ createBaseVNode("span", { class: "htw-opacity-30" }, ">", -1);
-const _sfc_main$b = /* @__PURE__ */ defineComponent({
+const _hoisted_1$b = { class: "histoire-controls-component-props" };
+const _hoisted_2$8 = { class: "htw-font-mono htw-p-2 htw-flex htw-items-center htw-gap-1" };
+const _hoisted_3$4 = /* @__PURE__ */ createBaseVNode("span", { class: "htw-opacity-30" }, "<", -1);
+const _hoisted_4$2 = /* @__PURE__ */ createBaseVNode("span", { class: "htw-opacity-30" }, ">", -1);
+const _sfc_main$c = /* @__PURE__ */ defineComponent({
   __name: "ControlsComponentProps",
   props: {
     variant: null,
@@ -1565,8 +1638,8 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
   setup(__props) {
     return (_ctx, _cache) => {
       const _directive_tooltip = resolveDirective("tooltip");
-      return openBlock(), createElementBlock("div", null, [
-        createBaseVNode("div", _hoisted_1$b, [
+      return openBlock(), createElementBlock("div", _hoisted_1$b, [
+        createBaseVNode("div", _hoisted_2$8, [
           withDirectives(createVNode(unref(Icon), {
             icon: "carbon:flash",
             class: "htw-w-4 htw-h-4 htw-text-primary-500 htw-flex-none"
@@ -1574,13 +1647,13 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
             [_directive_tooltip, "Auto-detected props"]
           ]),
           createBaseVNode("div", null, [
-            _hoisted_2$9,
+            _hoisted_3$4,
             createTextVNode(toDisplayString(__props.definition.name), 1),
-            _hoisted_3$4
+            _hoisted_4$2
           ])
         ]),
         (openBlock(true), createElementBlock(Fragment, null, renderList(__props.definition.props, (prop) => {
-          return openBlock(), createBlock(_sfc_main$c, {
+          return openBlock(), createBlock(_sfc_main$d, {
             key: prop.name,
             variant: __props.variant,
             component: __props.definition,
@@ -1593,12 +1666,12 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
 });
 const _hoisted_1$a = {
   "data-test-id": "story-controls",
-  class: "htw-flex htw-flex-col htw-divide-y htw-divide-gray-100 dark:htw-divide-gray-750"
+  class: "histoire-story-controls htw-flex htw-flex-col htw-divide-y htw-divide-gray-100 dark:htw-divide-gray-750"
 };
-const _hoisted_2$8 = { class: "htw-h-9 htw-flex-none htw-px-2 htw-flex htw-items-center" };
+const _hoisted_2$7 = { class: "htw-h-9 htw-flex-none htw-px-2 htw-flex htw-items-center" };
 const _hoisted_3$3 = /* @__PURE__ */ createBaseVNode("span", null, "No controls available for this story", -1);
 const _hoisted_4$1 = { key: 2 };
-const _sfc_main$a = /* @__PURE__ */ defineComponent({
+const _sfc_main$b = /* @__PURE__ */ defineComponent({
   __name: "StoryControls",
   props: {
     variant: {
@@ -1620,14 +1693,14 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       var _a, _b, _c, _d;
       return openBlock(), createElementBlock("div", _hoisted_1$a, [
-        createBaseVNode("div", _hoisted_2$8, [
-          ready.value || !unref(hasCustomControls) ? (openBlock(), createBlock(_sfc_main$d, {
+        createBaseVNode("div", _hoisted_2$7, [
+          ready.value || !unref(hasCustomControls) ? (openBlock(), createBlock(_sfc_main$e, {
             key: 0,
             story: __props.story,
             variant: __props.variant
           }, null, 8, ["story", "variant"])) : createCommentVNode("", true)
         ]),
-        unref(hasCustomControls) ? (openBlock(), createBlock(_sfc_main$w, {
+        unref(hasCustomControls) ? (openBlock(), createBlock(_sfc_main$x, {
           key: `${__props.story.id}-${__props.variant.id}`,
           "slot-name": "controls",
           variant: __props.variant,
@@ -1646,7 +1719,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
         })) : createCommentVNode("", true),
         ((_d = (_c = __props.variant.state) == null ? void 0 : _c._hPropDefs) == null ? void 0 : _d.length) ? (openBlock(), createElementBlock("div", _hoisted_4$1, [
           (openBlock(true), createElementBlock(Fragment, null, renderList(__props.variant.state._hPropDefs, (def, index) => {
-            return openBlock(), createBlock(_sfc_main$b, {
+            return openBlock(), createBlock(_sfc_main$c, {
               key: index,
               variant: __props.variant,
               definition: def,
@@ -1692,7 +1765,7 @@ function useStoryDoc(story) {
     renderedDoc
   };
 }
-const _sfc_main$9 = /* @__PURE__ */ defineComponent({
+const _sfc_main$a = /* @__PURE__ */ defineComponent({
   __name: "StoryDocs",
   props: {
     story: {
@@ -1704,8 +1777,22 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
     const props = __props;
     const { story } = toRefs(props);
     const { renderedDoc } = useStoryDoc(story);
+    const router = useRouter();
+    const fakeHost = `http://a.com`;
+    function onClick(e) {
+      const link = e.target.closest("a");
+      if (link && link.getAttribute("data-route") && !e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey && link.target !== `_blank`) {
+        e.preventDefault();
+        const url = new URL(link.href, fakeHost);
+        const targetHref = url.pathname + url.search + url.hash;
+        router.push(targetHref);
+      }
+    }
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", null, [
+      return openBlock(), createElementBlock("div", {
+        class: "histoire-story-docs",
+        onClickCapture: onClick
+      }, [
         !unref(renderedDoc) ? (openBlock(), createBlock(BaseEmpty, { key: 0 }, {
           default: withCtx(() => [
             createVNode(unref(Icon), {
@@ -1721,7 +1808,7 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
           "data-test-id": "story-docs",
           innerHTML: unref(renderedDoc)
         }, null, 8, _hoisted_1$9))
-      ]);
+      ], 32);
     };
   }
 });
@@ -1729,9 +1816,9 @@ const _hoisted_1$8 = {
   key: 0,
   class: "htw-text-xs htw-opacity-50 htw-truncate"
 };
-const _hoisted_2$7 = { class: "htw-overflow-auto htw-max-w-[400px] htw-max-h-[400px]" };
+const _hoisted_2$6 = { class: "htw-overflow-auto htw-max-w-[400px] htw-max-h-[400px]" };
 const _hoisted_3$2 = { class: "htw-p-4" };
-const _sfc_main$8 = /* @__PURE__ */ defineComponent({
+const _sfc_main$9 = /* @__PURE__ */ defineComponent({
   __name: "StoryEvent",
   props: {
     event: null
@@ -1751,7 +1838,7 @@ const _sfc_main$8 = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       const _component_VDropdown = resolveComponent("VDropdown");
       return openBlock(), createBlock(_component_VDropdown, {
-        class: "htw-group",
+        class: "histoire-story-event htw-group",
         placement: "right",
         "data-test-id": "event-item"
       }, {
@@ -1770,7 +1857,7 @@ const _sfc_main$8 = /* @__PURE__ */ defineComponent({
           ], 2)
         ]),
         popper: withCtx(() => [
-          createBaseVNode("div", _hoisted_2$7, [
+          createBaseVNode("div", _hoisted_2$6, [
             createBaseVNode("pre", _hoisted_3$2, toDisplayString(__props.event.argument), 1)
           ])
         ]),
@@ -1780,7 +1867,7 @@ const _sfc_main$8 = /* @__PURE__ */ defineComponent({
   }
 });
 const _hoisted_1$7 = { key: 1 };
-const _sfc_main$7 = /* @__PURE__ */ defineComponent({
+const _sfc_main$8 = /* @__PURE__ */ defineComponent({
   __name: "StoryEvents",
   setup(__props) {
     const eventsStore = useEventsStore();
@@ -1798,7 +1885,8 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", {
         ref_key: "eventsElement",
-        ref: eventsElement
+        ref: eventsElement,
+        class: "histoire-story-events"
       }, [
         !unref(hasEvents) ? (openBlock(), createBlock(BaseEmpty, { key: 0 }, {
           default: withCtx(() => [
@@ -1811,7 +1899,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
           _: 1
         })) : (openBlock(), createElementBlock("div", _hoisted_1$7, [
           (openBlock(true), createElementBlock(Fragment, null, renderList(unref(eventsStore).events, (event, key) => {
-            return openBlock(), createBlock(_sfc_main$8, {
+            return openBlock(), createBlock(_sfc_main$9, {
               key,
               event
             }, null, 8, ["event"]);
@@ -1821,9 +1909,9 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _withScopeId = (n) => (pushScopeId("data-v-0d096b10"), n = n(), popScopeId(), n);
-const _hoisted_1$6 = { class: "htw-bg-gray-50 dark:htw-bg-gray-750 htw-h-full htw-overflow-hidden htw-flex htw-flex-col" };
-const _hoisted_2$6 = {
+const _withScopeId = (n) => (pushScopeId("data-v-36810e45"), n = n(), popScopeId(), n);
+const _hoisted_1$6 = { class: "histoire-story-source-code htw-bg-gray-50 dark:htw-bg-gray-750 htw-h-full htw-overflow-hidden htw-flex htw-flex-col" };
+const _hoisted_2$5 = {
   key: 0,
   class: "htw-h-10 htw-flex-none htw-border-b htw-border-solid htw-border-gray-500/5 htw-px-4 htw-flex htw-items-center htw-gap-2"
 };
@@ -1837,7 +1925,7 @@ const _hoisted_6 = {
 const _hoisted_7 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createBaseVNode("span", null, "Not available", -1));
 const _hoisted_8 = ["value"];
 const _hoisted_9 = ["innerHTML"];
-const _sfc_main$6 = /* @__PURE__ */ defineComponent({
+const _sfc_main$7 = /* @__PURE__ */ defineComponent({
   __name: "StorySourceCode",
   props: {
     story: null,
@@ -1945,7 +2033,7 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       const _directive_tooltip = resolveDirective("tooltip");
       return openBlock(), createElementBlock("div", _hoisted_1$6, [
-        !error.value ? (openBlock(), createElementBlock("div", _hoisted_2$6, [
+        !error.value ? (openBlock(), createElementBlock("div", _hoisted_2$5, [
           _hoisted_3$1,
           _hoisted_4,
           createBaseVNode("div", _hoisted_5, [
@@ -2028,8 +2116,8 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const StorySourceCode = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-0d096b10"]]);
-const _sfc_main$5 = defineComponent({
+const StorySourceCode = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-36810e45"]]);
+const _sfc_main$6 = defineComponent({
   inheritAttrs: false,
   props: {
     exact: {
@@ -2043,13 +2131,13 @@ const _sfc_main$5 = defineComponent({
   }
 });
 const _hoisted_1$5 = ["href", "onClick"];
-const _hoisted_2$5 = {
+const _hoisted_2$4 = {
   key: 0,
   class: "htw-absolute htw-bottom-0 htw-left-0 htw-w-full htw-h-[2px] htw-bg-primary-500 dark:htw-bg-primary-400"
 };
-function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
-  return openBlock(), createBlock(_component_router_link, mergeProps(_ctx.$attrs, { custom: "" }), {
+  return openBlock(), createBlock(_component_router_link, mergeProps({ class: "histoire-base-tab" }, _ctx.$attrs, { custom: "" }), {
     default: withCtx(({ isActive, isExactActive, href, navigate }) => [
       createBaseVNode("a", mergeProps(_ctx.$attrs, {
         href,
@@ -2061,7 +2149,7 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
         renderSlot(_ctx.$slots, "default"),
         createVNode(Transition, { name: "__histoire-scale-x" }, {
           default: withCtx(() => [
-            (_ctx.matched != null ? _ctx.matched : _ctx.exact && isExactActive || !_ctx.exact && isActive) ? (openBlock(), createElementBlock("div", _hoisted_2$5)) : createCommentVNode("", true)
+            (_ctx.matched != null ? _ctx.matched : _ctx.exact && isExactActive || !_ctx.exact && isActive) ? (openBlock(), createElementBlock("div", _hoisted_2$4)) : createCommentVNode("", true)
           ]),
           _: 2
         }, 1024)
@@ -2070,13 +2158,13 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16);
 }
-const BaseTab = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$1]]);
+const BaseTab = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$2]]);
 const _hoisted_1$4 = {
   role: "button",
   class: "htw-cursor-pointer hover:htw-bg-primary-50 dark:hover:htw-bg-primary-900 htw-w-8 htw-h-full htw-flex htw-items-center htw-justify-center htw-absolute htw-top-0 htw-right-0"
 };
-const _hoisted_2$4 = { class: "htw-flex htw-flex-col htw-items-stretch" };
-const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+const _hoisted_2$3 = { class: "htw-flex htw-flex-col htw-items-stretch" };
+const _sfc_main$5 = /* @__PURE__ */ defineComponent({
   __name: "BaseOverflowMenu",
   setup(__props) {
     const overflowButtonWidth = 32;
@@ -2131,7 +2219,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
       return openBlock(), createElementBlock("div", {
         ref_key: "el",
         ref: el,
-        class: "htw-flex htw-overflow-hidden htw-relative"
+        class: "histoire-base-overflow-menu htw-flex htw-overflow-hidden htw-relative"
       }, [
         createVNode(ChildrenRender, null, {
           default: withCtx(() => [
@@ -2141,7 +2229,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
         }),
         unref(visibleChildrenCount) < children.value.size ? (openBlock(), createBlock(_component_VDropdown, { key: 0 }, {
           popper: withCtx(() => [
-            createBaseVNode("div", _hoisted_2$4, [
+            createBaseVNode("div", _hoisted_2$3, [
               createVNode(ChildrenSlice, { start: unref(visibleChildrenCount) }, {
                 default: withCtx(() => [
                   renderSlot(_ctx.$slots, "overflow")
@@ -2164,7 +2252,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _sfc_main$3 = defineComponent({
+const _sfc_main$4 = defineComponent({
   inheritAttrs: false,
   props: {
     exact: {
@@ -2178,13 +2266,13 @@ const _sfc_main$3 = defineComponent({
   }
 });
 const _hoisted_1$3 = ["href", "onClick"];
-const _hoisted_2$3 = {
+const _hoisted_2$2 = {
   key: 0,
   class: "htw-absolute htw-top-0 htw-left-0 htw-h-full htw-w-[2px] htw-bg-primary-500 dark:htw-bg-primary-400"
 };
-function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
-  return openBlock(), createBlock(_component_router_link, mergeProps(_ctx.$attrs, { custom: "" }), {
+  return openBlock(), createBlock(_component_router_link, mergeProps({ class: "histoire-base-overflow-tab" }, _ctx.$attrs, { custom: "" }), {
     default: withCtx(({ isActive, isExactActive, href, navigate }) => [
       createBaseVNode("a", mergeProps(_ctx.$attrs, {
         href,
@@ -2196,7 +2284,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         renderSlot(_ctx.$slots, "default"),
         createVNode(Transition, { name: "__histoire-scale-y" }, {
           default: withCtx(() => [
-            (_ctx.matched != null ? _ctx.matched : _ctx.exact && isExactActive || !_ctx.exact && isActive) ? (openBlock(), createElementBlock("div", _hoisted_2$3)) : createCommentVNode("", true)
+            (_ctx.matched != null ? _ctx.matched : _ctx.exact && isExactActive || !_ctx.exact && isActive) ? (openBlock(), createElementBlock("div", _hoisted_2$2)) : createCommentVNode("", true)
           ]),
           _: 2
         }, 1024)
@@ -2205,15 +2293,15 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16);
 }
-const BaseOverflowTab = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render]]);
-const _hoisted_1$2 = {
-  key: 0,
-  class: "htw-text-center htw-text-xs htw-mx-1 htw-px-0.5 htw-h-4 htw-min-w-4 htw-rounded-full active htw-bg-primary-500 htw-text-white dark:htw-text-black"
-};
-const _hoisted_2$2 = {
-  key: 0,
-  class: "htw-text-center htw-text-xs htw-mx-1 htw-px-0.5 htw-h-4 htw-min-w-4 htw-rounded-full active htw-bg-primary-500 htw-text-white dark:htw-text-black"
-};
+const BaseOverflowTab = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$1]]);
+const _sfc_main$3 = {};
+const _hoisted_1$2 = { class: "histoire-base-tag htw-text-center htw-text-xs htw-mx-1 htw-px-0.5 htw-h-4 htw-uppercase htw-min-w-4 htw-rounded-full htw-bg-primary-500 htw-text-white dark:htw-text-black" };
+function _sfc_render(_ctx, _cache) {
+  return openBlock(), createElementBlock("span", _hoisted_1$2, [
+    renderSlot(_ctx.$slots, "default")
+  ]);
+}
+const BaseTag = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render]]);
 const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "PaneTabs",
   props: {
@@ -2227,7 +2315,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     const eventsStore = useEventsStore();
     const hasEvents = computed(() => eventsStore.events.length);
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$4, { class: "htw-h-10 htw-flex-none htw-border-b htw-border-gray-100 dark:htw-border-gray-750" }, {
+      return openBlock(), createBlock(_sfc_main$5, { class: "histoire-pane-tabs htw-h-10 htw-flex-none htw-border-b htw-border-gray-100 dark:htw-border-gray-750" }, {
         overflow: withCtx(() => [
           createVNode(BaseOverflowTab, {
             to: { ..._ctx.$route, query: { ..._ctx.$route.query, tab: "" } },
@@ -2259,7 +2347,12 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
           }, {
             default: withCtx(() => [
               createTextVNode(" Events "),
-              unref(eventsStore).unseen ? (openBlock(), createElementBlock("span", _hoisted_2$2, toDisplayString(unref(eventsStore).unseen <= 99 ? unref(eventsStore).unseen : "99+"), 1)) : createCommentVNode("", true)
+              unref(eventsStore).unseen ? (openBlock(), createBlock(BaseTag, { key: 0 }, {
+                default: withCtx(() => [
+                  createTextVNode(toDisplayString(unref(eventsStore).unseen <= 99 ? unref(eventsStore).unseen : "99+"), 1)
+                ]),
+                _: 1
+              })) : createCommentVNode("", true)
             ]),
             _: 1
           }, 8, ["to", "matched", "class"])
@@ -2295,7 +2388,12 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
           }, {
             default: withCtx(() => [
               createTextVNode(" Events "),
-              unref(eventsStore).unseen ? (openBlock(), createElementBlock("span", _hoisted_1$2, toDisplayString(unref(eventsStore).unseen <= 99 ? unref(eventsStore).unseen : "99+"), 1)) : createCommentVNode("", true)
+              unref(eventsStore).unseen ? (openBlock(), createBlock(BaseTag, { key: 0 }, {
+                default: withCtx(() => [
+                  createTextVNode(toDisplayString(unref(eventsStore).unseen <= 99 ? unref(eventsStore).unseen : "99+"), 1)
+                ]),
+                _: 1
+              })) : createCommentVNode("", true)
             ]),
             _: 1
           }, 8, ["to", "matched", "class"])
@@ -2316,20 +2414,26 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     const panelContentComponent = computed(() => {
       switch (route.query.tab) {
         case "docs":
-          return _sfc_main$9;
-        case "events":
-          return _sfc_main$7;
-        default:
           return _sfc_main$a;
+        case "events":
+          return _sfc_main$8;
+        default:
+          return _sfc_main$b;
       }
     });
     return (_ctx, _cache) => {
-      return !unref(storyStore).currentVariant ? (openBlock(), createBlock(BaseEmpty, { key: 0 }, {
+      return !unref(storyStore).currentVariant ? (openBlock(), createBlock(BaseEmpty, {
+        key: 0,
+        class: "histoire-story-side-panel histoire-selection"
+      }, {
         default: withCtx(() => [
           _hoisted_1$1
         ]),
         _: 1
-      })) : !unref(storyStore).currentVariant.configReady || !unref(storyStore).currentVariant.previewReady ? (openBlock(), createBlock(BaseEmpty, { key: 1 }, {
+      })) : !unref(storyStore).currentVariant.configReady || !unref(storyStore).currentVariant.previewReady ? (openBlock(), createBlock(BaseEmpty, {
+        key: 1,
+        class: "histoire-story-side-panel histoire-loading"
+      }, {
         default: withCtx(() => [
           _hoisted_2$1
         ]),
@@ -2338,7 +2442,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         key: 2,
         "save-id": "story-sidepane",
         orientation: "portrait",
-        class: "htw-h-full",
+        class: "histoire-story-side-panel histoire-loaded htw-h-full",
         "data-test-id": "story-side-panel"
       }, {
         first: withCtx(() => [
@@ -2368,7 +2472,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
 });
 const _hoisted_1 = {
   key: 1,
-  class: "htw-h-full"
+  class: "histoire-story-view histoire-with-story htw-h-full"
 };
 const _hoisted_2 = {
   key: 0,
@@ -2411,7 +2515,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       });
     }
     return (_ctx, _cache) => {
-      return !unref(storyStore).currentStory ? (openBlock(), createBlock(BaseEmpty, { key: 0 }, {
+      return !unref(storyStore).currentStory ? (openBlock(), createBlock(BaseEmpty, {
+        key: 0,
+        class: "histoire-story-view histoire-no-story"
+      }, {
         default: withCtx(() => [
           createVNode(unref(Icon), {
             icon: "carbon:software-resource-resource",
@@ -2421,7 +2528,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         _: 1
       })) : (openBlock(), createElementBlock("div", _hoisted_1, [
         unref(storyStore).currentStory.docsOnly ? (openBlock(), createElementBlock("div", _hoisted_2, [
-          createVNode(_sfc_main$9, {
+          createVNode(_sfc_main$a, {
             story: unref(storyStore).currentStory,
             class: "md:htw-p-12 htw-w-full md:htw-max-w-[600px] lg:htw-max-w-[800px] xl:htw-max-w-[900px]"
           }, null, 8, ["story"])

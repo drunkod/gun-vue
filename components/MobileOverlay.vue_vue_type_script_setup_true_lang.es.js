@@ -30,7 +30,7 @@ const _export_sfc = (sfc, props) => {
 const _hoisted_1$2 = ["href", "onClick", "onKeyup"];
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_RouterLink = resolveComponent("RouterLink");
-  return openBlock(), createBlock(_component_RouterLink, mergeProps(_ctx.$attrs, { custom: "" }), {
+  return openBlock(), createBlock(_component_RouterLink, mergeProps({ class: "histoire-base-list-item-link" }, _ctx.$attrs, { custom: "" }), {
     default: withCtx(({ isActive: linkIsActive, href, navigate }) => [
       createBaseVNode("a", {
         href,
@@ -216,7 +216,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       return openBlock(), createElementBlock("div", {
         ref_key: "el",
         ref: el,
-        class: normalizeClass(["htw-flex htw-h-full htw-isolate htw-overflow-auto", {
+        class: normalizeClass(["histoire-base-split-pane htw-flex htw-h-full htw-isolate htw-overflow-auto", {
           "htw-flex-col": __props.orientation === "portrait",
           "htw-cursor-ew-resize": dragging.value && __props.orientation === "landscape",
           "htw-cursor-ns-resize": dragging.value && __props.orientation === "portrait",
@@ -256,11 +256,11 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const BaseSplitPane = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-bb6c600c"]]);
+const BaseSplitPane = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-ed925107"]]);
 const isMobile = useMediaQuery("(max-width: 640px)");
 const _hoisted_1 = {
   key: 0,
-  class: "htw-absolute htw-z-10 htw-bg-white dark:htw-bg-gray-700 htw-w-screen htw-h-screen htw-inset-0 htw-overflow-hidden htw-flex htw-flex-col"
+  class: "histoire-mobile-overlay htw-absolute htw-z-10 htw-bg-white dark:htw-bg-gray-700 htw-w-screen htw-h-screen htw-inset-0 htw-overflow-hidden htw-flex htw-flex-col"
 };
 const _hoisted_2 = { class: "htw-p-4 htw-h-16 htw-flex htw-border-b htw-border-gray-100 dark:htw-border-gray-800 htw-items-center htw-place-content-between" };
 const _hoisted_3 = { class: "htw-text-gray-500" };

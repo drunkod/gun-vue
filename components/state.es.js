@@ -1,5 +1,5 @@
-import { clientSupportPlugins } from "./GenericMountStory.vue_vue_type_script_setup_true_lang.es.js";
-import { defineComponent, ref, watchEffect, openBlock, createBlock, mergeProps, resolveDynamicComponent, createCommentVNode, markRaw, isRef, unref } from "./vendor.es.js";
+import { clientSupportPlugins, histoireConfig } from "./GenericMountStory.vue_vue_type_script_setup_true_lang.es.js";
+import { defineComponent, ref, watchEffect, openBlock, createBlock, mergeProps, resolveDynamicComponent, createCommentVNode, markRaw, reactive, isRef, unref } from "./vendor.es.js";
 const __default__ = {
   inheritAttrs: false
 };
@@ -23,11 +23,26 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return mountComponent.value ? (openBlock(), createBlock(resolveDynamicComponent(mountComponent.value), mergeProps({
         key: 0,
+        class: "histoire-generic-render-story",
         story: __props.story
       }, _ctx.$attrs), null, 16, ["story"])) : createCommentVNode("", true);
     };
   }
 });
+const receivedSettings = reactive({});
+function applyPreviewSettings(settings) {
+  Object.assign(receivedSettings, settings);
+  document.documentElement.setAttribute("dir", settings.textDirection);
+  const contrastColor = getContrastColor(settings);
+  document.documentElement.style.setProperty("--histoire-contrast-color", contrastColor);
+  if (histoireConfig.autoApplyContrastColor) {
+    document.documentElement.style.color = contrastColor;
+  }
+}
+function getContrastColor(setting) {
+  var _a, _b;
+  return (_b = (_a = histoireConfig.backgroundPresets.find((preset) => preset.color === setting.backgroundColor)) == null ? void 0 : _a.contrastColor) != null ? _b : "unset";
+}
 const isObject = (val) => val !== null && typeof val === "object";
 function toRawDeep(val, clean = false, seen = /* @__PURE__ */ new WeakMap()) {
   const unwrappedValue = isRef(val) ? unref(val) : val;
@@ -66,5 +81,7 @@ const toRawObject = (obj, target, clean = false, seen = /* @__PURE__ */ new Weak
 };
 export {
   _sfc_main,
+  applyPreviewSettings,
+  getContrastColor,
   toRawDeep
 };

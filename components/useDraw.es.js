@@ -941,7 +941,28 @@ function updateProjectField(title, field, value) {
     proj.get("updatedAt").put(Date.now());
   });
 }
-function useProject(path = ref()) {
+function useProject(path) {
+  const gun3 = useGun();
+  const project = reactive({});
+  gun3.user(currentRoom.pub).get(projectsPath).get(path).map().on(async (d, k) => {
+    if (k == "cover" && isHash(d)) {
+      project[k] = await gun3.get("#cover").get(d).then();
+    } else {
+      project[k] = d;
+    }
+  });
+  function updateField(field, value) {
+    updateProjectField(path.slice(0, -88), field, value);
+  }
+  async function updateCover(image) {
+    console.log(image);
+    const hash = await hashText(image);
+    gun3.get("#cover").get(hash).put(image);
+    updateField("cover", hash);
+  }
+  return { project, updateField, updateCover };
+}
+function useComputedProject(path = ref()) {
   const gun3 = useGun();
   const project = computed(() => {
     const proj = reactive({});
@@ -980,6 +1001,7 @@ async function removeProject(path) {
       gun22.user().get(projectsPath).get(path).put(null);
     });
   }
+  console.error("Can't delete the project");
 }
 const projectsPath = "projects";
 const draw = reactive({
@@ -1169,6 +1191,7 @@ export {
   updateState,
   useAccount,
   useColor,
+  useComputedProject,
   useDefs,
   useDictAuthors,
   useDictLangs,

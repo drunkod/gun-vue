@@ -810,12 +810,12 @@ const _sfc_main$4 = {
     const props = __props;
     const { user: user2 } = useUser();
     const md = useMd();
-    const { project, updateField, updateCover } = useProject(toRef(props, "path"));
+    const { project, updateField, updateCover } = useProject(props.path);
     const editable = computed(() => props.path.includes(user2.pub));
     const editing = ref(false);
     const text = ref("");
     watchEffect(() => {
-      text.value = project.value.text;
+      text.value = project.text;
     });
     const __returned__ = { emit, props, user: user2, md, project, updateField, updateCover, editable, editing, text, useUser, useProject, useMd, useProjectGifts, toRef, ref, computed, watchEffect, InkMde: _ };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
