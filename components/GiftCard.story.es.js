@@ -104,7 +104,9 @@ const _sfc_main = {
       const { hashObj } = await __vitePreload(() => import("./index.es.js"), true ? ["index.es.js","useDraw.es.js","vendor.es.js","useChat.es.js","usePrivate.es.js","usePosts.es.js","useFile.es.js","useZip.es.js","useMd.es.js","useGift.es.js","useReactions.es.js","useMates.es.js","useGuests.es.js","useSpace.es.js","useBackground.es.js","useGifts.es.js","useProjects.es.js"] : void 0);
       hashed.value = await hashObj(gift);
     });
-    const __returned__ = { GiftCard, gift, hashed, state, generate, defineAsyncComponent, onMounted, reactive, ref, watch, nextTick, computedAsync };
+    const __returned__ = { GiftCard, gift, hashed, state, generate, defineAsyncComponent, onMounted, reactive, ref, watch, nextTick, get computedAsync() {
+      return computedAsync;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

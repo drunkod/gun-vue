@@ -7,7 +7,7 @@ import { base64Extension, base64FileType, base64MimeType, detectMimeType, downlo
 import { addPost, downloadPost, loadFromHash, parsePost, usePost, usePostTimestamp, useZip } from "./useZip.es.js";
 import { createMd, parseMd, useMd } from "./useMd.es.js";
 import { ref$1 as ref, computed$1 as computed, reactive$1 as reactive, slugify, Fuse } from "./vendor.es.js";
-import { SEA, gunAvatar, mountClass, mountElement, ms, slugify as slugify2 } from "./vendor.es.js";
+import { SEA, w, T, D, ms, slugify as slugify2 } from "./vendor.es.js";
 import { countRating, reactToPost, useReaction, useReactions, useUserPosts } from "./useReactions.es.js";
 import { useGuests } from "./useGuests.es.js";
 import { useSpace, useSvgMouse } from "./useSpace.es.js";
@@ -172,7 +172,7 @@ export {
   giftState,
   gun2 as gun,
   gun22 as gun2,
-  gunAvatar,
+  w as gunAvatar,
   hasPass,
   hashObj2 as hashObj,
   hashText2 as hashText,
@@ -192,8 +192,8 @@ export {
   loadCanvas,
   loadFromHash,
   loadRelays,
-  mountClass,
-  mountElement,
+  T as mountClass,
+  D as mountElement,
   ms,
   newProject,
   newWorker,

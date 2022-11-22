@@ -23,7 +23,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return mountComponent.value ? (openBlock(), createBlock(resolveDynamicComponent(mountComponent.value), mergeProps({
         key: 0,
-        class: "histoire-generic-render-story",
+        class: "histoire-generic-render-story htw-sandbox-contain",
         story: __props.story
       }, _ctx.$attrs), null, 16, ["story"])) : createCommentVNode("", true);
     };

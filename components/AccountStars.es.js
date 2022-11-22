@@ -85,7 +85,13 @@ const _sfc_main = {
         }
       });
     });
-    const __returned__ = { props, emit, posts, gun, reactive, useGun, safeHash, usePost };
+    const __returned__ = { props, emit, posts, gun, reactive, get useGun() {
+      return useGun;
+    }, get safeHash() {
+      return safeHash;
+    }, get usePost() {
+      return usePost;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

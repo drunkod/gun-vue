@@ -25,7 +25,9 @@ const _sfc_main = {
         margin: props.margin
       });
     });
-    const __returned__ = { props, src, qrcode: svg, computed };
+    const __returned__ = { props, src, get qrcode() {
+      return svg;
+    }, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

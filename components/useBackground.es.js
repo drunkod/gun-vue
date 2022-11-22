@@ -1,5 +1,5 @@
 import "./useDraw.es.js";
-import { gunAvatar } from "./vendor.es.js";
+import { w } from "./vendor.es.js";
 function useBackground({
   pub,
   size = 200,
@@ -11,7 +11,7 @@ function useBackground({
   if (!pub)
     return;
   return {
-    background: `linear-gradient(hsla(255,0%,${light * 100}%,${overlay}), hsla(255,0%,${light * 100}%,${overlay})), url(${gunAvatar({
+    background: `linear-gradient(hsla(255,0%,${light * 100}%,${overlay}), hsla(255,0%,${light * 100}%,${overlay})), url(${w({
       pub,
       draw,
       reflect: false,

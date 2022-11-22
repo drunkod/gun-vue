@@ -54,7 +54,13 @@ const _sfc_main = {
     const { user } = useUser();
     const colorDeep = useColor("deep");
     const { emoji, isMate, toggleMate } = useMate(props.pub);
-    const __returned__ = { props, user, colorDeep, emoji, isMate, toggleMate, useUser, useMate, useColor };
+    const __returned__ = { props, user, colorDeep, emoji, isMate, toggleMate, get useUser() {
+      return useUser;
+    }, get useMate() {
+      return useMate;
+    }, get useColor() {
+      return useColor;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

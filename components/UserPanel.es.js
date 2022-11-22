@@ -86,7 +86,13 @@ const _sfc_main = {
     const { user, leave } = useUser();
     const colorDeep = useColor("deep");
     const bg = computed(() => useBackground({ pub: user.pub, size: 600, light: 0.5, draw: "circles" }));
-    const __returned__ = { user, leave, colorDeep, emit, bg, computed, useUser, useColor, useBackground };
+    const __returned__ = { user, leave, colorDeep, emit, bg, computed, get useUser() {
+      return useUser;
+    }, get useColor() {
+      return useColor;
+    }, get useBackground() {
+      return useBackground;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

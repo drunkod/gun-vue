@@ -58,7 +58,13 @@ const _sfc_main = {
     expose();
     const props = __props;
     const { search, projects, candidates } = useProjects(props.pub);
-    const __returned__ = { props, search, projects, candidates, useProjects, addProject, newProject };
+    const __returned__ = { props, search, projects, candidates, get useProjects() {
+      return useProjects;
+    }, get addProject() {
+      return addProject;
+    }, get newProject() {
+      return newProject;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

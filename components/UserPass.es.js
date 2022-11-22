@@ -79,7 +79,9 @@ const _sfc_main = {
   setup(__props, { expose }) {
     expose();
     const { pass } = usePass();
-    const __returned__ = { pass, usePass };
+    const __returned__ = { pass, get usePass() {
+      return usePass;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

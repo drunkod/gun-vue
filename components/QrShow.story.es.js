@@ -1,4 +1,4 @@
-import { resolveComponent$1 as resolveComponent, createBlock$1 as createBlock, withCtx$1 as withCtx, openBlock$1 as openBlock, createBaseVNode$1 as createBaseVNode, withDirectives$1 as withDirectives, vModelText$1 as vModelText, createVNode$1 as createVNode, normalizeProps, guardReactiveProps, defineAsyncComponent$1 as defineAsyncComponent, __vitePreload, reactive$1 as reactive } from "./vendor.es.js";
+import { resolveComponent$1 as resolveComponent, createBlock$1 as createBlock, withCtx$1 as withCtx, openBlock$1 as openBlock, createBaseVNode$1 as createBaseVNode, withDirectives$1 as withDirectives, vModelText$1 as vModelText, createVNode$1 as createVNode, Suspense, normalizeProps, guardReactiveProps, defineAsyncComponent$1 as defineAsyncComponent, __vitePreload, reactive$1 as reactive } from "./vendor.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 const _hoisted_1 = { class: "p-2 flex flex-col gap-4" };
 const _hoisted_2 = { class: "flex gap-2" };
@@ -33,7 +33,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     default: withCtx(() => [
       createVNode(_component_Variant, { title: "Round" }, {
         default: withCtx(() => [
-          createVNode($setup["QrShow"], normalizeProps(guardReactiveProps($setup.state)), null, 16)
+          (openBlock(), createBlock(Suspense, null, {
+            default: withCtx(() => [
+              createVNode($setup["QrShow"], normalizeProps(guardReactiveProps($setup.state)), null, 16)
+            ]),
+            _: 1
+          }))
         ]),
         _: 1
       })

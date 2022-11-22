@@ -1,7 +1,8 @@
-import { resolveComponent$1 as resolveComponent, createBlock$1 as createBlock, withCtx$1 as withCtx, openBlock$1 as openBlock, createBaseVNode$1 as createBaseVNode, createVNode$1 as createVNode, defineAsyncComponent$1 as defineAsyncComponent, __vitePreload, reactive$1 as reactive, computed$1 as computed, onMounted$1 as onMounted, watchOnce } from "./vendor.es.js";
+import { resolveComponent$1 as resolveComponent, createBlock$1 as createBlock, withCtx$1 as withCtx, openBlock$1 as openBlock, createBaseVNode$1 as createBaseVNode, createVNode$1 as createVNode, Suspense, defineAsyncComponent$1 as defineAsyncComponent, __vitePreload, reactive$1 as reactive, computed$1 as computed, onMounted$1 as onMounted, watchOnce } from "./vendor.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 const _hoisted_1 = { class: "p-2 flex flex-col gap-4" };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_ClientOnly = resolveComponent("ClientOnly");
   const _component_Variant = resolveComponent("Variant");
   const _component_Story = resolveComponent("Story");
   return openBlock(), createBlock(_component_Story, {
@@ -20,10 +21,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     default: withCtx(() => [
       createVNode(_component_Variant, { title: "Round" }, {
         default: withCtx(() => [
-          (openBlock(), createBlock($setup["AccountHome"], {
-            pub: $setup.state.pub,
-            key: $setup.state.pub
-          }, null, 8, ["pub"]))
+          createVNode(_component_ClientOnly, null, {
+            default: withCtx(() => [
+              (openBlock(), createBlock(Suspense, null, {
+                default: withCtx(() => [
+                  (openBlock(), createBlock($setup["AccountHome"], {
+                    pub: $setup.state.pub,
+                    key: $setup.state.pub
+                  }, null, 8, ["pub"]))
+                ]),
+                _: 1
+              }))
+            ]),
+            _: 1
+          })
         ]),
         _: 1
       })
@@ -52,7 +63,9 @@ const _sfc_main = {
         });
       });
     }
-    const __returned__ = { AccountHome, AccountSelect, state, mySetup, computed, defineAsyncComponent, onMounted, reactive, watchOnce };
+    const __returned__ = { AccountHome, AccountSelect, state, mySetup, computed, defineAsyncComponent, onMounted, reactive, get watchOnce() {
+      return watchOnce;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

@@ -211,7 +211,17 @@ const _sfc_main = {
       var _a;
       return safePair.value ? (_a = pass == null ? void 0 : pass.safe) == null ? void 0 : _a.enc : JSON.stringify(user.pair());
     });
-    const __returned__ = { emit, current, user, show, pass, text, copy, copied, canCopy, share, canShare, safePair, encPair, useUser, downloadFile, usePass, ref, computed, useClipboard, useShare };
+    const __returned__ = { emit, current, user, show, pass, text, copy, copied, canCopy, share, canShare, safePair, encPair, get useUser() {
+      return useUser;
+    }, get downloadFile() {
+      return downloadFile;
+    }, get usePass() {
+      return usePass;
+    }, ref, computed, get useClipboard() {
+      return useClipboard;
+    }, get useShare() {
+      return useShare;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

@@ -63,7 +63,11 @@ const _sfc_main = {
     onBeforeUnmount(() => {
       clearInterval(timer);
     });
-    const __returned__ = { graph, colorLight, gun, timer, useGun, useColor, ref, onBeforeUnmount };
+    const __returned__ = { graph, colorLight, gun, timer, get useGun() {
+      return useGun;
+    }, get useColor() {
+      return useColor;
+    }, ref, onBeforeUnmount };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

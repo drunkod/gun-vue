@@ -52,7 +52,17 @@ const _sfc_main = {
     const { room } = useRoom(props.pub);
     const bg = computed(() => useBackground({ pub: props.pub, size: 400 }));
     const { logo } = useRoomLogo(props.pub);
-    const __returned__ = { props, user, room, bg, logo, useUser, useRoom, useBackground, currentRoom, useRoomLogo, computed };
+    const __returned__ = { props, user, room, bg, logo, get useUser() {
+      return useUser;
+    }, get useRoom() {
+      return useRoom;
+    }, get useBackground() {
+      return useBackground;
+    }, get currentRoom() {
+      return currentRoom;
+    }, get useRoomLogo() {
+      return useRoomLogo;
+    }, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

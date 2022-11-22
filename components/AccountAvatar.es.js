@@ -1,5 +1,5 @@
 import { useColor, useGun, useUser } from "./useDraw.es.js";
-import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, normalizeStyle$1 as normalizeStyle, createVNode$1 as createVNode, ref$1 as ref, watch$1 as watch, gunAvatar, computed$1 as computed } from "./vendor.es.js";
+import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, normalizeStyle$1 as normalizeStyle, createVNode$1 as createVNode, ref$1 as ref, watch$1 as watch, w, computed$1 as computed } from "./vendor.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 const _hoisted_1$1 = {
   viewBox: "0 0 32 32",
@@ -52,7 +52,7 @@ const _sfc_main = {
     const gun = useGun();
     const avatar = ref();
     watch(() => props.pub, () => {
-      avatar.value = gunAvatar({ pub: props.pub, size: props.size * 4 });
+      avatar.value = w({ pub: props.pub, size: props.size * 4 });
     }, { immediate: true });
     gun.user(props.pub).get("avatar").on((hash) => {
       if (hash) {
@@ -60,14 +60,22 @@ const _sfc_main = {
           avatar.value = d;
         });
       } else {
-        avatar.value = gunAvatar({ pub: props.pub, size: props.size * 4 });
+        avatar.value = w({ pub: props.pub, size: props.size * 4 });
       }
     });
     const blink = ref();
     gun.user(props.pub).get("pulse").on((d) => {
       blink.value = !blink.value;
     });
-    const __returned__ = { props, colorDeep, gun, avatar, blink, useGun, useUser, gunAvatar, useColor, computed, ref, watch };
+    const __returned__ = { props, colorDeep, gun, avatar, blink, get useGun() {
+      return useGun;
+    }, get useUser() {
+      return useUser;
+    }, get gunAvatar() {
+      return w;
+    }, get useColor() {
+      return useColor;
+    }, computed, ref, watch };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

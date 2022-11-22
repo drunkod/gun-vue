@@ -105,7 +105,9 @@ const _sfc_main = {
     watch(picture, (pic) => {
       emit("update", pic);
     });
-    const __returned__ = { props, emit, id, add, picture, state, handleChange, ref, watch, computed, usePictureUpload };
+    const __returned__ = { props, emit, id, add, picture, state, handleChange, ref, watch, computed, get usePictureUpload() {
+      return usePictureUpload;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

@@ -70,7 +70,13 @@ const _sfc_main = {
     function removeAvatar() {
       user.db.get("avatar").put(null);
     }
-    const __returned__ = { user, gun, props, avatar, uploadAvatar, removeAvatar, useUser, useGun, hashText, ref };
+    const __returned__ = { user, gun, props, avatar, uploadAvatar, removeAvatar, get useUser() {
+      return useUser;
+    }, get useGun() {
+      return useGun;
+    }, get hashText() {
+      return hashText;
+    }, ref };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

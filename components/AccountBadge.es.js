@@ -62,7 +62,15 @@ const _sfc_main = {
         selectedUser.pub = props.pub;
       }
     }
-    const __returned__ = { props, name, petname, colorDeep, gun, user, select, ref, watchEffect, useGun, useColor, selectedUser, useUser };
+    const __returned__ = { props, name, petname, colorDeep, gun, user, select, ref, watchEffect, get useGun() {
+      return useGun;
+    }, get useColor() {
+      return useColor;
+    }, get selectedUser() {
+      return selectedUser;
+    }, get useUser() {
+      return useUser;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

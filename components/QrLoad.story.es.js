@@ -1,9 +1,10 @@
-import { resolveComponent$1 as resolveComponent, createBlock$1 as createBlock, withCtx$1 as withCtx, openBlock$1 as openBlock, createBaseVNode$1 as createBaseVNode, toDisplayString$1 as toDisplayString, createVNode$1 as createVNode, mergeProps$1 as mergeProps, defineAsyncComponent$1 as defineAsyncComponent, __vitePreload, reactive$1 as reactive } from "./vendor.es.js";
+import { resolveComponent$1 as resolveComponent, createBlock$1 as createBlock, withCtx$1 as withCtx, openBlock$1 as openBlock, createBaseVNode$1 as createBaseVNode, toDisplayString$1 as toDisplayString, createVNode$1 as createVNode, Suspense, mergeProps$1 as mergeProps, defineAsyncComponent$1 as defineAsyncComponent, __vitePreload, reactive$1 as reactive } from "./vendor.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 const _hoisted_1 = { class: "p-4 flex flex-col gap-4" };
 const _hoisted_2 = /* @__PURE__ */ createBaseVNode("div", { class: "font-bold" }, "Output", -1);
 const _hoisted_3 = { class: "text-xs" };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_ClientOnly = resolveComponent("ClientOnly");
   const _component_Variant = resolveComponent("Variant");
   const _component_Story = resolveComponent("Story");
   return openBlock(), createBlock(_component_Story, {
@@ -19,9 +20,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     default: withCtx(() => [
       createVNode(_component_Variant, { title: "Round" }, {
         default: withCtx(() => [
-          createVNode($setup["QrLoad"], mergeProps($setup.state, {
-            onLoaded: _cache[0] || (_cache[0] = ($event) => $setup.state.data = $event)
-          }), null, 16)
+          createVNode(_component_ClientOnly, null, {
+            default: withCtx(() => [
+              (openBlock(), createBlock(Suspense, null, {
+                default: withCtx(() => [
+                  createVNode($setup["QrLoad"], mergeProps($setup.state, {
+                    onLoaded: _cache[0] || (_cache[0] = ($event) => $setup.state.data = $event)
+                  }), null, 16)
+                ]),
+                _: 1
+              }))
+            ]),
+            _: 1
+          })
         ]),
         _: 1
       })

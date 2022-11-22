@@ -29,7 +29,11 @@ const _sfc_main$1 = {
       }
     });
     const count = computed(() => Object.keys(comments).length);
-    const __returned__ = { props, gun, comments, count, useGun, currentRoom, reactive, computed };
+    const __returned__ = { props, gun, comments, count, get useGun() {
+      return useGun;
+    }, get currentRoom() {
+      return currentRoom;
+    }, reactive, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -145,7 +149,11 @@ const _sfc_main = {
     const colorLight = useColor("light");
     const colorDeep = useColor("deep");
     const { post } = usePost({ hash: props.hash });
-    const __returned__ = { colorLight, colorDeep, props, post, useColor, usePost, computed, ref, watchEffect };
+    const __returned__ = { colorLight, colorDeep, props, post, get useColor() {
+      return useColor;
+    }, get usePost() {
+      return usePost;
+    }, computed, ref, watchEffect };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

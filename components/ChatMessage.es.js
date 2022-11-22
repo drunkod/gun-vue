@@ -111,7 +111,9 @@ const _sfc_main$x = {
       emit("submit", message.value);
       message.value = "";
     }
-    const __returned__ = { user: user2, emit, message, send, ref, onMounted, toRef, useUser };
+    const __returned__ = { user: user2, emit, message, send, ref, onMounted, toRef, get useUser() {
+      return useUser;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -141,7 +143,11 @@ const _sfc_main$w = {
         list.value.scrollToBottom();
       });
     }, { deep: true });
-    const __returned__ = { props, list, ref, watch, nextTick, computed, refDebounced, VirtualList, ChatMessage };
+    const __returned__ = { props, list, ref, watch, nextTick, computed, get refDebounced() {
+      return refDebounced;
+    }, get VirtualList() {
+      return VirtualList;
+    }, ChatMessage };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -196,7 +202,23 @@ const _sfc_main$v = {
     watch(sorted, () => {
       click();
     }, { deep: true });
-    const __returned__ = { props, audio, click, send, currentChat, sorted, ref, computed, watch, nextTick, useMediaQuery, onClickOutside, useChat, useUser, useBackground, currentRoom };
+    const __returned__ = { props, get audio() {
+      return audio;
+    }, set audio(v) {
+      audio = v;
+    }, click, send, currentChat, sorted, ref, computed, watch, nextTick, get useMediaQuery() {
+      return useMediaQuery;
+    }, get onClickOutside() {
+      return onClickOutside;
+    }, get useChat() {
+      return useChat;
+    }, get useUser() {
+      return useUser;
+    }, get useBackground() {
+      return useBackground;
+    }, get currentRoom() {
+      return currentRoom;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -218,7 +240,11 @@ const _sfc_main$u = {
     const props = __props;
     const { account } = useAccount(toRef(props, "pub"));
     const { send, sorted } = usePrivateChat(props.pub);
-    const __returned__ = { props, emit, account, send, sorted, ref, reactive, computed, toRef, useAccount, usePrivateChat };
+    const __returned__ = { props, emit, account, send, sorted, ref, reactive, computed, toRef, get useAccount() {
+      return useAccount;
+    }, get usePrivateChat() {
+      return usePrivateChat;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -235,7 +261,11 @@ const _sfc_main$t = {
     const { user: user2 } = useUser();
     const pub = computed(() => props.author || user2.pub);
     const records = computed(() => useDictRecordsBy(pub.value));
-    const __returned__ = { props, user: user2, pub, records, useUser, useDictRecordsBy, computed };
+    const __returned__ = { props, user: user2, pub, records, get useUser() {
+      return useUser;
+    }, get useDictRecordsBy() {
+      return useDictRecordsBy;
+    }, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -247,7 +277,13 @@ const _sfc_main$s = {
   setup(__props, { expose }) {
     expose();
     const langs = useDictLangs();
-    const __returned__ = { langs, dictLang, languages, useDictLangs };
+    const __returned__ = { langs, get dictLang() {
+      return dictLang;
+    }, get languages() {
+      return languages;
+    }, get useDictLangs() {
+      return useDictLangs;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -259,7 +295,9 @@ const _sfc_main$r = {
   setup(__props, { expose }) {
     expose();
     const authors = useDictAuthors();
-    const __returned__ = { authors, useDictAuthors };
+    const __returned__ = { authors, get useDictAuthors() {
+      return useDictAuthors;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -277,7 +315,19 @@ const _sfc_main$q = {
     expose();
     const props = __props;
     const { user: user2 } = useUser();
-    const __returned__ = { props, user: user2, useGun, useUser, useColor, useDictRecordsFor, dictRecord, langParts };
+    const __returned__ = { props, user: user2, get useGun() {
+      return useGun;
+    }, get useUser() {
+      return useUser;
+    }, get useColor() {
+      return useColor;
+    }, get useDictRecordsFor() {
+      return useDictRecordsFor;
+    }, get dictRecord() {
+      return dictRecord;
+    }, get langParts() {
+      return langParts;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -298,7 +348,13 @@ const _sfc_main$p = {
     const colorDeep = useColor("deep");
     const isActive = computed(() => {
     });
-    const __returned__ = { color, colorDeep, props, emit, isActive, dictRecord, useColor, selectedUser, computed };
+    const __returned__ = { color, colorDeep, props, emit, isActive, get dictRecord() {
+      return dictRecord;
+    }, get useColor() {
+      return useColor;
+    }, get selectedUser() {
+      return selectedUser;
+    }, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -322,7 +378,19 @@ const _sfc_main$o = {
       def.value = JSON.parse(d);
     });
     const links = useDictRecordsFor(props.hash);
-    const __returned__ = { props, color, gun: gun2, user: user2, def, links, ref, useGun, useUser, useColor, useDictRecordsFor, dictRecord, langParts };
+    const __returned__ = { props, color, gun: gun2, user: user2, def, links, ref, get useGun() {
+      return useGun;
+    }, get useUser() {
+      return useUser;
+    }, get useColor() {
+      return useColor;
+    }, get useDictRecordsFor() {
+      return useDictRecordsFor;
+    }, get dictRecord() {
+      return dictRecord;
+    }, get langParts() {
+      return langParts;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -342,7 +410,19 @@ const _sfc_main$n = {
     const color = useColor("light");
     const { word } = useWord(props.hash);
     const links = useDictRecordsFor(props.hash);
-    const __returned__ = { props, user: user2, color, word, links, useWord, useColor, letterFilter, dictRecord, useDictRecordsFor, useUser };
+    const __returned__ = { props, user: user2, color, word, links, get useWord() {
+      return useWord;
+    }, get useColor() {
+      return useColor;
+    }, get letterFilter() {
+      return letterFilter;
+    }, get dictRecord() {
+      return dictRecord;
+    }, get useDictRecordsFor() {
+      return useDictRecordsFor;
+    }, get useUser() {
+      return useUser;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -356,7 +436,17 @@ const _sfc_main$m = {
     const deepColor = useColor("deep");
     const { user: user2 } = useUser();
     const { def, addDef, defs, found, linked } = useDefs();
-    const __returned__ = { deepColor, user: user2, def, addDef, defs, found, linked, useDefs, useColor, langParts, useUser, dictRecord };
+    const __returned__ = { deepColor, user: user2, def, addDef, defs, found, linked, get useDefs() {
+      return useDefs;
+    }, get useColor() {
+      return useColor;
+    }, get langParts() {
+      return langParts;
+    }, get useUser() {
+      return useUser;
+    }, get dictRecord() {
+      return dictRecord;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -380,7 +470,19 @@ const _sfc_main$l = {
       def.value = JSON.parse(d);
     });
     const links = useDictRecordsFor(props.hash);
-    const __returned__ = { props, color, gun: gun2, user: user2, def, links, ref, useGun, useColor, useDictRecordsFor, dictRecord, langParts, useUser };
+    const __returned__ = { props, color, gun: gun2, user: user2, def, links, ref, get useGun() {
+      return useGun;
+    }, get useColor() {
+      return useColor;
+    }, get useDictRecordsFor() {
+      return useDictRecordsFor;
+    }, get dictRecord() {
+      return dictRecord;
+    }, get langParts() {
+      return langParts;
+    }, get useUser() {
+      return useUser;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -394,7 +496,15 @@ const _sfc_main$k = {
     const color = useColor("light");
     const { user: user2 } = useUser();
     const { input, found, words, linked, word, addWord } = useWords();
-    const __returned__ = { color, user: user2, input, found, words, linked, word, addWord, useWords, useColor, useUser, dictRecord };
+    const __returned__ = { color, user: user2, input, found, words, linked, word, addWord, get useWords() {
+      return useWords;
+    }, get useColor() {
+      return useColor;
+    }, get useUser() {
+      return useUser;
+    }, get dictRecord() {
+      return dictRecord;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -414,7 +524,17 @@ const _sfc_main$j = {
     const colorDeep = useColor("deep");
     const { word } = useWord(props.hash);
     const links = useDictRecordsFor(props.hash);
-    const __returned__ = { props, color, colorDeep, word, links, useWord, useColor, letterFilter, dictRecord, useDictRecordsFor };
+    const __returned__ = { props, color, colorDeep, word, links, get useWord() {
+      return useWord;
+    }, get useColor() {
+      return useColor;
+    }, get letterFilter() {
+      return letterFilter;
+    }, get dictRecord() {
+      return dictRecord;
+    }, get useDictRecordsFor() {
+      return useDictRecordsFor;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -563,7 +683,11 @@ const _sfc_main$e = {
       postData.value = {};
       emit("close");
     }
-    const __returned__ = { props, emit, colorDeep, addColor, titleInput, postData, add, hasContent, submit, reset, reactive, ref, onMounted, watch, computed, addPost, useColor };
+    const __returned__ = { props, emit, colorDeep, addColor, titleInput, postData, add, hasContent, submit, reset, reactive, ref, onMounted, watch, computed, get addPost() {
+      return addPost;
+    }, get useColor() {
+      return useColor;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -616,7 +740,21 @@ const _sfc_main$d = {
       });
       watchEffect(() => Graph.graphData({ nodes: Object.values(nodes), links }));
     });
-    const __returned__ = { emit, colorDeep, gun: gun2, nodes, links, rndms, computed, reactive, watchEffect, onMounted, useColor, useMates, useGun, currentRoom, usePosts, user, ForceGraph: forceGraph };
+    const __returned__ = { emit, colorDeep, gun: gun2, nodes, links, rndms, computed, reactive, watchEffect, onMounted, get useColor() {
+      return useColor;
+    }, get useMates() {
+      return useMates;
+    }, get useGun() {
+      return useGun;
+    }, get currentRoom() {
+      return currentRoom;
+    }, get usePosts() {
+      return usePosts;
+    }, get user() {
+      return user;
+    }, get ForceGraph() {
+      return forceGraph;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -639,7 +777,11 @@ const _sfc_main$c = {
     const colorLight = useColor("light");
     const colorDeep = useColor("deep");
     const { post } = usePost({ hash: props.hash });
-    const __returned__ = { colorLight, colorDeep, props, post, useColor, usePost, computed, ref, watchEffect };
+    const __returned__ = { colorLight, colorDeep, props, post, get useColor() {
+      return useColor;
+    }, get usePost() {
+      return usePost;
+    }, computed, ref, watchEffect };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -656,7 +798,13 @@ const _sfc_main$b = {
     const address = computed(() => {
       return location.value.href + location.value.search;
     });
-    const __returned__ = { location, open, text, copy, copied, canCopy, share, canShare, address, useBrowserLocation, useClipboard, useShare, ref, computed };
+    const __returned__ = { location, open, text, copy, copied, canCopy, share, canShare, address, get useBrowserLocation() {
+      return useBrowserLocation;
+    }, get useClipboard() {
+      return useClipboard;
+    }, get useShare() {
+      return useShare;
+    }, ref, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -687,7 +835,13 @@ const _sfc_main$a = {
       }
       return list;
     });
-    const __returned__ = { user: user2, props, emit, posts, backlinks, countPosts, countBacklinks, downloadPosts, downloading, uploadPosts, add, openBacklinks, showHidden, filteredPosts, usePosts, useUser, countRating, ref, computed };
+    const __returned__ = { user: user2, props, emit, posts, backlinks, countPosts, countBacklinks, downloadPosts, downloading, uploadPosts, add, openBacklinks, showHidden, filteredPosts, get usePosts() {
+      return usePosts;
+    }, get useUser() {
+      return useUser;
+    }, get countRating() {
+      return countRating;
+    }, ref, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -704,7 +858,9 @@ const _sfc_main$9 = {
     expose();
     const props = __props;
     const { timestamp, msTime, refresh } = usePostTimestamp(props);
-    const __returned__ = { props, timestamp, msTime, refresh, usePostTimestamp };
+    const __returned__ = { props, timestamp, msTime, refresh, get usePostTimestamp() {
+      return usePostTimestamp;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -727,7 +883,19 @@ const _sfc_main$8 = {
     const colorDeep = computed(() => useColor("deep").hex(props.hash));
     const { post, download, downloading } = usePost({ hash: props.hash });
     const { posts, backlinks } = usePosts(props.hash);
-    const __returned__ = { user: user2, gun: gun2, md, props, colorLight, colorDeep, post, download, downloading, posts, backlinks, ref, watchEffect, computed, useColor, usePosts, useGun, useUser, usePost, useMd };
+    const __returned__ = { user: user2, gun: gun2, md, props, colorLight, colorDeep, post, download, downloading, posts, backlinks, ref, watchEffect, computed, get useColor() {
+      return useColor;
+    }, get usePosts() {
+      return usePosts;
+    }, get useGun() {
+      return useGun;
+    }, get useUser() {
+      return useUser;
+    }, get usePost() {
+      return usePost;
+    }, get useMd() {
+      return useMd;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -751,7 +919,9 @@ const _sfc_main$7 = {
     function toggleStar(tag = props.tag, hash = props.hash) {
       myStar.put(!starred.value);
     }
-    const __returned__ = { user: user2, props, starred, myStar, toggleStar, useUser, ref };
+    const __returned__ = { user: user2, props, starred, myStar, toggleStar, get useUser() {
+      return useUser;
+    }, ref };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -775,7 +945,9 @@ const _sfc_main$6 = {
       let banned2 = await gun.get("ban").get(props.hash).then();
       gun.get("ban").get(props.hash).put(!banned2);
     }
-    const __returned__ = { props, banned, banPost, ref, gun };
+    const __returned__ = { props, banned, banPost, ref, get gun() {
+      return gun;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -793,7 +965,15 @@ const _sfc_main$5 = {
     const props = __props;
     const { gifts, collections } = useProjectGifts(props.path);
     const { user: user2 } = useUser();
-    const __returned__ = { props, emit, gifts, collections, user: user2, useUser, useProject, useMd, useProjectGifts };
+    const __returned__ = { props, emit, gifts, collections, user: user2, get useUser() {
+      return useUser;
+    }, get useProject() {
+      return useProject;
+    }, get useMd() {
+      return useMd;
+    }, get useProjectGifts() {
+      return useProjectGifts;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -817,7 +997,17 @@ const _sfc_main$4 = {
     watchEffect(() => {
       text.value = project.text;
     });
-    const __returned__ = { emit, props, user: user2, md, project, updateField, updateCover, editable, editing, text, useUser, useProject, useMd, useProjectGifts, toRef, ref, computed, watchEffect, InkMde: _ };
+    const __returned__ = { emit, props, user: user2, md, project, updateField, updateCover, editable, editing, text, get useUser() {
+      return useUser;
+    }, get useProject() {
+      return useProject;
+    }, get useMd() {
+      return useMd;
+    }, get useProjectGifts() {
+      return useProjectGifts;
+    }, toRef, ref, computed, watchEffect, get InkMde() {
+      return _;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -941,7 +1131,13 @@ const _sfc_main = {
         }
       }
     });
-    const __returned__ = { props, dateTime, user: user2, isMe, formatDate, message, fresh, computed, ref, onMounted, selectedUser, useUser, getFirstEmoji };
+    const __returned__ = { props, dateTime, user: user2, isMe, formatDate, message, fresh, computed, ref, onMounted, get selectedUser() {
+      return selectedUser;
+    }, get useUser() {
+      return useUser;
+    }, get getFirstEmoji() {
+      return getFirstEmoji;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

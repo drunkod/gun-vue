@@ -122,7 +122,15 @@ const _sfc_main$7 = {
         }
       });
     }
-    const __returned__ = { emit, props, simplemde, add, text, importPostFile, reactive, ref, onMounted, watch, computed, nextTick, uploadText, parseMd };
+    const __returned__ = { emit, props, get simplemde() {
+      return simplemde;
+    }, set simplemde(v) {
+      simplemde = v;
+    }, add, text, importPostFile, reactive, ref, onMounted, watch, computed, nextTick, get uploadText() {
+      return uploadText;
+    }, get parseMd() {
+      return parseMd;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -418,7 +426,11 @@ const _sfc_main$4 = {
       });
       return obj;
     });
-    const __returned__ = { props, count, currentRoom, useGun, ref, reactive, computed };
+    const __returned__ = { props, count, get currentRoom() {
+      return currentRoom;
+    }, get useGun() {
+      return useGun;
+    }, ref, reactive, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -486,7 +498,23 @@ const _sfc_main$3 = {
         return currentRoom.pub;
       }
     });
-    const __returned__ = { props, user, room, leaveRoom, enterRoom, roomPub, useRoom, currentRoom, rootRoom, recreateRoom, useColor, useUser, useBackground, useMd, ref, computed, reactive };
+    const __returned__ = { props, user, room, leaveRoom, enterRoom, roomPub, get useRoom() {
+      return useRoom;
+    }, get currentRoom() {
+      return currentRoom;
+    }, get rootRoom() {
+      return rootRoom;
+    }, get recreateRoom() {
+      return recreateRoom;
+    }, get useColor() {
+      return useColor;
+    }, get useUser() {
+      return useUser;
+    }, get useBackground() {
+      return useBackground;
+    }, get useMd() {
+      return useMd;
+    }, ref, computed, reactive };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -536,7 +564,17 @@ const _sfc_main$2 = {
     const gun = useGun();
     const { user } = useUser();
     const { logo, uploadLogo, removeLogo } = useRoomLogo(props.pub);
-    const __returned__ = { room, updateRoomProfile, gun, user, props, logo, uploadLogo, removeLogo, useRoom, useUser, useGun, useRoomLogo, currentRoom, ref, computed };
+    const __returned__ = { room, updateRoomProfile, gun, user, props, logo, uploadLogo, removeLogo, get useRoom() {
+      return useRoom;
+    }, get useUser() {
+      return useUser;
+    }, get useGun() {
+      return useGun;
+    }, get useRoomLogo() {
+      return useRoomLogo;
+    }, get currentRoom() {
+      return currentRoom;
+    }, ref, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -690,7 +728,21 @@ const _sfc_main$1 = {
     });
     const colorDeep = useColor("deep");
     const bg = computed(() => useBackground({ pub: roomPub.value, size: 1200, attachment: "local" }));
-    const __returned__ = { props, room, leaveRoom, updateRoomProfile, enterRoom, user, roomPub, md, edit, colorDeep, bg, useRoom, rootRoom, currentRoom, useColor, useUser, useBackground, useMd, ref, computed, reactive };
+    const __returned__ = { props, room, leaveRoom, updateRoomProfile, enterRoom, user, roomPub, md, edit, colorDeep, bg, get useRoom() {
+      return useRoom;
+    }, get rootRoom() {
+      return rootRoom;
+    }, get currentRoom() {
+      return currentRoom;
+    }, get useColor() {
+      return useColor;
+    }, get useUser() {
+      return useUser;
+    }, get useBackground() {
+      return useBackground;
+    }, get useMd() {
+      return useMd;
+    }, ref, computed, reactive };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -768,7 +820,17 @@ const _sfc_main = {
       attachment: "local"
     }));
     const { logo } = useRoomLogo(currentRoom.pub);
-    const __returned__ = { open, current, colorDeep, bg, logo, useRoom, useColor, currentRoom, useBackground, useRoomLogo, ref, computed };
+    const __returned__ = { open, current, colorDeep, bg, logo, get useRoom() {
+      return useRoom;
+    }, get useColor() {
+      return useColor;
+    }, get currentRoom() {
+      return currentRoom;
+    }, get useBackground() {
+      return useBackground;
+    }, get useRoomLogo() {
+      return useRoomLogo;
+    }, ref, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

@@ -92,7 +92,13 @@ const _sfc_main = {
     expose();
     const props = __props;
     const { user } = useUser();
-    const __returned__ = { props, user, useUser, selectedUser, safeHash };
+    const __returned__ = { props, user, get useUser() {
+      return useUser;
+    }, get selectedUser() {
+      return selectedUser;
+    }, get safeHash() {
+      return safeHash;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

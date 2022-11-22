@@ -72,7 +72,9 @@ const _sfc_main$1 = {
     expose();
     const props = __props;
     const { list } = usePrivateChatList();
-    const __returned__ = { props, list, emit, usePrivateChatList };
+    const __returned__ = { props, list, emit, get usePrivateChatList() {
+      return usePrivateChatList;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -160,7 +162,9 @@ const _sfc_main = {
     function isSafe() {
       user.db.get("safe").get("saved").put(true);
     }
-    const __returned__ = { emit, user, isSafe, computed, ref, useUser };
+    const __returned__ = { emit, user, isSafe, computed, ref, get useUser() {
+      return useUser;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

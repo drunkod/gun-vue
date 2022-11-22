@@ -67,7 +67,9 @@ const _sfc_main$4 = {
   setup(__props, { expose, emit }) {
     expose();
     const props = __props;
-    const __returned__ = { props, emit, isEmoji };
+    const __returned__ = { props, emit, get isEmoji() {
+      return isEmoji;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -145,7 +147,19 @@ const _sfc_main$3 = {
     const postList = computed(() => {
       return userPosts[postReaction.value] || [];
     });
-    const __returned__ = { props, user, isMe, emit, postReaction, userPosts, postList, useGun, currentRoom, isEmoji, useUser, reactToPost, useUserPosts, reactive, ref, computed };
+    const __returned__ = { props, user, isMe, emit, postReaction, userPosts, postList, get useGun() {
+      return useGun;
+    }, get currentRoom() {
+      return currentRoom;
+    }, get isEmoji() {
+      return isEmoji;
+    }, get useUser() {
+      return useUser;
+    }, get reactToPost() {
+      return reactToPost;
+    }, get useUserPosts() {
+      return useUserPosts;
+    }, reactive, ref, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -198,7 +212,11 @@ const _sfc_main$2 = {
     function isLink(text) {
       return urlRegex({ exact: true }).test(text);
     }
-    const __returned__ = { props, account, isLink, useAccount, urlRegex };
+    const __returned__ = { props, account, isLink, get useAccount() {
+      return useAccount;
+    }, get urlRegex() {
+      return urlRegex;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -328,7 +346,13 @@ const _sfc_main$1 = {
       "The user interface shall assist the user in assuring that two petnames are not similar enough to enable mimicry": false,
       "Nicknames and alleged names must be unambiguously visually distinct from petnames": true
     };
-    const __returned__ = { props, user, petname, newName, editPetname, petnameRules, useUser, setPetname, computed, watch, ref, Dropdown };
+    const __returned__ = { props, user, petname, newName, editPetname, petnameRules, get useUser() {
+      return useUser;
+    }, get setPetname() {
+      return setPetname;
+    }, computed, watch, ref, get Dropdown() {
+      return Dropdown;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -428,7 +452,15 @@ const _sfc_main = {
     const { user } = useUser();
     const bg = computed(() => useBackground({ pub: props.pub, size: 600, light: 0.5, draw: "circles" }));
     const { projects } = useProjects(props.pub);
-    const __returned__ = { props, account, setPetname: setPetname2, user, bg, projects, useAccount, useUser, useBackground, useProjects, computed, toRef, ref };
+    const __returned__ = { props, account, setPetname: setPetname2, user, bg, projects, get useAccount() {
+      return useAccount;
+    }, get useUser() {
+      return useUser;
+    }, get useBackground() {
+      return useBackground;
+    }, get useProjects() {
+      return useProjects;
+    }, computed, toRef, ref };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

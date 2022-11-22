@@ -105,7 +105,17 @@ const _sfc_main = {
       }
     });
     const open = ref(false);
-    const __returned__ = { emit, user, rooms, open, computed, ref, useUser, createRoom, SEA, enterRoom, recreateRoom };
+    const __returned__ = { emit, user, rooms, open, computed, ref, get useUser() {
+      return useUser;
+    }, get createRoom() {
+      return createRoom;
+    }, get SEA() {
+      return SEA;
+    }, get enterRoom() {
+      return enterRoom;
+    }, get recreateRoom() {
+      return recreateRoom;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

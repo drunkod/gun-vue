@@ -64,7 +64,9 @@ const _sfc_main = {
     expose();
     const props = __props;
     const { guests, count } = useGuests();
-    const __returned__ = { guests, count, emit, props, useGuests };
+    const __returned__ = { guests, count, emit, props, get useGuests() {
+      return useGuests;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

@@ -112,7 +112,19 @@ const _sfc_main = {
     const panelOpen = ref(true);
     const isLarge = useMediaQuery("(min-width: 640px)");
     onClickOutside(chatsPanel, (event) => !isLarge.value ? panelOpen.value = false : null);
-    const __returned__ = { props, emit, user, addChat, chats, newChat, adding, chatsPanel, panelOpen, isLarge, ref, computed, watch, nextTick, useMediaQuery, onClickOutside, useChat, useUser, useBackground, currentRoom };
+    const __returned__ = { props, emit, user, addChat, chats, newChat, adding, chatsPanel, panelOpen, isLarge, ref, computed, watch, nextTick, get useMediaQuery() {
+      return useMediaQuery;
+    }, get onClickOutside() {
+      return onClickOutside;
+    }, get useChat() {
+      return useChat;
+    }, get useUser() {
+      return useUser;
+    }, get useBackground() {
+      return useBackground;
+    }, get currentRoom() {
+      return currentRoom;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

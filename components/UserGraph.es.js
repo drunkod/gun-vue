@@ -1,4 +1,4 @@
-import { createElementBlock$1 as createElementBlock, openBlock$1 as openBlock, createBaseVNode$1 as createBaseVNode, ref$1 as ref, reactive$1 as reactive, computed$1 as computed, forceGraph, onMounted$1 as onMounted, watchEffect$1 as watchEffect, useResizeObserver$1 as useResizeObserver, gunAvatar } from "./vendor.es.js";
+import { createElementBlock$1 as createElementBlock, openBlock$1 as openBlock, createBaseVNode$1 as createBaseVNode, ref$1 as ref, reactive$1 as reactive, computed$1 as computed, forceGraph, onMounted$1 as onMounted, watchEffect$1 as watchEffect, useResizeObserver$1 as useResizeObserver, w } from "./vendor.es.js";
 import { useColor, useGun, currentRoom, user } from "./useDraw.es.js";
 import { useMates } from "./useMates.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
@@ -78,7 +78,23 @@ const _sfc_main = {
       Graph.width(width);
       Graph.height(height);
     });
-    const __returned__ = { graph, emit, colorDeep, gun, guests, links, Graph, computed, reactive, watchEffect, onMounted, useColor, useMates, useGun, currentRoom, gunAvatar, user, ForceGraph: forceGraph, ref, useResizeObserver };
+    const __returned__ = { graph, emit, colorDeep, gun, guests, links, Graph, computed, reactive, watchEffect, onMounted, get useColor() {
+      return useColor;
+    }, get useMates() {
+      return useMates;
+    }, get useGun() {
+      return useGun;
+    }, get currentRoom() {
+      return currentRoom;
+    }, get gunAvatar() {
+      return w;
+    }, get user() {
+      return user;
+    }, get ForceGraph() {
+      return forceGraph;
+    }, ref, get useResizeObserver() {
+      return useResizeObserver;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

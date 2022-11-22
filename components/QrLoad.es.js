@@ -1,4 +1,4 @@
-import { createElementBlock$1 as createElementBlock, openBlock$1 as openBlock, jsQR } from "./vendor.es.js";
+import { createElementBlock$1 as createElementBlock, openBlock$1 as openBlock, __vitePreload } from "./vendor.es.js";
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("input", {
@@ -15,6 +15,7 @@ const _sfc_main = {
     expose();
     async function processFile(file) {
       const imageData = await imageDataFromFile(file);
+      const jsQR = await __vitePreload(() => import("./vendor.es.js").then((n) => n.jsQR), true ? [] : void 0);
       const result = jsQR(imageData.data, imageData.width, imageData.height);
       emit("loaded", result == null ? void 0 : result.data);
     }
@@ -71,7 +72,7 @@ const _sfc_main = {
       });
       return promise;
     }
-    const __returned__ = { emit, processFile, imageDataFromFile, imageDataFromUrl, imageDataFromImage, imageDataFromCanvas, asyncListenEvent, jsQR };
+    const __returned__ = { emit, processFile, imageDataFromFile, imageDataFromUrl, imageDataFromImage, imageDataFromCanvas, asyncListenEvent };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

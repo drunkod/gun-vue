@@ -206,7 +206,23 @@ const _sfc_main = {
       return title.value;
     });
     const { project } = useProject(computed(() => gift.project));
-    const __returned__ = { props, emit, user, color, gift, state, time, date, roomTitle, project, giftState, useColor, useUser, useGift, useGun, currentRoom, useProject, computed, ref, useTimeAgo };
+    const __returned__ = { props, emit, user, color, gift, state, time, date, roomTitle, project, get giftState() {
+      return giftState;
+    }, get useColor() {
+      return useColor;
+    }, get useUser() {
+      return useUser;
+    }, get useGift() {
+      return useGift;
+    }, get useGun() {
+      return useGun;
+    }, get currentRoom() {
+      return currentRoom;
+    }, get useProject() {
+      return useProject;
+    }, computed, ref, get useTimeAgo() {
+      return useTimeAgo;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

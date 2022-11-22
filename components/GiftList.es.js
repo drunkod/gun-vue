@@ -31,7 +31,9 @@ const _sfc_main = {
   setup(__props, { expose, emit }) {
     expose();
     const { gifts } = useGifts();
-    const __returned__ = { gifts, emit, useGifts };
+    const __returned__ = { gifts, emit, get useGifts() {
+      return useGifts;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

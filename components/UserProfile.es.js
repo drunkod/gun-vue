@@ -92,7 +92,11 @@ const _sfc_main$1 = {
     function isLink(text2) {
       return urlRegex({ exact: true }).test(text2);
     }
-    const __returned__ = { props, edit, text, update, isLink, updateProfile, ref, urlRegex };
+    const __returned__ = { props, edit, text, update, isLink, get updateProfile() {
+      return updateProfile;
+    }, ref, get urlRegex() {
+      return urlRegex;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -142,7 +146,13 @@ const _sfc_main = {
     const { user } = useUser();
     const { account } = useAccount(user.pub);
     const newField = ref("");
-    const __returned__ = { user, account, newField, useAccount, useUser, addProfileField, ref };
+    const __returned__ = { user, account, newField, get useAccount() {
+      return useAccount;
+    }, get useUser() {
+      return useUser;
+    }, get addProfileField() {
+      return addProfileField;
+    }, ref };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

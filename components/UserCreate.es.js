@@ -56,7 +56,17 @@ const _sfc_main = {
         updateProfile("name", name.value);
       }));
     }
-    const __returned__ = { colorDeep, colorLight, user, auth, create, name, newPair, history, undo, redo, generatePair, createUser, useUser, SEA, useColor, updateProfile, useRefHistory, ref, nextTick };
+    const __returned__ = { colorDeep, colorLight, user, auth, create, name, newPair, history, undo, redo, generatePair, createUser, get useUser() {
+      return useUser;
+    }, get SEA() {
+      return SEA;
+    }, get useColor() {
+      return useColor;
+    }, get updateProfile() {
+      return updateProfile;
+    }, get useRefHistory() {
+      return useRefHistory;
+    }, ref, nextTick };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

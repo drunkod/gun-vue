@@ -238,7 +238,29 @@ const _sfc_main = {
       });
       return projs;
     });
-    const __returned__ = { numOpts, props, emit, user, newGift, cleanGift, propose, proposed, hash, valid, guests, count, project, projects, color, guestsWithWallets, userProjects, useGuests, useNewGift, useUser, useProject, useProjects, currentRoom, useColor, useGun, toRef, watch, computed, reactive, number: script, vSelect: Ce, currencies };
+    const __returned__ = { numOpts, props, emit, user, newGift, cleanGift, propose, proposed, hash, valid, guests, count, project, projects, color, guestsWithWallets, userProjects, get useGuests() {
+      return useGuests;
+    }, get useNewGift() {
+      return useNewGift;
+    }, get useUser() {
+      return useUser;
+    }, get useProject() {
+      return useProject;
+    }, get useProjects() {
+      return useProjects;
+    }, get currentRoom() {
+      return currentRoom;
+    }, get useColor() {
+      return useColor;
+    }, get useGun() {
+      return useGun;
+    }, toRef, watch, computed, reactive, get number() {
+      return script;
+    }, get vSelect() {
+      return Ce;
+    }, get currencies() {
+      return currencies;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

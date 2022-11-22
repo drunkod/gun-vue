@@ -66,7 +66,11 @@ const _sfc_main$1 = {
     onMounted(() => {
       loadRelays();
     });
-    const __returned__ = { relay, setPeer, resetPeer, relays, loadRelays, useRelay, useRelays, onMounted };
+    const __returned__ = { relay, setPeer, resetPeer, relays, loadRelays, get useRelay() {
+      return useRelay;
+    }, get useRelays() {
+      return useRelays;
+    }, onMounted };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -189,7 +193,11 @@ const _sfc_main = {
     const { relay, setPeer, resetPeer } = useRelay();
     const open = ref(false);
     const { relays, loadRelays } = useRelays();
-    const __returned__ = { props, relay, setPeer, resetPeer, open, relays, loadRelays, useRelay, useRelays, ref };
+    const __returned__ = { props, relay, setPeer, resetPeer, open, relays, loadRelays, get useRelay() {
+      return useRelay;
+    }, get useRelays() {
+      return useRelays;
+    }, ref };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

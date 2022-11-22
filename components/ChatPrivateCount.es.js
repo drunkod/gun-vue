@@ -45,7 +45,11 @@ const _sfc_main$2 = {
     expose();
     const props = __props;
     const colorDeep = useColor("deep");
-    const __returned__ = { colorDeep, props, isEmoji, useColor, computed };
+    const __returned__ = { colorDeep, props, get isEmoji() {
+      return isEmoji;
+    }, get useColor() {
+      return useColor;
+    }, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -113,7 +117,15 @@ const _sfc_main$1 = {
     const colorDeep = useColor("pale");
     const mates = useMates(props.pub);
     const open = ref(true);
-    const __returned__ = { props, colorDeep, mates, open, computed, ref, useColor, useMates, isEmoji, user };
+    const __returned__ = { props, colorDeep, mates, open, computed, ref, get useColor() {
+      return useColor;
+    }, get useMates() {
+      return useMates;
+    }, get isEmoji() {
+      return isEmoji;
+    }, get user() {
+      return user;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -158,7 +170,9 @@ const _sfc_main = {
     expose();
     const props = __props;
     const { count, available } = usePrivateChatCount(props.pub);
-    const __returned__ = { props, emit, count, available, usePrivateChatCount };
+    const __returned__ = { props, emit, count, available, get usePrivateChatCount() {
+      return usePrivateChatCount;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

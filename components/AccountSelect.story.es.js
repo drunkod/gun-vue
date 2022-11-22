@@ -41,7 +41,9 @@ const _sfc_main = {
     const state = reactive({
       pub: ""
     });
-    const __returned__ = { AccountSelect, state, defineAsyncComponent, reactive, hstEvent };
+    const __returned__ = { AccountSelect, state, defineAsyncComponent, reactive, get hstEvent() {
+      return hstEvent;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

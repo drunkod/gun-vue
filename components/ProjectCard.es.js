@@ -119,7 +119,15 @@ const _sfc_main = {
     const { user } = useUser();
     const colorLight = useColor("light");
     const colorDeep = useColor("deep");
-    const __returned__ = { user, colorLight, colorDeep, props, useColor, useUser, removeProject, currentRoom };
+    const __returned__ = { user, colorLight, colorDeep, props, get useColor() {
+      return useColor;
+    }, get useUser() {
+      return useUser;
+    }, get removeProject() {
+      return removeProject;
+    }, get currentRoom() {
+      return currentRoom;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

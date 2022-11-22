@@ -141,7 +141,7 @@ const _hoisted_2$j = /* @__PURE__ */ createBaseVNode("pattern", {
     fill: "currentColor"
   })
 ], -1);
-const _hoisted_3$d = /* @__PURE__ */ createBaseVNode("rect", {
+const _hoisted_3$e = /* @__PURE__ */ createBaseVNode("rect", {
   x: "0",
   y: "0",
   width: "100%",
@@ -150,7 +150,7 @@ const _hoisted_3$d = /* @__PURE__ */ createBaseVNode("rect", {
 }, null, -1);
 const _hoisted_4$a = [
   _hoisted_2$j,
-  _hoisted_3$d
+  _hoisted_3$e
 ];
 function _sfc_render$4(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$q, _hoisted_4$a);
@@ -159,7 +159,7 @@ const CheckerboardPattern = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render",
 const _withScopeId$2 = (n) => (pushScopeId("data-v-f7c98176"), n = n(), popScopeId(), n);
 const _hoisted_1$p = { class: "htw-flex-none htw-flex htw-items-center" };
 const _hoisted_2$i = { class: "htw-truncate htw-flex-1" };
-const _hoisted_3$c = { class: "htw-flex-none htw-ml-auto htw-hidden group-hover:htw-flex htw-items-center" };
+const _hoisted_3$d = { class: "htw-flex-none htw-ml-auto htw-hidden group-hover:htw-flex htw-items-center" };
 const _hoisted_4$9 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createBaseVNode("div", {
   class: "htw-absolute htw-inset-0 htw-rounded bind-preview-bg",
   "data-test-id": "responsive-preview-bg"
@@ -245,7 +245,7 @@ const _sfc_main$t = /* @__PURE__ */ defineComponent({
           }, 8, ["to", "class"])), [
             [_directive_tooltip, unref(variant).title]
           ]),
-          createBaseVNode("div", _hoisted_3$c, [
+          createBaseVNode("div", _hoisted_3$d, [
             createVNode(_sfc_main$v, {
               variant: unref(variant),
               story: __props.story
@@ -294,7 +294,7 @@ const _hoisted_2$h = {
   viewBox: "0 0 24 24",
   class: "htw-relative htw-z-10"
 };
-const _hoisted_3$b = ["stroke-dasharray", "stroke-dashoffset"];
+const _hoisted_3$c = ["stroke-dasharray", "stroke-dashoffset"];
 const _sfc_main$s = /* @__PURE__ */ defineComponent({
   __name: "BaseCheckbox",
   props: {
@@ -352,7 +352,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
               ]]),
               "stroke-dasharray": dasharray.value,
               "stroke-dashoffset": unref(dashoffset)
-            }, null, 10, _hoisted_3$b)
+            }, null, 10, _hoisted_3$c)
           ]))
         ]),
         renderSlot(_ctx.$slots, "default")
@@ -362,7 +362,7 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
 });
 const _hoisted_1$n = { class: "htw-cursor-pointer hover:htw-text-primary-500 htw-flex htw-items-center htw-gap-1 htw-h-full htw-px-2 htw-group" };
 const _hoisted_2$g = { class: "bind-preview-bg htw-w-4 htw-h-4 htw-rounded-full htw-border htw-border-black/50 dark:htw-border-white/50 htw-flex htw-items-center htw-justify-center htw-text-xs" };
-const _hoisted_3$a = { key: 0 };
+const _hoisted_3$b = { key: 0 };
 const _hoisted_4$8 = {
   class: "htw-flex htw-flex-col htw-items-stretch",
   "data-test-id": "background-popper"
@@ -432,7 +432,7 @@ const _sfc_main$r = /* @__PURE__ */ defineComponent({
         default: withCtx(() => [
           withDirectives((openBlock(), createElementBlock("div", _hoisted_1$n, [
             createBaseVNode("div", _hoisted_2$g, [
-              unref(contrastColor) ? (openBlock(), createElementBlock("span", _hoisted_3$a, "a")) : createCommentVNode("", true)
+              unref(contrastColor) ? (openBlock(), createElementBlock("span", _hoisted_3$b, "a")) : createCommentVNode("", true)
             ]),
             createVNode(unref(Icon), {
               icon: "carbon:caret-down",
@@ -473,6 +473,7 @@ const _hoisted_2$f = {
   key: 0,
   class: "htw-flex-none htw-flex htw-items-center htw-justify-end htw-h-8 htw-mx-2 htw-mt-1"
 };
+const _hoisted_3$a = { class: "htw-overflow-y-auto htw-flex htw-flex-1" };
 const _sfc_main$p = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantGrid",
   setup(__props) {
@@ -529,6 +530,7 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
       }
     }
     watch(() => storyStore.currentVariant, () => {
+      maxItemHeight.value = 0;
       updateMaxCount();
     });
     const gridEl = ref(null);
@@ -540,10 +542,11 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
       viewWidth.value = el.value.clientWidth;
       if (!gridEl.value)
         return;
-      const firstCellEl = gridEl.value.children[0];
-      if (!firstCellEl)
-        return;
-      gridColumnWidth.value = firstCellEl.clientWidth;
+      if (gridTemplateWidth.value.endsWith("%")) {
+        gridColumnWidth.value = viewWidth.value * parseInt(gridTemplateWidth.value) / 100 - gap;
+      } else {
+        gridColumnWidth.value = parseInt(gridTemplateWidth.value);
+      }
     }
     onMounted(() => {
       updateSize();
@@ -558,37 +561,39 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
           createVNode(ToolbarBackground),
           createVNode(_sfc_main$q)
         ])) : createCommentVNode("", true),
-        createBaseVNode("div", {
-          ref_key: "el",
-          ref: el,
-          class: "htw-overflow-y-auto htw-flex htw-flex-1",
-          onScroll: _cache[0] || (_cache[0] = ($event) => updateMaxCount())
-        }, [
+        createBaseVNode("div", _hoisted_3$a, [
           createBaseVNode("div", {
-            class: "htw-m-auto",
-            style: normalizeStyle({
-              minHeight: `${unref(storyStore).currentStory.variants.length / countPerRow.value * (maxItemHeight.value + gap) - gap}px`
-            })
+            ref_key: "el",
+            ref: el,
+            class: "htw-flex htw-w-0 htw-flex-1 htw-mx-4",
+            onScroll: _cache[0] || (_cache[0] = ($event) => updateMaxCount())
           }, [
             createBaseVNode("div", {
-              ref_key: "gridEl",
-              ref: gridEl,
-              class: "htw-grid htw-gap-4 htw-m-4",
+              class: "htw-m-auto",
               style: normalizeStyle({
-                gridTemplateColumns: `repeat(${unref(columnCount)}, ${unref(gridTemplateWidth)})`
+                minHeight: `${unref(storyStore).currentStory.variants.length / countPerRow.value * (maxItemHeight.value + gap) - gap}px`
               })
             }, [
-              (openBlock(true), createElementBlock(Fragment, null, renderList(unref(storyStore).currentStory.variants.slice(0, maxCount.value), (variant, index) => {
-                return openBlock(), createBlock(StoryVariantGridItem, {
-                  key: index,
-                  variant,
-                  story: unref(storyStore).currentStory,
-                  onResize: onItemResize
-                }, null, 8, ["variant", "story"]);
-              }), 128))
+              createBaseVNode("div", {
+                ref_key: "gridEl",
+                ref: gridEl,
+                class: "htw-grid htw-gap-4 htw-my-4",
+                style: normalizeStyle({
+                  gridTemplateColumns: `repeat(${unref(columnCount)}, ${gridColumnWidth.value}px)`
+                })
+              }, [
+                (openBlock(true), createElementBlock(Fragment, null, renderList(unref(storyStore).currentStory.variants.slice(0, maxCount.value), (variant, index) => {
+                  return openBlock(), createBlock(StoryVariantGridItem, {
+                    key: index,
+                    variant,
+                    story: unref(storyStore).currentStory,
+                    onResize: onItemResize
+                  }, null, 8, ["variant", "story"]);
+                }), 128))
+              ], 4)
             ], 4)
-          ], 4)
-        ], 544)
+          ], 544)
+        ])
       ]);
     };
   }

@@ -113,7 +113,17 @@ const _sfc_main = {
       }
     });
     const isInRoom = computed(() => guests.guests[user.pub]);
-    const __returned__ = { isLarge, emit, user, guests, open, panel, isInRoom, onClickOutside, useMediaQuery, useGuests, joinRoom, useUser, reactive, ref, computed, toRef };
+    const __returned__ = { isLarge, emit, user, guests, open, panel, isInRoom, get onClickOutside() {
+      return onClickOutside;
+    }, get useMediaQuery() {
+      return useMediaQuery;
+    }, get useGuests() {
+      return useGuests;
+    }, get joinRoom() {
+      return joinRoom;
+    }, get useUser() {
+      return useUser;
+    }, reactive, ref, computed, toRef };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

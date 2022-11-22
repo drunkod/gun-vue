@@ -75,7 +75,17 @@ const _sfc_main$1 = {
       var _a;
       return useBackground({ pub: (_a = create.pair) == null ? void 0 : _a.pub, size: 620 });
     });
-    const __returned__ = { emit, user, create, genPair, reset, createIt, bg, useUser, SEA, createRoom, useBackground, enterRoom, reactive, ref, computed };
+    const __returned__ = { emit, user, create, genPair, reset, createIt, bg, get useUser() {
+      return useUser;
+    }, get SEA() {
+      return SEA;
+    }, get createRoom() {
+      return createRoom;
+    }, get useBackground() {
+      return useBackground;
+    }, get enterRoom() {
+      return enterRoom;
+    }, reactive, ref, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -119,7 +129,9 @@ const _sfc_main = {
   setup(__props, { expose }) {
     expose();
     const { rooms } = useRooms();
-    const __returned__ = { rooms, useRooms, reactive, ref, computed };
+    const __returned__ = { rooms, get useRooms() {
+      return useRooms;
+    }, reactive, ref, computed };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

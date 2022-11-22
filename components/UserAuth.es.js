@@ -167,7 +167,17 @@ const _sfc_main = {
     async function decode() {
       pair.value = await SEA.decrypt(pair.value, passphrase.value);
     }
-    const __returned__ = { current, pair, passphrase, show, auth, decode, useUser, safeJSONParse, uploadText, SEA, parseLink, ref, watch };
+    const __returned__ = { current, pair, passphrase, show, auth, decode, get useUser() {
+      return useUser;
+    }, get safeJSONParse() {
+      return safeJSONParse;
+    }, get uploadText() {
+      return uploadText;
+    }, get SEA() {
+      return SEA;
+    }, get parseLink() {
+      return parseLink;
+    }, ref, watch };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

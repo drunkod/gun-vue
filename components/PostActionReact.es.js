@@ -1,5 +1,5 @@
 import { useColor, useUser } from "./useDraw.es.js";
-import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, withModifiers$1 as withModifiers, createVNode$1 as createVNode, createCommentVNode$1 as createCommentVNode, withDirectives$1 as withDirectives, vModelText$1 as vModelText, toDisplayString$1 as toDisplayString, normalizeStyle$1 as normalizeStyle, computed$1 as computed, ref$1 as ref, withCtx$1 as withCtx, Fragment$1 as Fragment, renderList$1 as renderList, TransitionGroup, createBlock$1 as createBlock, vShow$1 as vShow } from "./vendor.es.js";
+import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, withModifiers$1 as withModifiers, createVNode$1 as createVNode, createCommentVNode$1 as createCommentVNode, toDisplayString$1 as toDisplayString, normalizeStyle$1 as normalizeStyle, computed$1 as computed, ref$1 as ref, withCtx$1 as withCtx, Fragment$1 as Fragment, renderList$1 as renderList, TransitionGroup, withDirectives$1 as withDirectives, createBlock$1 as createBlock, vShow$1 as vShow } from "./vendor.es.js";
 import { useReaction, useReactions, countRating } from "./useReactions.es.js";
 import __unplugin_components_0$1 from "./AccountBadge.es.js";
 import { __unplugin_components_2 as __unplugin_components_2$2 } from "./times.es.js";
@@ -14,18 +14,19 @@ const _hoisted_2$2 = /* @__PURE__ */ createBaseVNode("path", {
   fill: "currentColor",
   d: "M5 15v2h22v-2z"
 }, null, -1);
-const _hoisted_3$1 = [
+const _hoisted_3$2 = [
   _hoisted_2$2
 ];
 function render$2(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$2, _hoisted_3$1);
+  return openBlock(), createElementBlock("svg", _hoisted_1$2, _hoisted_3$2);
 }
 const __unplugin_components_2 = { name: "la-minus", render: render$2 };
 const _hoisted_1$1 = {
   key: 1,
   class: "flex items-center"
 };
-const _hoisted_2$1 = { class: "px-2 py-1 text-xl w-36px" };
+const _hoisted_2$1 = ["modelValue"];
+const _hoisted_3$1 = { class: "px-2 py-1 text-xl w-36px" };
 function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_la_plus = __unplugin_components_2$1;
   const _component_la_times = __unplugin_components_2$2;
@@ -43,28 +44,26 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_la_plus)
     ])) : createCommentVNode("v-if", true),
     !$props.isMy ? (openBlock(), createElementBlock("div", _hoisted_1$1, [
-      !$props.isMy ? withDirectives((openBlock(), createElementBlock("input", {
+      !$props.isMy ? (openBlock(), createElementBlock("input", {
         key: 0,
         class: "py-1 px-2 w-36px rounded-xl mx-1 text-center",
-        "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $props.reaction = $event),
-        onInput: _cache[2] || (_cache[2] = ($event) => $event.target.value && $setup.emit("react", $props.reaction)),
-        onClick: _cache[3] || (_cache[3] = withModifiers(() => {
+        modelValue: $props.reaction,
+        onInput: _cache[1] || (_cache[1] = ($event) => $event.target.value && $setup.emit("react", $props.reaction)),
+        onClick: _cache[2] || (_cache[2] = withModifiers(() => {
         }, ["stop", "prevent"]))
-      }, null, 544)), [
-        [vModelText, $props.reaction]
-      ]) : createCommentVNode("v-if", true)
+      }, null, 40, _hoisted_2$1)) : createCommentVNode("v-if", true)
     ])) : (openBlock(), createElementBlock("div", {
       key: 2,
       class: "flex items-center",
-      onClick: _cache[4] || (_cache[4] = withModifiers(($event) => $setup.emit("react", $props.reaction), ["stop", "prevent"]))
+      onClick: _cache[3] || (_cache[3] = withModifiers(($event) => $setup.emit("react", $props.reaction), ["stop", "prevent"]))
     }, [
-      createBaseVNode("div", _hoisted_2$1, toDisplayString($props.reaction), 1),
+      createBaseVNode("div", _hoisted_3$1, toDisplayString($props.reaction), 1),
       createVNode(_component_la_times)
     ])),
     !$props.isMy ? (openBlock(), createElementBlock("button", {
       key: 3,
       class: "rounded-2xl flex items-center pl-1 pr-1 mr-1",
-      onClick: _cache[5] || (_cache[5] = withModifiers(($event) => $setup.emit("react", "\u{1F5D1}"), ["stop", "prevent"]))
+      onClick: _cache[4] || (_cache[4] = withModifiers(($event) => $setup.emit("react", "\u{1F5D1}"), ["stop", "prevent"]))
     }, [
       createVNode(_component_la_minus)
     ])) : createCommentVNode("v-if", true)
@@ -82,7 +81,11 @@ const _sfc_main$1 = {
     const props = __props;
     const colorDeep = useColor("deep");
     const { user } = useUser();
-    const __returned__ = { props, emit, colorDeep, user, useUser, useColor, computed, ref };
+    const __returned__ = { props, emit, colorDeep, user, get useUser() {
+      return useUser;
+    }, get useColor() {
+      return useColor;
+    }, computed, ref };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -164,7 +167,17 @@ const _sfc_main = {
     const reactions = computed(() => useReactions(props.authors));
     const rating = computed(() => countRating(props.authors));
     const selected = ref();
-    const __returned__ = { props, colorDeep, user, reaction, react, reactions, rating, selected, useReaction, useUser, useColor, useReactions, countRating, computed, ref };
+    const __returned__ = { props, colorDeep, user, reaction, react, reactions, rating, selected, get useReaction() {
+      return useReaction;
+    }, get useUser() {
+      return useUser;
+    }, get useColor() {
+      return useColor;
+    }, get useReactions() {
+      return useReactions;
+    }, get countRating() {
+      return countRating;
+    }, computed, ref };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

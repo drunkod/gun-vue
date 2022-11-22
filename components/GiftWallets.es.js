@@ -169,7 +169,9 @@ const _sfc_main$1 = {
     expose();
     const props = __props;
     const { text, copy, copied, isSupported } = useClipboard({ source: (_a = props.wallet) == null ? void 0 : _a.account });
-    const __returned__ = { props, text, copy, copied, isSupported, useClipboard };
+    const __returned__ = { props, text, copy, copied, isSupported, get useClipboard() {
+      return useClipboard;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -313,7 +315,17 @@ const _sfc_main = {
       console.log(key);
       gun.user().get("wallets").get(key).put(null);
     }
-    const __returned__ = { emit, props, user, gun, my, wallets, open, newWallet, addWallet, removeWallet, genUUID, useGun, useUser, computed, reactive, ref, vSelect: Ce, currencies };
+    const __returned__ = { emit, props, user, gun, my, wallets, open, newWallet, addWallet, removeWallet, get genUUID() {
+      return genUUID;
+    }, get useGun() {
+      return useGun;
+    }, get useUser() {
+      return useUser;
+    }, computed, reactive, ref, get vSelect() {
+      return Ce;
+    }, get currencies() {
+      return currencies;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }

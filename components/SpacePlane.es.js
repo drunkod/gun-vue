@@ -1,4 +1,4 @@
-import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, normalizeStyle$1 as normalizeStyle, computed$1 as computed, ref$1 as ref, gunAvatar, watch$1 as watch, withModifiers$1 as withModifiers, toDisplayString$1 as toDisplayString, watchEffect$1 as watchEffect, useDraggable, createVNode$1 as createVNode, normalizeClass$1 as normalizeClass, createCommentVNode$1 as createCommentVNode, Fragment$1 as Fragment, renderList$1 as renderList, withDirectives$1 as withDirectives, vShow$1 as vShow, pushScopeId$1 as pushScopeId, popScopeId$1 as popScopeId, withCtx$1 as withCtx, createBlock$1 as createBlock, mergeProps$1 as mergeProps, useDrag, onMounted$1 as onMounted, onBeforeUnmount$1 as onBeforeUnmount, reactive$1 as reactive, usePinch, useDebounceFn, useThrottleFn } from "./vendor.es.js";
+import { openBlock$1 as openBlock, createElementBlock$1 as createElementBlock, createBaseVNode$1 as createBaseVNode, normalizeStyle$1 as normalizeStyle, computed$1 as computed, ref$1 as ref, w, watch$1 as watch, withModifiers$1 as withModifiers, toDisplayString$1 as toDisplayString, watchEffect$1 as watchEffect, useDraggable, createVNode$1 as createVNode, normalizeClass$1 as normalizeClass, createCommentVNode$1 as createCommentVNode, Fragment$1 as Fragment, renderList$1 as renderList, withDirectives$1 as withDirectives, vShow$1 as vShow, pushScopeId$1 as pushScopeId, popScopeId$1 as popScopeId, withCtx$1 as withCtx, createBlock$1 as createBlock, mergeProps$1 as mergeProps, useDrag, onMounted$1 as onMounted, onBeforeUnmount$1 as onBeforeUnmount, reactive$1 as reactive, usePinch, useDebounceFn, useThrottleFn } from "./vendor.es.js";
 import { useColor, useGun, useDraw, useUser, useRoom } from "./useDraw.es.js";
 import { useSpace } from "./useSpace.es.js";
 import { __unplugin_components_3 as __unplugin_components_3$1 } from "./UiLayer.es.js";
@@ -75,7 +75,7 @@ const _sfc_main$3 = {
     const isOffline = computed(() => age > TIMEOUT);
     const colorDeep = useColor();
     const color = computed(() => colorDeep.hex(props.pub));
-    const avatar = ref(gunAvatar({ pub: props.pub, size: props.size * 4 }));
+    const avatar = ref(w({ pub: props.pub, size: props.size * 4 }));
     const gun = useGun();
     gun.user(props.pub).get("avatar").on((hash) => {
       if (hash) {
@@ -83,10 +83,16 @@ const _sfc_main$3 = {
           avatar.value = d;
         });
       } else {
-        avatar.value = gunAvatar({ pub: props.pub, size: props.size * 4 });
+        avatar.value = w({ pub: props.pub, size: props.size * 4 });
       }
     });
-    const __returned__ = { props, TIMEOUT, age, isOffline, colorDeep, color, avatar, gun, useColor, gunAvatar, useGun, computed, ref, watch };
+    const __returned__ = { props, TIMEOUT, age, isOffline, colorDeep, color, avatar, gun, get useColor() {
+      return useColor;
+    }, get gunAvatar() {
+      return w;
+    }, get useGun() {
+      return useGun;
+    }, computed, ref, watch };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -156,7 +162,11 @@ const _sfc_main$2 = {
     expose();
     const props = __props;
     const colorDeep = useColor("deep");
-    const __returned__ = { emit, props, colorDeep, ref, watchEffect, useColor, useDraggable };
+    const __returned__ = { emit, props, colorDeep, ref, watchEffect, get useColor() {
+      return useColor;
+    }, get useDraggable() {
+      return useDraggable;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -513,7 +523,9 @@ const _sfc_main$1 = {
       brush.color = color;
       draw.enabled = true;
     }
-    const __returned__ = { brush, drauu, draw, setDrawingMode, setBrushColor, useDraw };
+    const __returned__ = { brush, drauu, draw, setDrawingMode, setBrushColor, get useDraw() {
+      return useDraw;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
@@ -736,7 +748,25 @@ const _sfc_main = {
     const selectedUser = reactive({
       pub: ""
     });
-    const __returned__ = { props, emit, user, colorDeep, space, plane, pos, zoom, links, width, height, guests, guestCount, area, join, place, debouncedCoord, paper, drauu, draw, loadCanvas, selectedUser, watch, useSpace, useUser, useColor, useRoom, useDrag, usePinch, useDraw, ref, reactive, onMounted, onBeforeUnmount, useDebounceFn, useThrottleFn };
+    const __returned__ = { props, emit, user, colorDeep, space, plane, pos, zoom, links, width, height, guests, guestCount, area, join, place, debouncedCoord, paper, drauu, draw, loadCanvas, selectedUser, watch, get useSpace() {
+      return useSpace;
+    }, get useUser() {
+      return useUser;
+    }, get useColor() {
+      return useColor;
+    }, get useRoom() {
+      return useRoom;
+    }, get useDrag() {
+      return useDrag;
+    }, get usePinch() {
+      return usePinch;
+    }, get useDraw() {
+      return useDraw;
+    }, ref, reactive, onMounted, onBeforeUnmount, get useDebounceFn() {
+      return useDebounceFn;
+    }, get useThrottleFn() {
+      return useThrottleFn;
+    } };
     Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
     return __returned__;
   }
