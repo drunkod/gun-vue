@@ -2,6 +2,7 @@ import { resolveComponent$1 as resolveComponent, createBlock$1 as createBlock, w
 import { _export_sfc } from "./_plugin-vue_export-helper.es.js";
 const _hoisted_1 = /* @__PURE__ */ createBaseVNode("div", { class: "p-2 flex flex-col gap-4" }, null, -1);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_ClientOnly = resolveComponent("ClientOnly");
   const _component_Variant = resolveComponent("Variant");
   const _component_Story = resolveComponent("Story");
   return openBlock(), createBlock(_component_Story, {
@@ -14,12 +15,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     default: withCtx(() => [
       createVNode(_component_Variant, { title: "Round" }, {
         default: withCtx(() => [
-          (openBlock(), createBlock(Suspense, null, {
+          createVNode(_component_ClientOnly, null, {
             default: withCtx(() => [
-              createVNode($setup["RoomButton"])
+              (openBlock(), createBlock(Suspense, null, {
+                default: withCtx(() => [
+                  createVNode($setup["RoomButton"])
+                ]),
+                _: 1
+              }))
             ]),
             _: 1
-          }))
+          })
         ]),
         _: 1
       })
