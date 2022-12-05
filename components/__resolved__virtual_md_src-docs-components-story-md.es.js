@@ -32,7 +32,7 @@ const html = `<p><img src="/components.svg" alt=""></p>
 <li>Then you can use any of the Gun-Vue components in any template of your app.</li>
 </ol>
 <pre><code class="language-html"><div class="htw-relative htw-not-prose __histoire-code"><div class="htw-absolute htw-top-0 htw-right-0 htw-text-xs htw-text-white/40">html</div><pre class="shiki" style="background-color: #0d1117"><code><span class="line"><span style="color: #C9D1D9">&lt;</span><span style="color: #7EE787">template</span><span style="color: #C9D1D9">&gt;</span></span>
-<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #FFA198; font-style: italic">ChatRoom</span><span style="color: #C9D1D9"> /&gt;</span></span>
+<span class="line"><span style="color: #C9D1D9">  &lt;</span><span style="color: #FFA198">ChatRoom</span><span style="color: #C9D1D9"> /&gt;</span></span>
 <span class="line"><span style="color: #C9D1D9">&lt;/</span><span style="color: #7EE787">template</span><span style="color: #C9D1D9">&gt;</span></span>
 <span class="line"></span></code></pre></div></code></pre>
 <ol>

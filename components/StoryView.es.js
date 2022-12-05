@@ -1,4 +1,4 @@
-import { useRoute, computed, defineComponent, useCssVars, unref, toRefs, ref, openBlock, createElementBlock, createVNode, withCtx, Icon, normalizeClass, createBaseVNode, toDisplayString, defineStore, useStorage, resolveDirective, withDirectives, useRouter, useResizeObserver, resolveComponent, createBlock, createCommentVNode, normalizeStyle, withModifiers, pushScopeId, popScopeId, watch, renderSlot, withKeys, createTextVNode, renderList, Fragment, onMounted, vModelText, onUnmounted, VTooltip, createStaticVNode, useEventListener, SANDBOX_READY, EVENT_SEND, STATE_SYNC, applyState, PREVIEW_SETTINGS_SYNC, toRaw, mergeProps, Dropdown, clone, omit, useTimeoutFn, onClickOutside, isRef, nextTick, jg, Rg, Ng, Eg, resolveDynamicComponent, reactive, __vitePreload, watchEffect, markRaw, shallowRef, unindent, getHighlighter, _g, setCDN, Transition, h, onBeforeUnmount } from "./vendor.es.js";
+import { useRoute, computed, defineComponent, useCssVars, unref, toRefs, ref, openBlock, createElementBlock, createVNode, withCtx, Icon, normalizeClass, createBaseVNode, toDisplayString, defineStore, useStorage, resolveDirective, withDirectives, useRouter, useResizeObserver, resolveComponent, createBlock, createCommentVNode, normalizeStyle, withModifiers, pushScopeId, popScopeId, watch, renderSlot, withKeys, createTextVNode, Fragment, renderList, onMounted, vModelText, onUnmounted, VTooltip, createStaticVNode, useEventListener, SANDBOX_READY, EVENT_SEND, STATE_SYNC, applyState, PREVIEW_SETTINGS_SYNC, toRaw, mergeProps, Dropdown, clone, omit, useTimeoutFn, onClickOutside, isRef, nextTick, cm, Yg, em, tm, resolveDynamicComponent, reactive, __vitePreload, watchEffect, markRaw, shallowRef, unindent, getHighlighter, hm, Transition, h, onBeforeUnmount } from "./vendor.es.js";
 import { base, useStoryStore } from "./story.es.js";
 import { useScrollOnActive, BaseListItemLink, _export_sfc, isMobile, BaseSplitPane, _sfc_main as _sfc_main$y } from "./MobileOverlay.vue_vue_type_script_setup_true_lang.es.js";
 import { BaseEmpty } from "./BaseEmpty.es.js";
@@ -473,7 +473,7 @@ const _hoisted_2$f = {
   key: 0,
   class: "htw-flex-none htw-flex htw-items-center htw-justify-end htw-h-8 htw-mx-2 htw-mt-1"
 };
-const _hoisted_3$a = { class: "htw-overflow-y-auto htw-flex htw-flex-1" };
+const _hoisted_3$a = { class: "htw-flex htw-w-0 htw-flex-1 htw-mx-4" };
 const _sfc_main$p = /* @__PURE__ */ defineComponent({
   __name: "StoryVariantGrid",
   setup(__props) {
@@ -561,13 +561,13 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
           createVNode(ToolbarBackground),
           createVNode(_sfc_main$q)
         ])) : createCommentVNode("", true),
-        createBaseVNode("div", _hoisted_3$a, [
-          createBaseVNode("div", {
-            ref_key: "el",
-            ref: el,
-            class: "htw-flex htw-w-0 htw-flex-1 htw-mx-4",
-            onScroll: _cache[0] || (_cache[0] = ($event) => updateMaxCount())
-          }, [
+        createBaseVNode("div", {
+          ref_key: "el",
+          ref: el,
+          class: "htw-overflow-y-auto htw-flex htw-flex-1",
+          onScroll: _cache[0] || (_cache[0] = ($event) => updateMaxCount())
+        }, [
+          createBaseVNode("div", _hoisted_3$a, [
             createBaseVNode("div", {
               class: "htw-m-auto",
               style: normalizeStyle({
@@ -592,8 +592,8 @@ const _sfc_main$p = /* @__PURE__ */ defineComponent({
                 }), 128))
               ], 4)
             ], 4)
-          ], 544)
-        ])
+          ])
+        ], 544)
       ]);
     };
   }
@@ -1338,7 +1338,8 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createBlock(unref(Dropdown), {
         class: "histoire-base-select",
-        "auto-size": ""
+        "auto-size": "",
+        "auto-boundary-max-size": ""
       }, {
         popper: withCtx(({ hide }) => [
           createBaseVNode("div", _hoisted_3$6, [
@@ -1574,14 +1575,14 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent({
       var _a;
       switch ((_a = props.definition.types) == null ? void 0 : _a[0]) {
         case "string":
-          return Eg;
+          return tm;
         case "number":
-          return Ng;
+          return em;
         case "boolean":
-          return Rg;
+          return Yg;
         case "object":
         default:
-          return jg;
+          return cm;
       }
     });
     const model = computed({
@@ -1914,7 +1915,7 @@ const _sfc_main$8 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _withScopeId = (n) => (pushScopeId("data-v-36810e45"), n = n(), popScopeId(), n);
+const _withScopeId = (n) => (pushScopeId("data-v-f528bb1b"), n = n(), popScopeId(), n);
 const _hoisted_1$6 = { class: "histoire-story-source-code htw-bg-gray-50 dark:htw-bg-gray-750 htw-h-full htw-overflow-hidden htw-flex htw-flex-col" };
 const _hoisted_2$5 = {
   key: 0,
@@ -2000,7 +2001,6 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
       return staticSourceCode.value;
     });
     onMounted(async () => {
-      setCDN("https://unpkg.com/shiki@0.10.1/");
       highlighter.value = await getHighlighter({
         langs: [
           "html",
@@ -2081,7 +2081,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
               [_directive_tooltip, !staticSourceCode.value ? "Static source code is not available" : displayedSource.value !== "static" ? "Switch to static source" : null]
             ])
           ]),
-          createVNode(unref(_g), {
+          createVNode(unref(hm), {
             content: unref(displayedSourceCode),
             class: "htw-flex-none"
           }, null, 8, ["content"])
@@ -2121,7 +2121,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const StorySourceCode = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-36810e45"]]);
+const StorySourceCode = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-f528bb1b"]]);
 const _sfc_main$6 = defineComponent({
   inheritAttrs: false,
   props: {
