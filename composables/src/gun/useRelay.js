@@ -8,7 +8,8 @@ import { computed, reactive, watch } from 'vue'
 import { useStorage } from "@vueuse/core";
 import ms from 'ms'
 
-export const defaultPeer = "https://gun.defucc.me/gun";
+// export const defaultPeer = "https://gun.defucc.me/gun";
+export const defaultPeer = "https://nodealp-env-1765939-clone660478.mircloud.ru"
 export const peer = useStorage("peer", defaultPeer);
 
 /**
